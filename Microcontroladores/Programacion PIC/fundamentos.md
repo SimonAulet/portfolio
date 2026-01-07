@@ -14,9 +14,9 @@ main:
     CALL   Retardo
 ```
 
-- Temporización mediante triple loop en ensamblador  
-- Configuración manual de puertos sin abstracciones  
-- Oscilador interno HFINT1 a 1 MHz  
+- Temporización mediante triple loop en ensamblador
+- Configuración manual de puertos sin abstracciones
+- Oscilador interno HFINT1 a 1 MHz
 
 ### 2. Lectura de Potenciómetro en Ensamblador
 
@@ -28,9 +28,9 @@ adc:
     MOVF  ADRESH, W    ; Tomar 2 MSB
 ```
 
-- ADC de 8 bits en canal AN0 (RA0)  
-- Los 2 bits más significativos determinan nivel en barra de LEDs  
-- Representación visual en RA4–RA7  
+- ADC de 8 bits en canal AN0 (RA0)
+- Los 2 bits más significativos determinan nivel en barra de LEDs
+- Representación visual en RA4–RA7
 
 ### 3. Integración con LCD en C
 
@@ -40,12 +40,12 @@ sprintf(buffer, "%d", valor);
 lcd_writemessage(1, 1, buffer);
 ```
 
-- Abstracción mediante MCC (Microchip Code Configurator)  
-- Uso de librerías para LCD de caracteres  
-- Mantenimiento del core funcional  
+- Abstracción mediante Microchip Code Configurator
+- Uso de librerías para LCD de caracteres
+- Mantenimiento del core funcional
 
 ## Valor de los Fundamentos
 
-Estos proyectos establecen la comprensión crítica del costo de las operaciones y los límites del hardware. La experiencia de escribir retardos en ensamblador y configurar registros manualmente proporciona un marco de referencia invaluable al optimizar sistemas más complejos.
+Estos proyectos establecen la comprensión crítica del costo de las operaciones y los límites del hardware. La experiencia de escribir retardos en ensamblador y configurar registros manualmente ilumina un poco el funcionamiento interno de los microcontroladores
 
-El recorrido desde control bit-a-bit en ensamblador hasta drivers abstractos en C demuestra un entendimiento completo de la pila de software embebido.
+El recorrido desde control bit-a-bit en ensamblador hasta drivers abstractos en C ayudan para un entendimiento completo de la pila de software embebido.
