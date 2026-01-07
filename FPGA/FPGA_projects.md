@@ -93,9 +93,46 @@ Una suite de módulos fundamentales que exploran la sintaxis y las estructuras b
 | **FSM Básica** | **Detector "101"** (Ej. 20) | Máquina de Moore con solapamiento (overlap) para detección de patrones seriales. |
 
 ### Highlight: Detector de Secuencia "101"
-Implementación de una FSM que analiza una entrada serial bit a bit y activa una salida al encontrar el patrón "101". Diseñado para permitir solapamiento (ej: `10101` detecta dos veces).
+<table>
+  <tr>
+    <td width="60%" valign="top">
+      <h3>Highlight: Detector de Secuencia "101"</h3>
+      <p>
+        Implementación de una FSM que analiza una entrada serial bit a bit y activa una salida al encontrar el patrón "101".
+      </p>
+      <p>
+        Diseñado para permitir <strong>solapamiento</strong> (overlap). Por ejemplo, en la secuencia <code>10101</code>, el sistema detecta el patrón dos veces (el "1" final de la primera detección sirve como el "1" inicial de la siguiente).
+      </p>
+    </td>
+    <td width="40%" valign="top">
+      <img src="img/detector101_fsm.png" alt="FSM Detector 101" width="100%">
+    </td>
+  </tr>
+</table>
 
-![FSM Detector 101](img/detector101_fsm.png)
-
+<table>
+  <tr>
+    <td width="55%" valign="top">
+      <h3>Diseño Modular: Sumador Completo</h3>
+      <p>
+        Este módulo ilustra la metodología de <strong>diseño jerárquico</strong> (bottom-up). En lugar de describir la lógica de suma completa de una vez, se construyó encapsulando componentes:
+      </p>
+      <ul>
+        <li><strong>Nivel 1 (Half Adder):</strong> Resuelve la suma de 1 bit sin acarreo de entrada.</li>
+        <li><strong>Nivel 2 (Full Adder):</strong> Instancia dos <em>Half Adders</em> y una compuerta OR para gestionar el <em>Carry In</em> y <em>Carry Out</em>.</li>
+      </ul>
+      <p>
+        Esta estructura permite escalar fácilmente hacia un <strong>Sumador de 4-bits</strong> (Ripple Carry) reutilizando el módulo validado, tal como se implementó posteriormente en la ALU del proyecto.
+      </p>
+    </td>
+    <td width="45%" valign="top">
+      <img src="img/fa_esquema.png" alt="Esquemático Full Adder" width="100%">
+      <br>
+      <p align="center"><em>Arquitectura implementada con 2 Half-Adders</em></p>
+      <img src="img/fa_sim.png" alt="Simulación Full Adder" width="100%">
+      <p align="center"><em>Validación de tabla de verdad (Simulación)</em></p>
+    </td>
+  </tr>
+</table>
 ---
 *Autor: Simón Aulet - Ingeniería Electrónica y en Telecomunicaciones (UNRN)*
