@@ -45,7 +45,7 @@ La simulación electromagnética mostró un comportamiento cercano al ideal en l
 Los archivos Gerber generados a partir del layout se enviaron a una **fresadora CNC Wegstr**, capaz de una repetitividad de $0.02$ mm.  
 Para reducir el desgaste de la mecha, se añadió manualmente un "relleno" de cobre alrededor de las pistas, manteniendo una separación de aproximadamente **dos anchos de pista** entre las trazas y la masa.
 
-<img src="img/making-of.png" alt="Router CNC fresando la placa Rogers" style="width:45%; float:left; margin:0 1em 1em 0; border-radius:6px;">
+<img src="img/making-of.jpg" alt="Router CNC fresando la placa Rogers" style="width:45%; float:left; margin:0 1em 1em 0; border-radius:6px;">
 
 El proceso de fresado fue limpio y preciso, resultando en pistas bien definidas y bordes nítidos.  
 Posteriormente se soldaron **conectores SMA** en cada puerto, y se agregaron puntos de estaño para conectar la masa superior con la inferior, evitando así acoplamientos parásitos.
