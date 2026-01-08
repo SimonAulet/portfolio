@@ -4,100 +4,127 @@ Este repositorio compila una serie de proyectos de diseño lógico implementados
 
 ---
 
-## Proyecto Destacado: Sistema de Alarma de 3 Estados
+## Sistema de Alarma de 3 Estados
 
-Una implementación robusta de un sistema de seguridad residencial simulado. El diseño se destaca por su **arquitectura modular** y el uso estricto de prácticas de diseño síncrono para garantizar la estabilidad en la FPGA.
+Este proyecto implementa un sistema de control de seguridad residencial basado en una arquitectura de hardware síncrona. El núcleo del diseño es una máquina de estados finitos que administra tres modos de operación: Desarmado, Armado y Alarma Activa.
 
->  **Código Completo:** Disponible en la carpeta [`Alarm`](./Alarm)
+> **Código Fuente:** [`/Alarm`](./Alarm)
 
-### 1. Arquitectura Síncrona y Manejo de Reloj
-Uno de los desafíos principales en FPGAs es evitar la creación de múltiples dominios de reloj (*Clock Domain Crossing* o CDC), lo cual puede introducir inestabilidad y problemas de *timing*.
+![Arquitectura del Sistema de Alarma](img/alarma_arch.png)
+*Arquitectura del sistema: flujo de señales entre la detección de secuencia y el control de estados.*
 
-Para solucionarlo, implementé un módulo `freq_divider` que **no divide la línea de reloj**, sino que genera pulsos de habilitación (*ticks*) de un solo ciclo.
-* **Ventaja:** Todo el sistema (FSM, Debouncers, Contadores) permanece sincronizado al reloj maestro de 100 MHz.
-* **Flexibilidad:** El módulo es parametrizable, permitiendo ajustar las frecuencias para síntesis (tiempos reales) o simulación (tiempos reducidos).
+### Lógica de Control y Funcionamiento
 
-<details>
-  <summary>Ver Código: Generación de Ticks (freq_divider.v)</summary>
+La interfaz de usuario consta de tres pulsadores de combinación (`b1`, `b2`, `b3`) y un comando de validación (`check`). El sistema evalúa la secuencia ingresada únicamente cuando se presiona la validación, lo que permite una lógica de control robusta: si el usuario intenta validar una secuencia incorrecta mientras el sistema está armado, la transición es inmediata hacia el estado de Alarma. Del mismo modo, el estado de alerta se dispara ante la activación del sensor de movimiento (`MOV`).
 
-```verilog
-module freq_divider #(
-    parameter mf_divider = 100_000, // Parametrizable para TB vs Bitstream
-    parameter lf_divider = 1_000
-)(
-    input  wire clk_in,
-    output reg  tick_mf, // Pulso de enable (no clock)
-    output reg  tick_lf
-);
-    // Lógica síncrona que genera un pulso '1' durante un solo ciclo de reloj
-    // manteniendo la integridad de la señal de clock principal.
-    // ...
-endmodule
-```
-</details>
+### Estrategia de Sincronización
 
-### 2. Optimización de Recursos en Anti-Bounce
-La lógica de eliminación de rebotes (*Debounce*) aprovecha la señal `tick_mf` (1 kHz) para optimizar el uso de registros (Flip-Flops) en la FPGA.
+Para garantizar la estabilidad operativa dentro de la FPGA y evitar la creación de múltiples dominios de reloj, se optó por una estrategia de habilitadores síncronos. En lugar de dividir la línea de reloj principal —con sus correspondientes problemas de timing— se implementó el módulo `freq_divider`.
 
-* **Sin optimización:** Contar 20ms a 100 MHz requeriría un contador de **21 bits**.
-* **Con optimización:** Al usar el pre-escalador (`tick`), el módulo `anti_bounce.v` solo necesita un contador de **6 bits** para validar la estabilidad de la señal.
+Este componente genera pulsos de un solo ciclo ("ticks") que habilitan procesos a frecuencias menores (como 1 kHz y 1 Hz), manteniendo todo el diseño perfectamente sincronizado al reloj maestro de 100 MHz. Además, el módulo es totalmente **parametrizable**, lo que permite ajustar las escalas de división para acelerar los tiempos en etapas de simulación o definir los valores finales para la síntesis.
 
 <details>
-  <summary>Ver Código: Lógica de Debounce Optimizada</summary>
+  <summary>Ver Código: Generador de Ticks (freq_divider.v)</summary>
 
 ```verilog
-// anti_bounce.v
-always @(posedge clk) begin
-  if (btn_in != btn_stable) begin
-    if (tick_mf) begin // Solo cuenta cuando el tick habilita
-      if (counter == 6'd20) begin  // Contador pequeño (6 bits)
-        btn_stable <= btn_in;
-        counter    <= 0;
-      end else begin
-        counter <= counter + 1;
-      end
-    end
-  end
-  // ...
+always @(posedge clk_in)
+begin
+  if((lf_counter == 0) && (mf_counter==0))
+    tick_lf <= 1'b1;
+  else
+    tick_lf <= 1'b0;
+end
+// Freq divider mf
+always@(posedge clk_in)
+begin
+  if(mf_counter == 0)
+    tick_mf <= 1'b1;
+  else
+    tick_mf <= 1'b0;
 end
 ```
 </details>
 
-### 3. Validación Modular
-La robustez del sistema se garantizó mediante una estrategia de verificación *bottom-up*. Cada módulo crítico (`state_change`, `seq_detecter`, `anti_bounce`) cuenta con su propio **Testbench** dedicado antes de la integración en `top.v`.
+### Optimización de Recursos
 
-![Arquitectura del Sistema de Alarma](img/alarma_arch.png)
-*Diagrama de flujo mostrando la interacción entre el detector de secuencias y la máquina de estados de control.*
+El acondicionamiento de las señales de entrada se beneficia directamente de la estrategia de sincronización anterior. El módulo `anti_bounce` utiliza los ticks de 1 kHz como referencia temporal para filtrar el ruido mecánico de los pulsadores. Esta decisión de diseño permite reducir significativamente el uso de registros: la ventana de estabilidad de 20 ms se gestiona con un contador compacto de 6 bits, evitando la necesidad de contadores de 21 bits que serían requeridos si se operara directamente sobre la frecuencia base de 100 MHz.
+
+### Verificación
+
+La confiabilidad del sistema se aseguró mediante una metodología de validación incremental. Los módulos fueron sometidos a testbenches dedicados para verificar correcto funcionamiento antes de su integración final en la entidad superior.
 
 ## Secuenciador de Luces (Máquina de Moore)
 
-Este proyecto implementa un secuenciador de efectos lumínicos controlado por botón. El desafío principal fue el manejo de **tiempos y sincronización** sin comprometer la estabilidad del reloj principal.
+Este diseño implementa un secuenciador de efectos lumínicos controlado por un único pulsador. La arquitectura se basa estrictamente en el modelo de **Máquina de Moore**, donde las salidas dependen exclusivamente del estado actual y no de las entradas directas.
 
-* **Sincronización:** Se implementó un módulo `freq_divider` que genera pulsos de habilitación (*ticks*) de 1 kHz y 1 Hz. Esto permite mantener todo el sistema síncrono al reloj master de 100 MHz, evitando los problemas de timing típicos de usar relojes derivados ("gated clocks").
-* **Anti-Bounce:** Incluye lógica de debouncing para asegurar lecturas limpias del pulsador de entrada.
+> **Código Fuente:** [`/Moore_seq`](./Moore_seq)
 
-![Diagrama de Estados Secuenciador](img/secuenciador_fsm.png)
-*Diagrama de la Máquina de Moore con 4 estados de iluminación.*
+### Arquitectura Desacoplada
+
+Para maximizar la modularidad, se dividió el sistema en dos bloques funcionales independientes que operan bajo el mismo dominio de reloj (100 MHz), sincronizados mediante las señales de habilitación (`ticks`) heredadas del diseño anterior:
+
+1.  **Control de Estados (`state_change.v`):** Gestiona la lectura del pulsador, el *debouncing* (usando `tick_mf`) y las transiciones de estados.
+2.  **Decodificación de Salida (`led_change.v`):** Interpreta el estado actual y genera los patrones visuales correspondientes.
+
+<table>
+  <tr>
+    <td width="60%" valign="top">
+      <h3>Lógica de Transición y Salida</h3>
+      <p>
+        El sistema cicla a través de 4 estados operativos con cada pulsación validada. La lógica de salida aprovecha la señal de baja frecuencia (<code>tick_lf</code> de 1 Hz) para generar efectos de parpadeo sin necesidad de contadores adicionales dentro del módulo de LEDs.
+      </p>
+      <ul>
+        <li><strong>Estado 00 (IDLE):</strong> Sistema en reposo, salidas apagadas.</li>
+        <li><strong>Estado 01:</strong> LED A parpadeando a 1 Hz.</li>
+        <li><strong>Estado 10:</strong> LED B parpadeando a 1 Hz.</li>
+        <li><strong>Estado 11:</strong> Ambos LEDs parpadeando sincronizados.</li>
+      </ul>
+      <p>
+        Esta separación permite alterar los patrones lumínicos (ej: cambiar la frecuencia o el patrón de bit) modificando únicamente el módulo de salida, sin riesgo de alterar la lógica de control de flujo.
+      </p>
+    </td>
+    <td width="40%" valign="top">
+      <img src="img/secuenciador_fsm.png" alt="Diagrama de Estados Secuenciador" width="100%">
+      <p align="center"><em>Diagrama de estados del secuenciador (Moore)</em></p>
+    </td>
+  </tr>
+</table>
 
 <details>
-  <summary>Ver Código: Divisor de Frecuencia (freq_divider.v)</summary>
+  <summary>Ver Código: Lógica de Salida (led_change.v)</summary>
 
 ```verilog
-module freq_divider #(
-    parameter mf_divider = 100_000, // 1 kHz
-    parameter lf_divider = 1_000    // 1 Hz
-)(
-    input wire clk_in,
-    output reg tick_mf,
-    output reg tick_lf
+module led_change(
+  input  wire[1:0] state,
+  input  wire      clk,
+  input  wire      tick_lf, // Habilitador de 1 Hz
+  output reg       led_a,
+  output reg       led_b
 );
-    // Generación de ticks síncronos para habilitar procesos
-    // sin dividir la línea de clock principal.
-    // ... (lógica de contadores)
+
+always@(posedge clk)
+  case(state)
+  2'b00: begin // Reposo
+    led_a <= 0;
+    led_b <= 0;
+  end
+  2'b01: begin // Blink LED A
+    if(tick_lf) led_a <= ~led_a;
+    led_b <= 0;
+  end
+  2'b10: begin // Blink LED B
+    led_a <= 0;
+    if(tick_lf) led_b <= ~led_b;
+  end
+  2'b11: begin // Blink Ambos
+    if(tick_lf) led_a <= ~led_a;
+    led_b <= led_a; // Copia estado para sincronía
+  end
+  default: begin led_a <= 0; led_b <= 0; end
+endcase
 endmodule
 ```
 </details>
-
 ---
 
 ## Fundamentos de Verilog
@@ -213,5 +240,3 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
   </tr>
 </table>
 ---
-
-*Autor: Simón Aulet - Ingeniería Electrónica y en Telecomunicaciones (UNRN)*
