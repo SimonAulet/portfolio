@@ -218,6 +218,23 @@ footer a:hover {
     background: #f8f8f8;
 }
 
+/* Estilo específico para tablas de 4 columnas */
+.content-wrapper table.four-columns th,
+.content-wrapper table.four-columns td {
+    padding: 12px;
+    text-align: center;
+}
+
+.content-wrapper table.four-columns th:nth-child(odd),
+.content-wrapper table.four-columns td:nth-child(odd) {
+    background: #f0f0f0;
+}
+
+.content-wrapper table.four-columns th:nth-child(even),
+.content-wrapper table.four-columns td:nth-child(even) {
+    background: #f8f8f8;
+}
+
 .content-wrapper img {
     max-width: 100%;
     height: auto;

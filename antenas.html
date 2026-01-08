@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antenas Simuladas - Compilación de Diseños - Simón Aulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Antenas Simuladas - Compilación de Diseños</h1>
+            <p class="subtitle">Simón Aulet · RF · CST · Simulación EM · Antenas</p>
+            <p class="description">Cuatro antenas simuladas en CST: dipolo, helicoidal, Yagi-Uda y loop. Análisis de parámetros S, diagramas de radiación y optimización.</p>
+            <div class="tech-tags">
+                <span>RF</span>
+                <span>CST</span>
+                <span>Simulación EM</span>
+                <span>Antenas</span>
+                <span>Parámetros S</span>
+                <span>Diagramas de Radiación</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                
+                <h2 id="1-antena-dipolo-de-media-onda">1. Antena Dipolo de Media Onda (λ/2) - Sintonizado</h2>
+                
+                <p><strong>Configuración:</strong> Dipolo delgado alimentado en el centro, orientado en Z. Dimensiones finales optimizadas mediante <em>parameter sweep</em>.</p>
+                
+                <h3 id="11-parámetros-en-1-ghz">1.1 Parámetros en 1 GHz</h3>
+                
+                <table>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Frecuencia de resonancia</strong></td>
+                        <td>1.0 GHz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>S<sub>11</sub> mínimo</strong></td>
+                        <td>-28.0 dB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directividad máxima</strong></td>
+                        <td>2.12 dBi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia total</strong></td>
+                        <td>-0.1715 dB (∼96%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td>0.001466 dB (∼99.9%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ancho de haz (-3 dB) - Plano E</strong></td>
+                        <td>78.3°</td>
+                    </tr>
+                </table>
+                
+                <h3 id="12-patrón-de-radiación-3d-y-cortes-principales">1.2 Patrón de Radiación 3D y Cortes Principales</h3>
+                
+                <img src="img/dipolo_3D.png" alt="Diagrama de Directividad 3D (escala log.)">
+                <p><em>Figura 1.1 - Patrón de radiación 3D.</em> Visualización en escala logarítmica de la directividad. Muestra el patrón toroidal ("donut") característico, con máximos en el plano ecuatorial (XY) y nulos en el eje del dipolo (Z). Este resultado corresponde a la longitud de dipolo sintonizada tras un barrido paramétrico (<em>parameter sweep</em>).</p>
+                
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <img src="img/dipolo_E-field.png" alt="Corte Plano E">
+                            <p style="text-align: center;"><em>Figura 1.2 - Corte Plano E (φ=0°)</em></p>
+                        </td>
+                        <td width="50%">
+                            <img src="img/dipolo_H-field.png" alt="Corte Plano H">
+                            <p style="text-align: center;"><em>Figura 1.3 - Corte Plano H (θ=90°)</em></p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <p><em>Figura 1.2 & 1.3 - Patrones en planos E y H.</em> El corte en el <strong>Plano E</strong> (que contiene al dipolo) muestra el diagrama clásico de dos lóbulos con un ancho de haz de 78.3°. El corte en el <strong>Plano H</strong> (perpendicular al dipolo) valida la omnidireccionalidad teórica.</p>
+                
+                <h3 id="13-optimización-y-respuesta-en-frecuencia">1.3 Optimización y Respuesta en Frecuencia</h3>
+                
+                <img src="img/dipolo_S11.png" alt="Parámetro S11 con parameter sweep">
+                <p><em>Figura 1.4 - Optimización de impedancia.</em> Curva del parámetro S<sub>11</sub> para el factor de longitud óptimo (<strong>0.463333λ</strong>), obtenido tras un barrido paramétrico (mult. de 0.45 a 0.49λ). El mínimo de <strong>-28 dB a 1 GHz</strong> confirma la sintonía precisa lograda y una adaptación de impedancia óptima.</p>
+                
+                <h3 id="14-conclusión-del-diseño">1.4 Conclusión del Diseño</h3>
+                
+                <p>El dipolo fue modelado y optimizado sistemáticamente mediante un parameter sweep de su longitud, logrando una resonancia precisa a 1 GHz con un S<sub>11</sub> de -28 dB. El patrón de radiación obtenido coincide con la teoría, presentando una directividad de 2.12 dBi y eficiencias superiores al 96%, validando la calidad de la simulación y el proceso de sintonía.</p>
+                
+                <hr />
+                
+                <h2 id="2-antena-helicoidal-en-modo-axial-rhcp">2. Antena Helicoidal en Modo Axial (RHCP)</h2>
+                
+                <p><strong>Configuración de diseño:</strong> Antena helicoidal de N=5 vueltas, optimizada para polarización circular derecha (RHCP) en la frecuencia objetivo de f = 1 GHz. La geometría se dimensionó para forzar el modo axial: diámetro D = λ/π ≈ 95.5 mm y paso S = λ/4 ≈ 75.0 mm, montada sobre un plano de tierra de diámetro λ/2.</p>
+                
+                <h3 id="21-parámetros-en-1-ghz">2.1 Parámetros en 1 GHz</h3>
+                
+                <table>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Frecuencia de operación</strong></td>
+                        <td>1.0 GHz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modo de polarización</strong></td>
+                        <td>RHCP (Right-Hand Circular Polarization)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directividad máxima</strong></td>
+                        <td>9.13 dBi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ancho de haz (-3 dB)</strong></td>
+                        <td>54.8°</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relación axial (AR) en eje</strong></td>
+                        <td>≈ 0 dB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td>-0.002 dB (≈ 99.95%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia total</strong></td>
+                        <td>-1.55 dB (≈ 70%)</td>
+                    </tr>
+                </table>
+                
+                <h3 id="22-patrón-de-radiación-3d-y-verificación-del-modo">2.2 Patrón de Radiación 3D y Verificación del Modo</h3>
+                
+                <img src="img/helix_3D.png" alt="Patrón de radiación 3D de la antena helicoidal">
+                <p><em>Figura 2.1 - Diagrama de radiación 3D.</em> Visualización del patrón en 1 GHz. El lóbulo principal pronunciado y direccional a lo largo del eje de la hélice (+Z) es la firma inequívoca de la operación en el modo axial deseado.</p>
+                
+                <h3 id="23-calidad-del-haz-y-polarización-circular">2.3 Calidad del Haz y Polarización Circular</h3>
+                
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <img src="img/helix_axial.png" alt="Corte del patrón de radiación">
+                            <p style="text-align: center;"><em>Figura 2.2 - Corte del patrón (Plano axial)</em></p>
+                        </td>
+                        <td width="50%">
+                            <img src="img/helix_rel-axial.png" alt="Relación Axial">
+                            <p style="text-align: center;"><em>Figura 2.3 - Relación Axial (AR) en el plano axial</em></p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <p><em>Figura 2.2 & 2.3 - Análisis conjunto.</em> El corte del patrón (Figura 2.2) cuantifica la directividad (9.13 dBi) y el ancho de haz (54.8°). La gráfica de Relación Axial (Figura 2.3) valida la calidad de la polarización circular: un valor de AR cercano a 0 dB en la dirección del eje (θ = 0°) confirma una polarización circular derecha (RHCP) casi perfecta en el corazón del lóbulo principal, cumpliendo con el objetivo de diseño más exigente de esta antena.</p>
+                
+                <h3 id="24-patrón-en-el-plano-transversal">2.4 Patrón en el Plano Transversal</h3>
+                
+                <img src="img/helix_superior.png" alt="Patrón de radiación en el plano transversal">
+                <p><em>Figura 2.4 - Patrón en plano transversal.</em> Corte en el plano XY (θ = 90°), perpendicular al eje de la antena. Muestra una directividad baja (-2.51 dBi) y un patrón casi omnidireccional, confirmando que la radiación se concentra efectivamente en el frente de la hélice y no se dispersa por los costados.</p>
+                
+                <h3 id="25-conclusión-del-diseño">2.5 Conclusión del Diseño</h3>
+                
+                <p>El diseño logra con éxito una antena helicoidal operando en el modo axial, combinando una directividad apreciable con una polarización circular de alta calidad. La relación axial cercana a 0 dB en el eje del haz es un resultado particularmente destacable, que valida la precisión del dimensionado geométrico y la correcta excitación del modo. Este conjunto de características la convierte en un modelo efectivo para aplicaciones que requieren polarización circular y radiación direccional, como en enlaces satelitales o de telemetría.</p>
+                
+                <hr />
+                
+                <h2 id="3-antena-yagi-uda-para-uhf-6-elementos">3. Antena Yagi-Uda para UHF (6 elementos)</h2>
+                
+                <p><strong>Objetivo de diseño:</strong> Antena direccional para 550 MHz con directividad >10 dBi.</p>
+                
+                <h3 id="31-parámetros-de-diseño-y-resultados">3.1 Parámetros de Diseño y Resultados</h3>
+                
+                <table class="four-columns">
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Frecuencia central (f₀)</strong></td>
+                        <td>550 MHz</td>
+                        <td><strong>Longitud de onda (λ)</strong></td>
+                        <td>0.545 m</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directividad alcanzada (D₀)</strong></td>
+                        <td>10.87 dBi</td>
+                        <td><strong>Pérdidas por retorno</strong></td>
+                        <td>20.0 dB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ancho de haz (-3 dB) (Plano E)</strong></td>
+                        <td>43.1°</td>
+                        <td><strong>Nivel de lóbulo lateral (Plano E)</strong></td>
+                        <td>-10.5 dB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia total</strong></td>
+                        <td>-0.082 dB (∼98%)</td>
+                        <td><strong>Relación Delante/Atrás (aprox.)</strong></td>
+                        <td>10.9 dB</td>
+                    </tr>
+                </table>
+                
+                <h3 id="32-dimensiones-clave">3.2 Dimensiones Clave</h3>
+                
+                <p><strong>Dimensiones clave (basadas en NBS Tech. Note 688):</strong></p>
+                
+                <table>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Dimensión</th>
+                    </tr>
+                    <tr>
+                        <td>Reflector (L1)</td>
+                        <td>48.2 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Dipolo plegado (L2)</td>
+                        <td>24.8 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Directores (L3-L6)</td>
+                        <td>42.8 cm - 42.0 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Espaciado entre directores</td>
+                        <td>25.0 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Radio de elementos (Al)</td>
+                        <td>2.32 mm (0.232 cm)</td>
+                    </tr>
+                </table>
+                
+                <h3 id="33-modelo-y-respuesta-de-la-antena">3.3 Modelo y Respuesta de la Antena</h3>
+                
+                <img src="img/yagi_uda_3D-5.png" alt="Modelo 3D de la antena Yagi-Uda">
+                <p><em>Figura 3.1 - Modelo Físico.</em> Estructura simulada con 6 elementos: un reflector, un dipolo plegado activo y 4 directores. Los elementos conductores son de aluminio hueco, montados en una barra portante de PVC. El dipolo plegado, sintonizado para una impedancia cercana a 200 Ω, se adapta a 50 Ω mediante un balun 4:1 realizado con coaxial de 50Ω, facilitando la conexión directa.</p>
+                
+                <h3 id="34-características-de-radiación">3.4 Características de Radiación</h3>
+                
+                <img src="img/yagi_uda_3D-4.png" alt="Diagrama de radiación 3D - Directividad">
+                <p><em>Figura 3.2 - Patrón de Radiación 3D.</em> Diagrama de directividad en escala logarítmica. Se confirma la directividad de 10.87 dBi y la alta eficiencia de radiación (-0.037 dB).</p>
+                
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <img src="img/yagi_uda_E-plane.png" alt="Corte Plano E">
+                            <p style="text-align: center;"><em>Figura 3.3 - Corte Plano E (vista superior, θ = 90°)</em></p>
+                        </td>
+                        <td width="50%">
+                            <img src="img/yagi_uda_H-plane.png" alt="Corte Plano H">
+                            <p style="text-align: center;"><em>Figura 3.4 - Corte Plano H (vista lateral, φ = 0°)</em></p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <p><em>Figura 3.3 & 3.4 - Cortes en Planos Principales.</em> El <strong>Plano E</strong> (que contiene los elementos) muestra el lóbulo principal más estrecho (43.1°) y mejor supresión de lóbulos laterales. El <strong>Plano H</strong> presenta un haz ligeramente más ancho (49.6°).</p>
+                
+                <h3 id="35-respuesta-eléctrica-y-adaptación">3.5 Respuesta Eléctrica y Adaptación</h3>
+                
+                <img src="img/yagi_uda_S11.png" alt="Parámetro S11 de la antena">
+                <p><em>Figura 3.5 - Parámetro de Reflexión (S₁₁).</em> La curva muestra un mínimo de -20.0 dB en la frecuencia central de 550 MHz, superando el requisito de pérdidas por retorno > 15 dB.</p>
+                
+                <img src="img/yagi_uda_Z-params.png" alt="Parámetros de impedancia de entrada">
+                <p><em>Figura 3.6 - Impedancia de Entrada (Z<sub>in</sub>).</em> En 550 MHz, la impedancia es Z<sub>in</sub> = 207.6 - j5.44 Ω. La componente real cercana a 200 Ω es perfecta para el balun 4:1, y la pequeña reactancia (-j5.44 Ω) despreciable.</p>
+                
+                <h3 id="36-conclusión-del-diseño">3.6 Conclusión del Diseño</h3>
+                
+                <p>El diseño resultó en una antena Yagi-Uda práctica y de alto rendimiento para UHF, que supera holgadamente las especificaciones iniciales. La elección de un dipolo plegado como radiante simplifica enormemente la adaptación: su impedancia natural de ∼200 Ω se conjuga perfectamente con un balun 4:1 construible con un simple tramo de coaxial, eliminando la necesidad de circuitos impresos o componentes discretos.</p>
+                
+                <hr />
+                
+                <h2 id="4-antena-loop-de-perímetro-13-λ">4. Antena Loop de Perímetro 1.3 λ</h2>
+                
+                <p><strong>Objetivo:</strong> Análisis de una antena loop circular de perímetro C = 1.3λ operando a 1 GHz, para estudiar sus características en modo no dipolo magnético debido a su gran tamaño eléctrico.</p>
+                
+                <h3 id="41-parámetros-de-diseño-y-resultados-en-f₀">4.1 Parámetros de Diseño y Resultados en f₀</h3>
+                
+                <table>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Frecuencia de operación (f₀)</strong></td>
+                        <td>1 GHz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Perímetro de la circunferencia (C)</strong></td>
+                        <td>1.3λ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Radio del conductor (Cu)</strong></td>
+                        <td>4 mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directividad máxima</strong></td>
+                        <td>4.38 dBi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td>-0.0024 dB (∼99.9%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eficiencia total</strong></td>
+                        <td>-4.86 dB (∼32%)</td>
+                    </tr>
+                </table>
+                
+                <h3 id="42-caracterización-del-modo-de-radiación">4.2 Caracterización del Modo de Radiación</h3>
+                
+                <img src="img/loop_3D.png" alt="Diagrama de radiación 3D del Loop resonante">
+                <p><em>Figura 4.1 - Patrón 3D complejo.</em> Para un loop de 1.3λ, el diagrama deja de ser el toroide simple de un dipolo magnético. Se observa una estructura multilobulada, indicativa de una distribución de corriente no uniforme a lo largo del conductor, característica de loops eléctricamente grandes.</p>
+                
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <img src="img/loop_E-field.png" alt="Corte Plano E - Patrón complejo">
+                            <p style="text-align: center;"><em>Figura 4.2 - Corte Plano E (φ = 0°)</em></p>
+                        </td>
+                        <td width="50%">
+                            <img src="img/loop_H-field.png" alt="Corte Plano H - Patrón complejo">
+                            <p style="text-align: center;"><em>Figura 4.3 - Corte Plano H (θ = 90°)</em></p>
+                        </td>
+                    </tr>
+                </table>
+                
+                <p><em>Figura 4.2 & 4.3 - Patrones en planos E y H.</em> Ambos cortes presentan lóbulos secundarios y nulos pronunciados, lo que confirma que la antena ya no opera en el modo de dipolo magnético. La directividad medida (4.38 dBi) es superior a la de un loop pequeño.</p>
+                
+                <h3 id="43-análisis-de-impedancia-y-respuesta-en-frecuencia">4.3 Análisis de Impedancia y Respuesta en Frecuencia</h3>
+                
+                <img src="img/loop_Z-params.png" alt="Impedancia de entrada del Loop de 1.3λ">
+                <p><em>Figura 4.4 - Impedancia de entrada vs. Frecuencia.</em> La gráfica muestra la evolución de los parámetros Z en un barrido de 0.5 a 1.5 GHz. En la frecuencia de diseño (1 GHz), la impedancia es Z<sub>in</sub> ≈ 500 + j30 Ω.</p>
+                
+                <p>La <strong>alta resistencia de radiación (∼500 Ω)</strong> es un resultado directo del gran tamaño eléctrico del loop (1.3λ), que lo aleja del comportamiento de un dipolo magnético de baja impedancia. Esta desadaptación extrema con la impedancia de referencia del puerto (50 Ω) es la causa principal de la baja eficiencia total (-4.86 dB), ya que provoca una alta reflexión de potencia a pesar de la excelente eficiencia de radiación intrínseca de la estructura.</p>
+                
+                <h3 id="44-conclusión-del-análisis">4.4 Conclusión del Análisis</h3>
+                
+                <p>La simulación del loop de 1.3λ confirmó las propiedades distintivas de una antena de gran tamaño eléctrico: un patrón de radiación complejo y multilobulado y una alta resistencia de radiación (∼500 Ω). La combinación de una excelente eficiencia de radiación con una baja eficiencia total evidencia la necesidad de un sistema de adaptación de impedancia en este tipo de diseños.</p>
+                
+                <hr />
+                
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>© 2024 Simón Aulet · Portafolio Técnico</p>
+                <p class="footer-links">
+                    <a href="index.html">Portafolio Principal</a> · 
+                    <a href="mailto:simon.aulet@example.com">Contacto</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

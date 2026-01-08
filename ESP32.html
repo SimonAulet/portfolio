@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Configuración Web para Dispositivos Embebidos - Simón Aulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Configuración Web para Dispositivos Embebidos</h1>
+            <p class="subtitle">Simón Aulet · ESP32 · WiFi · Captive Portal · Sistemas Embebidos</p>
+            <p class="description">Sistema de configuración persistente basado en ESP32 que reemplaza interfaces físicas limitadas (LCD + botones) por un captive portal web servido directamente desde el microcontrolador.</p>
+            <div class="tech-tags">
+                <span>ESP32</span>
+                <span>WiFi</span>
+                <span>Captive Portal</span>
+                <span>ESP-IDF</span>
+                <span>Sistemas Embebidos</span>
+                <span>Web Server</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                <img src="img/flujo_simplificado.png" alt="Flujo de uso simplificado del configurador">
+                <p><em>Figura 1: Flujo de uso completo. El usuario se conecta a la red WiFi del ESP32, es redirigido automáticamente al portal web donde visualiza y modifica la configuración. Los cambios se almacenan en memoria no volátil (NVS) y persisten tras reinicios, aplicándose directamente al hardware de la máquina.</em></p>
+
+                <hr />
+
+                <h2 id="especificaciones-tecnicas">Especificaciones Técnicas</h2>
+
+                <table>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Tecnología / Especificación</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Microcontrolador</strong></td>
+                        <td>ESP32-WROOM (Xtensa Dual-Core)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modo de Red</strong></td>
+                        <td>Access Point (AP) con Captive Portal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Protocolos</strong></td>
+                        <td>HTTP (Servidor Web), DNS Hijacking</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Persistencia</strong></td>
+                        <td>Non-Volatile Storage (NVS) de ESP-IDF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Framework</strong></td>
+                        <td>ESP-IDF v5.4.1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interfaz</strong></td>
+                        <td>HTML/CSS/JS servido desde flash</td>
+                    </tr>
+                </table>
+
+                <hr />
+
+                <h2 id="implementacion-y-validacion">Implementación y Validación</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                    <div>
+                        <img src="img/web.png" alt="Interface web del captive portal">
+                        <p><em>Figura 2: Interface web servida desde el ESP32. Permite probar configuraciones temporalmente y guardarlas de forma persistente en NVS.</em></p>
+                    </div>
+                    <div>
+                        <img src="img/funcionando_web.jpeg" alt="Celular conectado al configurador">
+                        <p><em>Figura 3: Prueba física con smartphone conectado al portal. La redirección automática (captive portal) funciona en dispositivos reales.</em></p>
+                    </div>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>
+                            <img src="img/proto-1.jpg" alt="Prototipo con configuración 1">
+                            <p><em>Figura 4: Configuración física 1 aplicada. LEDs representan estados de salidas GPIO mapeados a funciones específicas.</em></p>
+                        </td>
+                        <td>
+                            <img src="img/proto-2.jpg" alt="Prototipo con configuración 2">
+                            <p><em>Figura 5: Configuración física 2 aplicada. Cambios realizados desde la web se reflejan inmediatamente en el hardware.</em></p>
+                        </td>
+                    </tr>
+                </table>
+
+                <hr />
+
+                <h2 id="valor-del-sistema">Valor del Sistema</h2>
+
+                <p>Este sistema demuestra que una solución de configuración web robusta y profesional es alcanzable con hardware mínimo y coste reducido. El uso de un solo ESP32, sin componentes externos, mantiene la implementación simple y económica mientras entrega funcionalidad completa.</p>
+
+                <p>El desarrollo se aceleró partiendo de la plantilla oficial <code>captive_portal</code> de ESP-IDF, sobre la cual se construyeron las capas de abstracción de configuración y persistencia. Esto permitió enfocar el esfuerzo en la lógica de aplicación en lugar de diseñar componentes de red ya probados.</p>
+
+                <p>El resultado es un sistema que funciona de inmediato al conectarse, con tiempos de respuesta bajos y persistencia de configuración verificada tras múltiples ciclos de reinicio. Una solución práctica para despliegues reales en entornos técnicos e industriales.</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>© 2024 Simón Aulet · Portafolio Técnico</p>
+                <p class="footer-links">
+                    <a href="index.html">Portafolio Principal</a> ·
+                    <a href="mailto:simon.aulet@example.com">Contacto</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

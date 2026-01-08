@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Teledetección Ambiental - Portafolio Técnico</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para tablas de teledetección */
+        .teledeteccion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .teledeteccion-table th {
+            background-color: #003366;
+            color: white;
+            padding: 1em;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 3px solid #c41e3a;
+        }
+
+        .teledeteccion-table td {
+            padding: 1em;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .teledeteccion-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .teledeteccion-table tr:hover {
+            background-color: #e8f4ff;
+        }
+
+        .teledeteccion-table td:first-child {
+            font-weight: 600;
+            color: #003366;
+        }
+
+        /* Estilos para ecuaciones matemáticas */
+        .equation {
+            background-color: #f5f7fa;
+            border-left: 4px solid #003366;
+            padding: 1em;
+            margin: 1.5em 0;
+            font-family: 'Roboto Mono', monospace;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .equation code {
+            font-size: 1.1em;
+            color: #003366;
+        }
+
+        /* Estilos para etiquetas técnicas */
+        .tech-tag {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            padding: 0.3em 0.8em;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin: 0.2em;
+            border: 1px solid #002244;
+        }
+
+        .tech-tag.red {
+            background-color: #c41e3a;
+            border-color: #a0182e;
+        }
+
+        /* Estilos para secciones de metodología */
+        .methodology-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 1.5em 0;
+            border-left: 4px solid #003366;
+        }
+
+        .methodology-section h4 {
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 0.8em;
+        }
+
+        /* Estilos para imágenes */
+        .analysis-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin: 1.5em auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5em;
+            margin-bottom: 1.5em;
+            font-size: 0.9em;
+        }
+
+        /* Estilos para resaltados */
+        .highlight-box {
+            background-color: #e8f4ff;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 2em 0;
+        }
+
+        .highlight-box h3 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #c41e3a;
+            padding-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegación -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <a href="index.html" class="nav-link">← Volver al Portafolio</a>
+                <div class="nav-tags">
+                    <span class="tech-tag">Teledetección</span>
+                    <span class="tech-tag">Landsat</span>
+                    <span class="tech-tag">ESA SNAP</span>
+                    <span class="tech-tag red">Análisis Ambiental</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Encabezado principal -->
+        <header class="main-header">
+            <h1>Análisis de Teledetección Ambiental</h1>
+            <p class="subtitle">Monitoreo de cambios en cobertura terrestre mediante imágenes Landsat</p>
+            <div class="header-meta">
+                <span class="meta-item"> Mayo 2024</span>
+                <span class="meta-item"> CONAE - Curso "Teledetección Óptica"</span>
+                <span class="meta-item"> Simón Aulet</span>
+            </div>
+        </header>
+
+        <!-- Introducción -->
+        <section class="content-section">
+            <p>Este conjunto de trabajos aplica técnicas de teledetección óptica para analizar tres fenómenos ambientales críticos en Argentina: deforestación en el noroeste, incendios en la Patagonia y dinámica de nieve/glaciares en Cuyo. Cada caso utiliza índices espectrales específicos procesados con <strong>ESA SNAP</strong> a partir de imágenes Landsat, siguiendo metodologías estandarizadas en la literatura científica.</p>
+        </section>
+
+        <!-- Resumen de proyectos -->
+        <section class="content-section">
+            <h2>Resumen de proyectos</h2>
+            <table class="teledeteccion-table">
+                <thead>
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Ubicación</th>
+                        <th>Período</th>
+                        <th>Índice utilizado</th>
+                        <th>Satélite</th>
+                        <th>Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Deforestación</td>
+                        <td>Joaquín V. González, Salta</td>
+                        <td>1986–2017</td>
+                        <td>NDVI</td>
+                        <td>Landsat 5 / Landsat 8</td>
+                        <td>Mapa de cambio de cobertura</td>
+                    </tr>
+                    <tr>
+                        <td>Incendios</td>
+                        <td>Lago Cholila, Chubut</td>
+                        <td>Enero–Abril 2015</td>
+                        <td>NBR / ΔNBR</td>
+                        <td>Landsat 8</td>
+                        <td>Mapa de severidad de quemado</td>
+                    </tr>
+                    <tr>
+                        <td>Glaciares/Nieve</td>
+                        <td>Cerro de la Majadita, San Juan</td>
+                        <td>2018 (estacional)</td>
+                        <td>Snow Index (SI)</td>
+                        <td>Landsat 8</td>
+                        <td>Mapa de dinámica estacional</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 1. Deforestación en el noroeste argentino -->
+        <section class="content-section">
+            <h2>1. Deforestación en el noroeste argentino</h2>
+
+            <div class="methodology-section">
+                <h4>Contexto</h4>
+                <p>La región del Chaco Salteño ha experimentado una fuerte transformación por expansión agrícola. Este análisis cuantifica la pérdida de bosque nativo alrededor de Joaquín V. González entre 1986 y 2017.</p>
+            </div>
+
+            <div class="methodology-section">
+                <h4>Metodología</h4>
+                <ul>
+                    <li>Descarga de imágenes Landsat 5 (1986) y Landsat 8 (2017), path 230, row 77.</li>
+                    <li>Cálculo del <strong>Índice de Vegetación de Diferencia Normalizada (NDVI)</strong> para cada fecha:</li>
+                </ul>
+
+                <div class="equation">
+                    <code>NDVI = (NIR - Rojo) / (NIR + Rojo)</code>
+                </div>
+
+                <ul>
+                    <li>Clasificación no supervisada (k-means, 3 clases) del NDVI apilado.</li>
+                    <li>Asignación de categorías:
+                        <ul>
+                            <li><strong style="color: #27ae60;">Verde:</strong> Vegetación conservada (alto NDVI sin cambio).</li>
+                            <li><strong style="color: #e67e22;">Naranja:</strong> Áreas con disminución de NDVI por pérdida de bosque.</li>
+                            <li><strong style="color: #f1c40f;">Amarillo:</strong> Zonas de baja vegetación sin cambios significativos.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <img src="img/deforestacion.png" alt="Mapa de deforestación en Salta (1986-2017)" class="analysis-image">
+            <p class="image-caption">Mapa de deforestación en Salta (1986-2017) - Análisis de cambio de NDVI</p>
+
+            <div class="highlight-box">
+                <h3>Resultado</h3>
+                <p>El mapa evidencia un patrón claro de reducción de áreas verdes, correspondiente a la frontera agropecuaria en expansión. La técnica permite cuantificar la superficie transformada y localizar los focos de deforestación.</p>
+            </div>
+        </section>
+
+        <!-- 2. Incendios en la Patagonia -->
+        <section class="content-section">
+            <h2>2. Incendios en la Patagonia</h2>
+
+            <div class="methodology-section">
+                <h4>Contexto</h4>
+                <p>En 2015, un incendio de grandes dimensiones afectó la región de Lago Cholila (Chubut). Este trabajo evalúa la severidad del daño mediante el Índice de Quemado Normalizado.</p>
+            </div>
+
+            <div class="methodology-section">
+                <h4>Metodología</h4>
+                <ul>
+                    <li>Imágenes Landsat 8 previa (21/01/2015) y posterior (11/04/2015) al incendio, path 232, row 89.</li>
+                    <li>Cálculo del <strong>Normalized Burn Ratio (NBR)</strong> para cada escena:</li>
+                </ul>
+
+                <div class="equation">
+                    <code>NBR = (NIR - SWIR2) / (NIR + SWIR2)</code>
+                </div>
+
+                <ul>
+                    <li>Obtención de la diferencia temporal (<strong>ΔNBR</strong>):</li>
+                </ul>
+
+                <div class="equation">
+                    <code>ΔNBR = NBR<sub>pre</sub> - NBR<sub>post</sub></code>
+                </div>
+
+                <ul>
+                    <li>Clasificación por umbrales en siete categorías de severidad, desde "recrecimiento vegetal" hasta "severidad alta de incendio".</li>
+                </ul>
+            </div>
+
+            <img src="img/incendios.jpg" alt="Mapa de severidad de incendios en Lago Cholila (2015)" class="analysis-image">
+            <p class="image-caption">Mapa de severidad de incendios en Lago Cholila (2015) - Análisis ΔNBR</p>
+
+            <div class="highlight-box">
+                <h3>Resultado</h3>
+                <p>La zona núcleo del incendio muestra valores altos de ΔNBR (tonos rojos), indicando severidad moderada-alta. Las áreas periféricas presentan menor severidad, mientras que algunos sectores verdes sugieren rebrote post-fuego.</p>
+            </div>
+        </section>
+
+        <!-- 3. Dinámica estacional de nieve y glaciares en Cuyo -->
+        <section class="content-section">
+            <h2>3. Dinámica estacional de nieve y glaciares en Cuyo</h2>
+
+            <div class="methodology-section">
+                <h4>Contexto</h4>
+                <p>La criósfera andina es un reservorio estratégico de agua. Este análisis identifica la cobertura nival permanente y estacional en el Cerro de la Majadita (San Juan) durante 2018.</p>
+            </div>
+
+            <div class="methodology-section">
+                <h4>Metodología</h4>
+                <ul>
+                    <li>Imágenes Landsat 8 de verano (04/01/2018) e invierno (15/07/2018), path 233, row 81.</li>
+                    <li>Cálculo del <strong>Snow Index (SI)</strong> para cada fecha:</li>
+                </ul>
+
+                <div class="equation">
+                    <code>SI = Rojo / SWIR1</code>
+                </div>
+
+                <ul>
+                    <li>Determinación de un umbral espectral para discriminar áreas con nieve.</li>
+                    <li>Combinación binaria de las capas de verano e invierno para obtener cuatro clases:
+                        <ul>
+                            <li>Sin nieve</li>
+                            <li>Nieve solo en verano</li>
+                            <li>Nieve solo en invierno</li>
+                            <li>Nieve permanente (todo el año)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <img src="img/glaciares.png" alt="Mapa de dinámica estacional de nieve/hielo en San Juan (2018)" class="analysis-image">
+            <p class="image-caption">Mapa de dinámica estacional de nieve/hielo en San Juan (2018) - Análisis Snow Index</p>
+
+            <div class="highlight-box">
+                <h3>Resultado</h3>
+                <p>Se identifican claramente los cuerpos de nieve/hielo permanente (azul oscuro), cruciales para el aporte hídrico estacional. La distribución de nieve estacional refleja el gradiente altitudinal y la exposición de laderas.</p>
+            </div>
+        </section>
+
+        <!-- Aspectos técnicos destacados -->
+        <section class="content-section">
+            <h2>Aspectos técnicos destacados</h2>
+            <div class="technical-aspects">
+                <div class="aspect-item">
+                    <h4>🛠️ Software</h4>
+                    <p>Procesamiento realizado con <strong>ESA SNAP</strong>, herramienta estándar en teledetección óptica.</p>
+                </div>
+                <div class="aspect-item">
+                    <h4>📊 Datos</h4>
+                    <p>Imágenes Landsat Collection 2 Level 2, con correcciones atmosféricas ya aplicadas.</p>
+                </div>
+                <div class="aspect-item">
+                    <h4>📈 Índices espectrales</h4>
+                    <p>Selección adecuada según el fenómeno estudiado (NDVI, NBR, SI).</p>
+                </div>
+                <div class="aspect-item">
+                    <h4>⏱️ Análisis temporal</h4>
+                    <p>Comparación multitemporal para capturar dinámicas de cambio.</p>
+                </div>
+                <div class="aspect-item">
+                    <h4>🗺️ Cartografía temática</h4>
+                    <p>Generación de mapas listos para interpretación visual, con paletas de color informativas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflexión final -->
+        <section class="content-section highlight-box">
+            <h2>Reflexión final</h2>
+            <p>Estos trabajos demuestran la capacidad de la teledetección para monitorear cambios ambientales a escala regional con rigor cuantitativo. La elección de índices adecuados, el procesamiento consistente en SNAP y la interpretación contextual de los resultados permiten transformar datos satelitales en información útil para la gestión territorial y ambiental.</p>
+
+            <div class="tools-section">
+                <h4>Herramientas utilizadas:</h4>
+                <div class="tool-tags">
+                    <span class="tech-tag">ESA SNAP</span>
+                    <span class="tech-tag">Landsat 5/8 (USGS)</span>
+                    <span class="tech-tag">QGIS</span>
+                    <span class="tech-tag red">Análisis Espectral</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="footer-content">
+                <p>© 2024 Simón Aulet - Portafolio Técnico</p>
+                <p>Análisis de Teledetección Ambiental - Curso CONAE "Teledetección Óptica"</p>
+                <div class="footer-links">
+                    <a href="index.html">Portafolio Principal</a> |
+                    <a href="FPGA_pandoc.html">FPGA & Sistemas Digitales</a> |
+                    <a href="ESP32.html">ESP32 Web Embebida</a> |
+                    <a href="antenas.html">Antenas Simuladas</a> |
+                    <a href="wilkinson.html">Divisor Wilkinson</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Script para mejorar la interactividad de las tablas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Resaltar filas de tabla al pasar el mouse
+            const tableRows = document.querySelectorAll('.teledeteccion-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.transition = 'background-color 0.2s ease';
+                });
+            });
+
+            // Añadir tooltips a las etiquetas técnicas
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.title = 'Haz clic para ver más proyectos con esta tecnología';
+                tag.style.cursor = 'pointer';
+                tag.addEventListener('click', function() {
+                    alert('Esta funcionalidad mostraría más proyectos relacionados con: ' + this.textContent);
+                });
+            });
+
+            // Mejorar la visualización de ecuaciones
+            const equations = document.querySelectorAll('.equation');
+            equations.forEach(eq => {
+                eq.title = 'Ecuación matemática utilizada en el análisis';
+            });
+        });
+    </script>
+</body>
+</html>
