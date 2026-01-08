@@ -42,8 +42,8 @@ La simulación electromagnética mostró un comportamiento cercano al ideal en l
 
 ## Fabricación con router CNC
 
-Los archivos Gerber generados a partir del layout se enviaron a una **fresadora CNC Wegstr**, capaz de una repetitividad de $0.02$ mm.  
-Para reducir el desgaste de la mecha, se añadió manualmente un "relleno" de cobre alrededor de las pistas, manteniendo una separación de aproximadamente **dos anchos de pista** entre las trazas y la masa.
+Los archivos Gerber generados a partir del layout se enviaron a una fresadora CNC Wegstr, capaz de una repetitividad de $0.02$ mm.  
+Para reducir el desgaste de la mecha, se añadió manualmente un "relleno" de cobre alrededor de las pistas, manteniendo una separación de aproximadamente dos anchos de pista entre las trazas y la masa.
 
 <img src="img/making-of.jpg" alt="Router CNC fresando la placa Rogers" style="width:45%; float:left; margin:0 1em 1em 0; border-radius:6px;">
 
@@ -81,18 +81,18 @@ Se observó cierto *ripple* en la respuesta en frecuencia, pero pruebas adiciona
 
 ## Análisis detallado con Python
 
-Para un procesamiento más profundo de los datos, se desarrolló un **Jupyter Notebook** con `scikit-rf` y `matplotlib` que permite:
-- Cargar archivos de parámetros $S$ (.s3p) tanto de la simulación como del VNA.
+Para un procesamiento más profundo de los datos, se desarrolló un Jupyter Notebook con `scikit-rf` y `matplotlib` que permite:
+- Cargar archivos de parámetros $S$ (.s2p) tanto de la simulación como del VNA.
 - Comparar gráficamente respuestas ideales, simuladas y medidas.
 - Aplicar correcciones (como la deadaptación de cables) y evaluar su efecto.
 
-**Puedes ver el análisis completo aquí:** [Analisis.ipynb](https://github.com/SimonAulet/Analisis-Wilkinson/blob/main/Analisis.ipynb)
+Se puede ver el análisis completo aquí: [Analisis.ipynb](https://github.com/SimonAulet/Analisis-Wilkinson/blob/main/Analisis.ipynb)
 
 ---
 
 ## Conclusión
 
-El divisor de Wilkinson fabricado **cumple holgadamente con las especificaciones** en la frecuencia objetivo de $1$ GHz, demostrando que es posible obtener resultados profesionales con herramientas de fabricación accesibles (CNC de escritorio) y un diseño simulado rigurosamente.
+El divisor de Wilkinson fabricado demuestra un nivel profesional de implementación en RF, cumpliendo con todas las especificaciones críticas en la frecuencia objetivo de $1$ GHz. El proyecto valida un flujo de trabajo integral que combina herramientas de alto nivel (ADS para simulación EM, VNA Rohde & Schwarz para caracterización) con materiales especializados (sustrato Rogers 5880LZ) y técnicas de fabricación precisas (fresado CNC).
 
 **Logros destacables:**
 - División balanceada ($-3$ dB) con aislamiento $>20$ dB.
@@ -100,12 +100,10 @@ El divisor de Wilkinson fabricado **cumple holgadamente con las especificaciones
 - Fabricación limpia y repetible mediante CNC.
 - Flujo de trabajo validado: ADS -> Gerber -> CNC -> VNA -> Python.
 
-**Aprendizaje clave:**  
-La discrepancia entre la frecuencia simulada y la medida resalta la importancia de usar **las propiedades reales del sustrato** desde la etapa inicial del diseño. Para futuras iteraciones, una optimización EM iterativa permitiría corregir este desplazamiento y afinar aún más el ancho de banda.
+**Aprendizaje:**  
+La discrepancia entre la frecuencia simulada y la medida resalta la importancia de usar las propiedades reales del sustrato desde la etapa inicial del diseño. Para futuras iteraciones, una optimización EM iterativa permitiría corregir este desplazamiento y afinar aún más el ancho de banda.
 
 ---
 
 **Repositorio completo:** [github.com/SimonAulet/Analisis-Wilkinson](https://github.com/SimonAulet/Analisis-Wilkinson)  
-**Herramientas:** Keysight ADS, Wegstr CNC, Rohde & Schwarz ZNC3, Python (scikit-rf, matplotlib).  
-**Fecha:** Julio 2025  
-**Autores:** Leila Scerbo, Simón Aulet
+**Herramientas:** Keysight ADS, Wegstr CNC, Rohde & Schwarz ZNC3, Python (scikit-rf, matplotlib).
