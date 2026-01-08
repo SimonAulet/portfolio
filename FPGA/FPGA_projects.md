@@ -135,7 +135,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
 
 <table>
   <tr>
-    <td width="50%" valign="top">
+    <td width="40%" valign="top">
       <h3>Diseño Jerárquico: Sumador Completo (Ej. 10 y 11)</h3>
       <p>
         Este módulo ilustra la metodología de <strong>diseño "bottom-up"</strong>. En lugar de describir la lógica de suma completa de una vez, se construyó encapsulando componentes de menor nivel:
@@ -148,7 +148,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
         Esta estructura permite escalar fácilmente hacia un <strong>Sumador de 4-bits</strong> (Ripple Carry) reutilizando el módulo validado, base fundamental para la ALU.
       </p>
     </td>
-    <td width="50%" valign="top">
+    <td width="60%" valign="top">
       <img src="img/fa_esquema.png" alt="Esquemático Full Adder" width="100%">
       <br>
       <p align="center"><em>Arquitectura con 2 Half-Adders</em></p>
@@ -158,7 +158,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
     </td>
   </tr>
   <tr>
-    <td width="50%" valign="top">
+    <td width="40%" valign="top">
       <h3>Unidad Aritmético Lógica (ALU) de 4-Bits (Ej. 12)</h3>
       <p>
         Integración de lógica combinacional aritmética y lógica en un solo núcleo. La ALU realiza 4 operaciones seleccionables mediante un <strong>Opcode</strong> de 2 bits:
@@ -172,7 +172,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
         En las simulaciones se valida tanto el manejo de signo (formato decimal) como la operación bit a bit (formato binario).
       </p>
     </td>
-    <td width="50%" valign="top">
+    <td width="60%" valign="top">
       <img src="img/alu_dec.png" alt="Simulación ALU Decimal" width="100%">
       <p align="center"><em>Aritmética: Suma y Resta (Signo)</em></p>
       <br>
@@ -181,7 +181,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
     </td>
   </tr>
   <tr>
-    <td width="50%" valign="top">
+    <td width="40%" valign="top">
       <h3>Contador Parametrizable "Módulo-N" (Ej. 18)</h3>
       <p>
         Un diseño de lógica secuencial flexible que permite definir el límite de cuenta (N) dinámicamente mediante una entrada de 8 bits. Se validaron 3 escenarios críticos:
@@ -198,7 +198,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
         </li>
       </ol>
     </td>
-    <td width="50%" valign="top">
+    <td width="60%" valign="top">
       <img src="img/cnt_init.png" alt="Inicio del contador" width="100%">
       <p align="center"><em>1. Inicio de cuenta (0 a 5)</em></p>
       <br>
@@ -210,7 +210,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
     </td>
   </tr>
   <tr>
-    <td width="60%" valign="top">
+    <td width="40%" valign="top">
       <h3>Detector de Secuencia "101" (Ej. 20)</h3>
       <p>
         Implementación de una <strong>Máquina de Estados de Moore</strong> que analiza una entrada serial bit a bit.
@@ -219,7 +219,7 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
         Diseñado para permitir <strong>solapamiento</strong> (overlap). Por ejemplo, en la secuencia <code>10101</code>, el sistema activa la detección dos veces (el "1" final de la primera detección sirve como el "1" inicial de la siguiente), demostrando una lógica de control de flujo continua.
       </p>
     </td>
-    <td width="40%" valign="top">
+    <td width="60%" valign="top">
       <img src="img/detector101_fsm.png" alt="FSM Detector 101" width="100%">
     </td>
   </tr>
