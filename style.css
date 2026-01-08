@@ -197,18 +197,31 @@ footer a:hover {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    border: 2px solid #003366;
+    box-shadow: 3px 3px 0 #888;
+}
+
+.content-wrapper table th {
+    padding: 15px;
+    border: 2px solid #c41e3a;
+    vertical-align: top;
+    background: #003366;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
 }
 
 .content-wrapper table td {
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 2px solid #c41e3a;
     vertical-align: top;
+    background: #f8f8f8;
 }
 
 .content-wrapper img {
     max-width: 100%;
     height: auto;
-    border: 2px solid #333;
+    border: 2px solid #003366;
     margin: 10px 0;
 }
 
