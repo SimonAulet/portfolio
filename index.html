@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Técnico - Simón Aulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Portafolio Técnico</h1>
+            <p class="subtitle">Simón Aulet · RF · Microcontroladores · FPGA · Teledetección</p>
+            <p class="description">Selección de proyectos prácticos en ingeniería, con enfoque en implementación real, simulación y medición.</p>
+        </header>
+
+        <main>
+            <div class="projects-grid">
+
+                <!-- Proyecto RF - Antenas -->
+                <a href="RF/Antennas/index.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Diseño de Antenas</h2>
+                        <p>Cuatro antenas simuladas en CST: dipolo, helicoidal, Yagi-Uda y loop. Análisis de parámetros S, diagramas de radiación y optimización.</p>
+                        <div class="tech-tags">
+                            <span>RF</span>
+                            <span>CST</span>
+                            <span>Simulación EM</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto RF - Wilkinson -->
+                <a href="RF/Wilkinson power divider/index.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Divisor Wilkinson 1 GHz</h2>
+                        <p>Divisor de potencia balanceado: diseño en ADS, fabricación CNC con sustrato Rogers y medición con VNA Rohde & Schwarz.</p>
+                        <div class="tech-tags">
+                            <span>RF</span>
+                            <span>ADS</span>
+                            <span>CNC</span>
+                            <span>VNA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto Teledetección -->
+                <a href="Teledetección/index.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Análisis de Teledetección</h2>
+                        <p>Monitoreo ambiental con Landsat: deforestación en Salta, incendios en Chubut y dinámica de glaciares en San Juan.</p>
+                        <div class="tech-tags">
+                            <span>SNAP</span>
+                            <span>Landsat</span>
+                            <span>NDVI</span>
+                            <span>NBR</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto Microcontroladores -->
+                <a href="Microcontroladores/ESP32/index.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Configurador WiFi ESP32</h2>
+                        <p>Sistema embebido con interfaz web para configuración inalámbrica de redes WiFi. Implementado en ESP32 con servidor HTTP.</p>
+                        <div class="tech-tags">
+                            <span>ESP32</span>
+                            <span>C++</span>
+                            <span>WiFi</span>
+                            <span>Web Server</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto FPGA -->
+                <a href="FPGA/index.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Proyectos en FPGA</h2>
+                        <p>Diseños digitales en Verilog: ALU, secuenciadores, máquinas de estado y sistema de alarma. Simulación y síntesis para FPGA.</p>
+                        <div class="tech-tags">
+                            <span>Verilog</span>
+                            <span>FPGA</span>
+                            <span>Quartus</span>
+                            <span>ModelSim</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>Proyectos realizados entre 2023‑2025 · <a href="https://github.com/tuusuario" target="_blank">GitHub</a> · <a href="mailto:tuemail@example.com">Contacto</a></p>
+        </footer>
+    </div>
+</body>
+</html>
