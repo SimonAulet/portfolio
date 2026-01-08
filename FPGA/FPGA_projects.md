@@ -157,11 +157,6 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
       <p align="center"><em>Validación de tabla de verdad</em></p>
     </td>
   </tr>
-</table>
-
----
-
-<table>
   <tr>
     <td width="50%" valign="top">
       <h3>Unidad Aritmético Lógica (ALU) de 4-Bits (Ej. 12)</h3>
@@ -185,11 +180,6 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
       <p align="center"><em>Lógica: AND y OR (Bitwise)</em></p>
     </td>
   </tr>
-</table>
-
----
-
-<table>
   <tr>
     <td width="50%" valign="top">
       <h3>Contador Parametrizable "Módulo-N" (Ej. 18)</h3>
@@ -219,11 +209,6 @@ Esta sección explora la construcción de hardware digital desde sus bloques má
       <p align="center"><em>3. Reset Asíncrono</em></p>
     </td>
   </tr>
-</table>
-
----
-
-<table>
   <tr>
     <td width="60%" valign="top">
       <h3>Detector de Secuencia "101" (Ej. 20)</h3>
