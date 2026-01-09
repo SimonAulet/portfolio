@@ -10,10 +10,32 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentYear = new Date().getFullYear();
-        document.querySelectorAll('.current-year').forEach(el => {
-            el.textContent = currentYear;
+    // Cargar el footer correspondiente
+    fetch('components/footer-general.html')
+        .then(response => response.text())
+        .then(data => {
+            // 1. Insertar el HTML del footer
+            document.getElementById('footer-container').innerHTML = data;
+
+            // 2. AHORA actualizar el año (después de insertar)
+            const currentYear = new Date().getFullYear();
+            document.querySelectorAll('.current-year').forEach(el => {
+                el.textContent = currentYear;
+            });
+        })
+        .catch(error => {
+            console.error('Error cargando footer:', error);
+            // Fallback: mostrar footer básico
+            document.getElementById('footer-container').innerHTML = `
+                <footer>
+                    <div class="footer-content">
+                        <p>© ${new Date().getFullYear()} · Simón Aulet · Portafolio Técnico</p>
+                        <p class="footer-links">
+                            <a href="index.html">Portafolio Principal</a> ·
+                            <a href="mailto:simon.aulet@gmail.com">Contacto</a> ·
+                            <a href="https://www.linkedin.com/in/simón-pedro-aulet-471745119">Linkedin</a>
+                        </p>
+                    </div>
+                </footer>`;
         });
-    });
 </script>
