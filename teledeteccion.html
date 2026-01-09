@@ -364,7 +364,13 @@
         </section>
         <div id="footer-container"></div>
     </div>
-
+    <script>
+            fetch('components/footer-general.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
     <script>
         // Script para mejorar la interactividad de las tablas
         document.addEventListener('DOMContentLoaded', function() {

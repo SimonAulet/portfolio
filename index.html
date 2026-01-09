@@ -93,5 +93,12 @@
         </main>
         <div id="footer-general"></div>
     </div>
+    <script>
+            fetch('components/footer-index.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
 </body>
 </html>
