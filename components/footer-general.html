@@ -1,0 +1,19 @@
+<footer>
+    <div class="footer-content">
+        <p>© <span class="current-year"></span> · Simón Aulet · Portafolio Técnico</p>
+        <p class="footer-links">
+            <a href="index.html">Portafolio Principal</a> ·
+            <a href="mailto:simon.aulet@gmail.com">Contacto</a> ·
+            <a href="https://www.linkedin.com/in/simón-pedro-aulet-471745119">Linkedin</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentYear = new Date().getFullYear();
+        document.querySelectorAll('.current-year').forEach(el => {
+            el.textContent = currentYear;
+        });
+    });
+</script>
