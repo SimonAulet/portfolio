@@ -40,7 +40,7 @@
                 <blockquote>
                 <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X</code></a></p>
                 </blockquote>
-                
+
                 <details>
                 <summary>
                 Ver Código: Blink en Ensamblador (main.asm)
@@ -66,7 +66,7 @@
                 <blockquote>
                 <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X</code></a></p>
                 </blockquote>
-                
+
                 <details>
                 <summary>
                 Ver Código: Lectura ADC en Ensamblador (adc.asm)
@@ -92,7 +92,7 @@
                 <blockquote>
                 <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X</code></a></p>
                 </blockquote>
-                
+
                 <details>
                 <summary>
                 Ver Código: Integración LCD en C (main.c)
@@ -167,7 +167,7 @@
 
                 <h2 id="valor-de-los-fundamentos">Valor de los Fundamentos</h2>
                 <p>Estos proyectos establecen la comprensión crítica del costo de las operaciones y los límites del hardware. La experiencia de escribir retardos en ensamblador y configurar registros manualmente ilumina el funcionamiento interno de los microcontroladores.</p>
-                
+
                 <blockquote>
                 <p><strong>Recorrido formativo:</strong> El recorrido desde control bit-a-bit en ensamblador hasta drivers abstractos en C ayuda para un entendimiento completo de la pila de software embebido.</p>
                 </blockquote>
@@ -190,10 +190,14 @@
             </div>
         </main>
 
-        <footer>
-            <p>Proyectos realizados en el marco académico · Fundamentos de Sistemas Embebidos</p>
-            <p><a href="index.html">Portafolio Principal</a> · <a href="mailto:simon.aulet@example.com">Contacto</a></p>
-        </footer>
+        <div id="footer-container"></div>
     </div>
+    <script>
+            fetch('components/footer-general.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
 </body>
 </html>
