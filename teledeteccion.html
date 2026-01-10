@@ -191,6 +191,14 @@
                 <p>Estos trabajos demuestran la capacidad de la teledetección para monitorear cambios ambientales a escala regional con rigor cuantitativo. La elección de índices adecuados, el procesamiento consistente en SNAP y la interpretación contextual de los resultados permiten transformar datos satelitales en información útil para la gestión territorial y ambiental.</p>
             </div>
         </main>
+        <div id="footer-container"></div>
     </div>
+    <script>
+            fetch('components/footer-general.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
 </body>
 </html>
