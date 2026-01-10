@@ -225,12 +225,10 @@ footer a:hover {
     text-align: center;
 }
 
-.content-wrapper table.four-columns th:nth-child(odd),
 .content-wrapper table.four-columns td:nth-child(odd) {
     background: #f0f0f0;
 }
 
-.content-wrapper table.four-columns th:nth-child(even),
 .content-wrapper table.four-columns td:nth-child(even) {
     background: #f8f8f8;
 }
