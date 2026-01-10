@@ -37,7 +37,7 @@
                 <blockquote>
                 <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/FPGA/Alarm"><code>https://github.com/SimonAulet/portfolio/tree/main/FPGA/Alarm</code></a></p>
                 </blockquote>
-                <p><img src="img/alarma_arch.png" alt="Arquitectura del Sistema de Alarma" /> <em>Arquitectura del sistema: flujo de señales entre la detección de secuencia y el control de estados.</em></p>
+                <p><img src="img/alarma_arch_transparent.png" alt="Arquitectura del Sistema de Alarma" /> <em>Arquitectura del sistema: flujo de señales entre la detección de secuencia y el control de estados.</em></p>
                 <h3 id="lógica-de-control-y-funcionamiento">Lógica de Control y Funcionamiento</h3>
                 <p>La interfaz de usuario consta de tres pulsadores de combinación (<code>b1</code>, <code>b2</code>, <code>b3</code>) y un comando de validación (<code>check</code>). El sistema evalúa la secuencia ingresada únicamente cuando se presiona la validación, lo que permite una lógica de control robusta: si el usuario intenta validar una secuencia incorrecta mientras el sistema está armado, la transición es inmediata hacia el estado de Alarma. Del mismo modo, el estado de alerta se dispara ante la activación del sensor de movimiento (<code>MOV</code>).</p>
                 <h3 id="estrategia-de-sincronización">Estrategia de Sincronización</h3>
