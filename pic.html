@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Prism.js para syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nasm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -43,13 +50,109 @@
 
                 <details>
                 <summary>
-                Ver Código: Blink en Ensamblador (main.asm)
+                Ver Código: Blink en Ensamblador (blink.s)
                 </summary>
-                <div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode assembly"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CLRF</span>   TRISA        <span class="co">; PORTA como salida</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MOVLW</span>  <span class="bn">00000000B</span>    <span class="co">; LED OFF</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MOVWF</span>  PORTA</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CALL</span>   Retardo</span></code></pre></div>
+                <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
+                  LIST
+                  #include <xc.inc>
+                  ////////////////////////////////////////////////////////////////
+
+                  ; PIC16F18875 Configuration Bit Settings
+
+                  ; Assembly source line config statements
+
+                  ; CONFIG1
+                  ;  CONFIG  FEXTOSC = ECH         ; External Oscillator mode selection bits (EC above 8MHz; PFM set to high power)
+                  ;  CONFIG  RSTOSC = LFINT        ; Power-up default value for COSC bits (LFINTOSC)
+                  ;  CONFIG  CLKOUTEN = OFF        ; Clock Out Enable bit (CLKOUT function is disabled; i/o or oscillator function on OSC2)
+                  ;  CONFIG  CSWEN = ON            ; Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
+                  ;  CONFIG  FCMEN = ON            ; Fail-Safe Clock Monitor Enable bit (FSCM timer enabled)
+
+                  CONFIG  FEXTOSC = OFF        ; Desactiva el oscilador externo
+                  CONFIG  RSTOSC = HFINT1      ; Usa el oscilador interno de alta frecuencia (1 MHz)
+                  CONFIG  CLKOUTEN = OFF       ; Deshabilita la salida de reloj
+                  CONFIG  CSWEN = ON           ; Permite cambiar la frecuencia en tiempo de ejecución
+                  CONFIG  FCMEN = OFF          ; Desactiva el Fail-Safe Clock Monitor (ya no es necesario)
+
+                  ; CONFIG2
+                    CONFIG  MCLRE = ON            ; Master Clear Enable bit (MCLR pin is Master Clear function)
+                    CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+                    CONFIG  LPBOREN = OFF         ; Low-Power BOR enable bit (ULPBOR disabled)
+                    CONFIG  BOREN = ON            ; Brown-out reset enable bits (Brown-out Reset Enabled, SBOREN bit is ignored)
+                    CONFIG  BORV = LO             ; Brown-out Reset Voltage Selection (Brown-out Reset Voltage (VBOR) set to 1.9V on LF, and 2.45V on F Devices)
+                    CONFIG  ZCD = OFF             ; Zero-cross detect disable (Zero-cross detect circuit is disabled at POR.)
+                    CONFIG  PPS1WAY = ON          ; Peripheral Pin Select one-way control (The PPSLOCK bit can be cleared and set only once in software)
+                    CONFIG  STVREN = ON           ; Stack Overflow/Underflow Reset Enable bit (Stack Overflow or Underflow will cause a reset)
+
+                  ; CONFIG3
+                    CONFIG  WDTCPS = WDTCPS_31    ; WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+                    CONFIG  WDTE = ON             ; WDT operating mode (WDT enabled regardless of sleep; SWDTEN ignored)
+                    CONFIG  WDTCWS = WDTCWS_7     ; WDT Window Select bits (window always open (100%); software control; keyed access not required)
+                    CONFIG  WDTCCS = SC           ; WDT input clock selector (Software Control)
+
+                  ; CONFIG4
+                    CONFIG  WRT = OFF             ; UserNVM self-write protection bits (Write protection off)
+                    CONFIG  SCANE = available     ; Scanner Enable bit (Scanner module is available for use)
+                    CONFIG  LVP = ON              ; Low Voltage Programming Enable bit (Low Voltage programming enabled. MCLR/Vpp pin function is MCLR.)
+
+                  ; CONFIG5
+                    CONFIG  CP = OFF              ; UserNVM Program memory code protection bit (Program Memory code protection disabled)
+                    CONFIG  CPD = OFF             ; DataNVM code protection bit (Data EEPROM code protection disabled)
+
+                  ///////////////////////////////////////////////////////////////
+                  PSECT resetVec,class=CODE,delta=2
+                  resetVec:
+                      PAGESEL main
+                      goto    main
+
+                  PSECT code
+                  main:
+                      CLRF   TRISA        ; Configurar PORTA como salida
+
+                  START:
+                      MOVLW  00000000B    ; Apagar LED en RA3
+                      MOVWF  PORTA
+
+                      CALL Retardo        ; Llamar al retardo
+
+                      MOVLW  11111111B    ; Encender LED en RA3
+                      MOVWF  PORTA
+
+                      CALL Retardo        ; Llamar al retardo
+
+                      GOTO   START        ; Repetir el ciclo
+
+                  ;-------------------
+                  ; Subrutina de Retardo
+                  ;-------------------
+                  Retardo:
+               	    MOVLW   0xFF
+               	    MOVWF   0x20
+
+               	    MOVLW   0xFF
+               	    MOVWF   0x21
+
+               	    MOVLW   0x16
+               	    MOVWF   0x22
+
+               	Loop1: ;decrementa 20
+               	    DECFSZ  0x20, F
+               	    GOTO    Loop1
+               	Loop2: ;decrementa 21
+               	    MOVLW   0xFF
+               	    MOVWF   0x20 ;reseteo reg 1
+               	    DECFSZ  0x21, F
+               	    GOTO    Loop1
+               	Loop3: ;decrementa 22
+               	    MOVLW   0xFF
+               	    MOVWF   0x20 ;reseteo reg 1
+               	    MOVLW   0xFF
+               	    MOVWF   0x21 ;reseteo reg 2
+               	    DECFSZ  0x22, F
+               	    GOTO    Loop1
+               	    RETURN
+                      END main
+                </code></pre>
                 </details>
 
                 <h4>Características Técnicas</h4>
@@ -69,13 +172,153 @@
 
                 <details>
                 <summary>
-                Ver Código: Lectura ADC en Ensamblador (adc.asm)
+                Ver Código: Lectura ADC en Ensamblador (potenciometro.s)
                 </summary>
-                <div class="sourceCode" id="cb2"><pre class="sourceCode asm"><code class="sourceCode assembly"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adc:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">BSF</span>   ADCON0<span class="op">,</span> <span class="dv">0</span>     <span class="co">; Iniciar conversión</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">BTFSC</span> ADCON0<span class="op">,</span> <span class="dv">1</span>     <span class="co">; Esperar finalización</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">GOTO</span>  $<span class="dv">-1</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MOVF</span>  ADRESH<span class="op">,</span> W    <span class="co">; Tomar 2 MSB</span></span></code></pre></div>
+                <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
+                  LIST
+                  #include <xc.inc>
+                  ////////////////////////////////////////////////////////////////
+
+                  ; PIC16F18875 Configuration Bit Settings
+
+                  ; Assembly source line config statements
+
+                  ; CONFIG1
+                    CONFIG  FEXTOSC = OFF         ; External Oscillator mode selection bits (EC above 8MHz; PFM set to high power)
+                    CONFIG  RSTOSC = HFINT1       ; Power-up default value for COSC bits (LFINTOSC)
+                    CONFIG  CLKOUTEN = OFF        ; Clock Out Enable bit (CLKOUT function is disabled; i/o or oscillator function on OSC2)
+                    CONFIG  CSWEN = ON            ; Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
+                    CONFIG  FCMEN = OFF           ; Fail-Safe Clock Monitor Enable bit (FSCM timer enabled)
+
+                  ; CONFIG2
+                    CONFIG  MCLRE = ON            ; Master Clear Enable bit (MCLR pin is Master Clear function)
+                    CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+                    CONFIG  LPBOREN = OFF         ; Low-Power BOR enable bit (ULPBOR disabled)
+                    CONFIG  BOREN = ON            ; Brown-out reset enable bits (Brown-out Reset Enabled, SBOREN bit is ignored)
+                    CONFIG  BORV = LO             ; Brown-out Reset Voltage Selection (Brown-out Reset Voltage (VBOR) set to 1.9V on LF, and 2.45V on F Devices)
+                    CONFIG  ZCD = OFF             ; Zero-cross detect disable (Zero-cross detect circuit is disabled at POR.)
+                    CONFIG  PPS1WAY = ON          ; Peripheral Pin Select one-way control (The PPSLOCK bit can be cleared and set only once in software)
+                    CONFIG  STVREN = ON           ; Stack Overflow/Underflow Reset Enable bit (Stack Overflow or Underflow will cause a reset)
+
+                  ; CONFIG3
+                    CONFIG  WDTCPS = WDTCPS_31    ; WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+                    CONFIG  WDTE = OFF            ; WDT operating mode (WDT enabled regardless of sleep; SWDTEN ignored)
+                    CONFIG  WDTCWS = WDTCWS_7     ; WDT Window Select bits (window always open (100%); software control; keyed access not required)
+                    CONFIG  WDTCCS = SC           ; WDT input clock selector (Software Control)
+
+                  ; CONFIG4
+                    CONFIG  WRT = OFF             ; UserNVM self-write protection bits (Write protection off)
+                    CONFIG  SCANE = available     ; Scanner Enable bit (Scanner module is available for use)
+                    CONFIG  LVP = ON              ; Low Voltage Programming Enable bit (Low Voltage programming enabled. MCLR/Vpp pin function is MCLR.)
+
+                  ; CONFIG5
+                    CONFIG  CP = OFF              ; UserNVM Program memory code protection bit (Program Memory code protection disabled)
+                    CONFIG  CPD = OFF             ; DataNVM code protection bit (Data EEPROM code protection disabled)
+
+                  ; CONFIG ADC
+                    BSF ANSELA, 0        ; Configurar RA0 como analógico
+                    BSF TRISA, 0         ; Configurar RA0 como entrada
+                    MOVLW 0x01           ; Seleccionar canal AN0 (RA0)
+                    MOVWF ADPCH
+                    MOVLW 0b00010101     ; ADC ON, Clock FRC, Justificado a la izquierda
+                    MOVWF ADCON0
+                    MOVLW 0b10000000     ; Referencia VDD y VSS, Justificado a la izquierda
+                    MOVWF ADCON1
+
+                  ; CONFIG LEDS
+                  MOVLW   0b00001111   ; RA4 a 7 como salidas, el resto como estaban
+                  ANDWF   TRISA, F
+
+
+                  // config statements should precede project file includes.
+
+                  ///////////////////////////////////////////////////////////////
+                  PSECT resetVec,class=CODE,delta=2
+                  resetVec:
+                      PAGESEL main                ;Salta al Main
+                      goto    main
+                  PSECT code
+
+                  main:
+
+                  START:
+
+                  GOTO adc
+                    MOVLW  0b01010101
+                    MOVWF  0x20
+
+                    ;alterno 0x20 entre unos  y ceros
+                    BTFSC 0x20, 7
+                    MOVLW 0b00000000  ;00 L2
+                    BTFSS 0x20, 7
+                    MOVLW 0b11111111  ;10 L4
+                    MOVWF 0x20
+
+                  ;chequeo resultado del potenciometro
+
+                    BTFSC 0x20, 7		;primer bit
+                    GOTO msb1
+                    GOTO msb0
+
+                  msb1:
+                    BTFSC 0x20, 6		;segundo  bit
+                    GOTO nivel4
+                    GOTO nivel3
+
+                  msb0:
+                    BTFSC 0x20, 6		;segundo  bit
+                    GOTO nivel2
+                    GOTO nivel1
+
+                  adc:
+                      BSF ADCON0, 0        ; Iniciar conversión
+                      BTFSC ADCON0, 1      ; Esperar a que termine (mientras GO/DONE=1)
+                      GOTO $-1
+
+                      MOVF ADRESH, W       ; Me van a interesar solo los 2 msb
+                      MOVWF 0x20
+
+                      RETURN
+
+                  ;los bits de los leds son 4, 5, 6 y 7 del puerto A
+                  nivel0: ;0000
+                    MOVF  LATA, W
+                    ANDLW 0b00001111
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel1: ;0001
+                    MOVF  LATA, 0
+                    ANDLW 0b00011111
+                    IORLW 0b00010000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel2: ;0011
+                    MOVF  LATA, 0
+                    ANDLW 0b00111111
+                    IORLW 0b00110000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel3: ;0111
+                    MOVF  LATA, 0
+                    ANDLW 0b01111111
+                    IORLW 0b01110000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel4: ;1111
+                    MOVF  LATA, 0
+                    IORLW 0b11110000
+                    MOVWF LATA
+                    GOTO  START
+                  END main
+                </code></pre>
                 </details>
 
                 <h4>Características Técnicas</h4>
@@ -97,9 +340,47 @@
                 <summary>
                 Ver Código: Integración LCD en C (main.c)
                 </summary>
-                <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>valor <span class="op">=</span> ADCC_GetSingleConversion<span class="op">(</span>POT<span class="op">);</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sprintf<span class="op">(</span>buffer<span class="op">,</span> <span class="st">"%d"</span><span class="op">,</span> valor<span class="op">);</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>lcd_writemessage<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> buffer<span class="op">);</span></span></code></pre></div>
+                <pre class="line-numbers"><code class="language-c">#include "mcc_generated_files/mcc.h"
+                  #include "seri_lcd.h"
+
+                  /*
+                                           Main application
+                   */
+                  void main(void)
+                  {
+                      // initialize the device
+                      SYSTEM_Initialize();
+
+                      // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
+                      // Use the following macros to:
+
+                      // Enable the Global Interrupts
+                     INTERRUPT_GlobalInterruptEnable();
+
+                      // Enable the Peripheral Interrupts
+                     INTERRUPT_PeripheralInterruptEnable();
+
+                      // Disable the Global Interrupts
+                      //INTERRUPT_GlobalInterruptDisable();
+
+                      // Disable the Peripheral Interrupts
+                      //INTERRUPT_PeripheralInterruptDisable();
+                    __delay_ms(500);
+                      lcd_start();
+                      int valor;
+                      while (1)
+                      {
+
+                        char buffer[17];
+
+                        __delay_ms(50);
+                        lcd_delete();
+                        valor = ADCC_GetSingleConversion(POT);
+                        sprintf(buffer, "%d", valor);
+                        lcd_writemessage(1, 1, buffer);
+                      }
+                  }
+                </code></pre>
                 </details>
 
                 <h4>Características Técnicas</h4>
