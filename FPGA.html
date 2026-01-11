@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FPGA & Digital Systems Design Portfolio - Simón Aulet</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FPGA & Digital Systems Design Portfolio - Simón Aulet</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+      <link rel="icon" href="favicon.svg" type="image/svg+xml">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <!-- Prism.js para syntax highlighting -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-verilog.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  </head>
 <body>
     <div class="container">
         <header>
@@ -44,24 +50,63 @@
                 <p>Para garantizar la estabilidad operativa dentro de la FPGA y evitar la creación de múltiples dominios de reloj, se optó por una estrategia de habilitadores síncronos. En lugar de dividir la línea de reloj principal —con sus correspondientes problemas de timing— se implementó el módulo <code>freq_divider</code>.</p>
                 <p>Este componente genera pulsos de un solo ciclo ("ticks") que habilitan procesos a frecuencias menores (como 1 kHz y 1 Hz), manteniendo todo el diseño perfectamente sincronizado al reloj maestro de 100 MHz. Además, el módulo es totalmente <strong>parametrizable</strong>, lo que permite ajustar las escalas de división para acelerar los tiempos en etapas de simulación o definir los valores finales para la síntesis.</p>
                 <details>
-                <summary>
-                Ver Código: Generador de Ticks (freq_divider.v)
-                </summary>
-                <div class="sourceCode" id="cb1"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">always</span> <span class="op">@(</span><span class="kw">posedge</span> clk_in<span class="op">)</span></span>
-                <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">begin</span></span>
-                <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span><span class="op">((</span>lf_counter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>mf_counter<span class="op">==</span><span class="dv">0</span><span class="op">))</span></span>
-                <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    tick_lf <span class="op">&lt;=</span> <span class="bn">1'b1</span><span class="op">;</span></span>
-                <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span></span>
-                <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    tick_lf <span class="op">&lt;=</span> <span class="bn">1'b0</span><span class="op">;</span></span>
-                <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-                <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Freq divider mf</span></span>
-                <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>always<span class="op">@(</span><span class="kw">posedge</span> clk_in<span class="op">)</span></span>
-                <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">begin</span></span>
-                <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span><span class="op">(</span>mf_counter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-                <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    tick_mf <span class="op">&lt;=</span> <span class="bn">1'b1</span><span class="op">;</span></span>
-                <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span></span>
-                <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    tick_mf <span class="op">&lt;=</span> <span class="bn">1'b0</span><span class="op">;</span></span>
-                <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+                <summary>Ver Código: Generador de Ticks (freq_divider.v)</summary>
+                <pre class="line-numbers"><code class="language-verilog">always @(posedge clk_in)
+                  // Pulse generator at 1kHz and 1 Hz
+
+                  module freq_divider #(
+                    parameter mf_divider = 100_000,
+                    parameter lf_divider = 1_000)
+                  (
+                  input  wire clk_in,
+                  output reg  tick_mf,
+                  output reg  tick_lf
+                  );
+
+                  reg [18:0] mf_counter;
+                  reg [8:0] lf_counter;
+
+                  initial
+                  begin
+                    tick_mf    = 0;
+                    tick_lf    = 0;
+                    mf_counter = 0;
+                    lf_counter = 0;
+                  end
+                  // Counter advancing
+                  always @(posedge clk_in)
+                  begin
+                    if (mf_counter == mf_divider - 1) //mf counter. division is for switching posedge and negedge
+                    begin
+                      mf_counter    <= 0;
+                      if(lf_counter == lf_divider - 1) //lf counter
+                        lf_counter  <= 0;
+                      else
+                        lf_counter <= lf_counter + 1;
+                    end else begin
+                      mf_counter   <= mf_counter + 1;
+                    end
+                  end
+
+                  // Freq divider lf
+                  always @(posedge clk_in)
+                  begin
+                    if((lf_counter == 0) && (mf_counter==0))
+                      tick_lf <= 1'b1;
+                    else
+                      tick_lf <= 1'b0;
+                  end
+                  // Freq divider mf
+                  always@(posedge clk_in)
+                  begin
+                    if(mf_counter == 0)
+                      tick_mf <= 1'b1;
+                    else
+                      tick_mf <= 1'b0;
+                  end
+                  endmodule
+                end
+                </code></pre>
                 </details>
                 <h3 id="optimización-de-recursos">Optimización de Recursos</h3>
                 <p>El acondicionamiento de las señales de entrada se beneficia directamente de la estrategia de sincronización anterior. El módulo <code>anti_bounce</code> utiliza los ticks de 1 kHz como referencia temporal para filtrar el ruido mecánico de los pulsadores. Esta decisión de diseño permite reducir significativamente el uso de registros: la ventana de estabilidad de 20 ms se gestiona con un contador compacto de 6 bits, evitando la necesidad de contadores de 21 bits que serían requeridos si se operara directamente sobre la frecuencia base de 100 MHz.</p>
@@ -115,37 +160,60 @@
                 </table>
                 <details>
                 <summary>
-                Ver Código: Lógica de Salida (led_change.v)
-                </summary>
-                <div class="sourceCode" id="cb2"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> led_change<span class="op">(</span></span>
-                <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">input</span>  <span class="dt">wire</span><span class="op">[</span><span class="dv">1</span><span class="op">:</span><span class="dv">0</span><span class="op">]</span> state<span class="op">,</span></span>
-                <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">input</span>  <span class="dt">wire</span>      clk<span class="op">,</span></span>
-                <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">input</span>  <span class="dt">wire</span>      tick_lf<span class="op">,</span> <span class="co">// Habilitador de 1 Hz</span></span>
-                <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output</span> <span class="dt">reg</span>       led_a<span class="op">,</span></span>
-                <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output</span> <span class="dt">reg</span>       led_b</span>
-                <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span>
-                <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-                <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>always<span class="op">@(</span><span class="kw">posedge</span> clk<span class="op">)</span></span>
-                <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">case</span><span class="op">(</span>state<span class="op">)</span></span>
-                <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="bn">2'b00</span><span class="op">:</span> <span class="kw">begin</span> <span class="co">// Reposo</span></span>
-                <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    led_a <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-                <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    led_b <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-                <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-                <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="bn">2'b01</span><span class="op">:</span> <span class="kw">begin</span> <span class="co">// Blink LED A</span></span>
-                <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span><span class="op">(</span>tick_lf<span class="op">)</span> led_a <span class="op">&lt;=</span> <span class="op">~</span>led_a<span class="op">;</span></span>
-                <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    led_b <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-                <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-                <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="bn">2'b10</span><span class="op">:</span> <span class="kw">begin</span> <span class="co">// Blink LED B</span></span>
-                <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    led_a <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-                <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span><span class="op">(</span>tick_lf<span class="op">)</span> led_b <span class="op">&lt;=</span> <span class="op">~</span>led_b<span class="op">;</span></span>
-                <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-                <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="bn">2'b11</span><span class="op">:</span> <span class="kw">begin</span> <span class="co">// Blink Ambos</span></span>
-                <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span><span class="op">(</span>tick_lf<span class="op">)</span> led_a <span class="op">&lt;=</span> <span class="op">~</span>led_a<span class="op">;</span></span>
-                <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    led_b <span class="op">&lt;=</span> led_a<span class="op">;</span> <span class="co">// Copia estado para sincronía</span></span>
-                <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-                <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">default</span><span class="op">:</span> <span class="kw">begin</span> led_a <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span> led_b <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span> <span class="kw">end</span></span>
-                <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="kw">endcase</span></span>
-                <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="kw">endmodule</span></span></code></pre></div>
+                Ver Código: Lógica de Salida (led_change.v)</summary>
+                <pre class="line-numbers"><code class="language-verilog">module led_change(
+                  input  wire[1:0] state,
+                  input  wire      clk,
+                  input  wire      tick_lf,
+                  output reg       led_a,
+                  output reg       led_b
+                );
+
+                initial
+                begin
+                  led_a = 1'b0;
+                  led_b = 1'b0;
+                end
+
+                always@(posedge clk)
+                  case(state)
+                  2'b00:
+                  begin
+                    led_a <= 0;
+                    led_b <= 0;
+                  end
+                  2'b01:
+                  begin
+                    if(tick_lf)
+                      led_a <= ~led_a;
+                    else
+                      led_a <= led_a;
+                    led_b <= 0;
+                  end
+                  2'b10:
+                  begin
+                    led_a <= 0;
+                    if(tick_lf)
+                      led_b <= ~led_b;
+                    else
+                      led_b <= led_b;
+                  end
+                  2'b11:
+                  begin
+                    if(tick_lf)
+                      led_a <= ~led_a;
+                    else
+                      led_a <= led_a;
+                      led_b <= led_a;  //copy led_a to avoid mirror blink
+                  end
+                  default:
+                  begin
+                    led_a <= 0;
+                    led_b <= 0;
+                  end
+                endcase
+                endmodule
+                </code></pre>
                 </details>
                 <hr />
                 <h2 id="fundamentos-de-verilog">Fundamentos de Verilog</h2>

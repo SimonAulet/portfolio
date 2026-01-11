@@ -364,3 +364,61 @@ footer a:hover {
         margin-bottom: 20px;
     }
 }
+/* ===== ESTILOS PARA BLOQUES DE CÓDIGO ===== */
+pre[class*="language-"] {
+    max-height: 600px;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    margin: 20px 0;
+    border: 2px solid #333 !important;
+    border-left: 4px solid #c41e3a !important; /* Toque de tu rojo */
+    background: #272822 !important; /* Fondo de Okaidia */
+    border-radius: 0 !important;
+    box-shadow: 4px 4px 0 #888 !important;
+    position: relative;
+}
+
+/* Barra de scroll personalizada */
+pre[class*="language-"]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+    background: #1e1f1c;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+    background: #c41e3a;
+    border: 1px solid #111;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+    background: #d43f5a;
+}
+
+/* Para móvil */
+@media (max-width: 768px) {
+    pre[class*="language-"] {
+        max-height: 300px;
+        font-size: 0.85rem;
+        margin: 15px -10px; /* Un poco más de margen negativo en móvil */
+        border-left-width: 3px !important;
+    }
+}
+
+/* Estilo para el texto del summary (para que combine) */
+details summary {
+    cursor: pointer;
+    color: white;
+    padding: 10px 15px;
+    border: 1px solid #c41e3a;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+details[open] summary {
+    border-bottom: none;
+    margin-bottom: 0;
+}
