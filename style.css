@@ -342,3 +342,25 @@ footer a:hover {
         font-size: 0.75rem;
     }
 }
+
+@media (max-width: 768px) {
+    /* Asegurar que el texto en las celdas se ajuste */
+    .content-wrapper table td {
+        white-space: normal !important; /* Forzar saltos de línea */
+        word-break: break-word; /* Romper palabras largas si es necesario */
+    }
+
+    /* Para las celdas específicas con mucho texto */
+    .content-wrapper table td[width="40%"],
+    .content-wrapper table td[width="60%"] {
+        display: block;
+        width: 100% !important;
+    }
+
+    /* Para las tablas con estructura de dos columnas */
+    .content-wrapper table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
