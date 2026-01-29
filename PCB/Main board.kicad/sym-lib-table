@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "LM35")(type "KiCad")(uri "/home/simon/Dropbox/UNRN/4.Laboratorio de Electronica Analogica/PCB final/componentes/lm35/KiCADv6/2025-11-19_19-04-25.kicad_sym")(options "")(descr ""))
+  (lib (name "LM358")(type "KiCad")(uri "/home/simon/Dropbox/UNRN/4.Laboratorio de Electronica Analogica/PCB final/componentes/lm358/KiCADv6/2025-11-19_22-10-22.kicad_sym")(options "")(descr ""))
+  (lib (name "mosfet")(type "KiCad")(uri "/home/simon/UNRN/4.Laboratorio de Electronica Analogica/PCB final/componentes/CSD17577Q5A/KiCADv6/2025-11-23_21-01-29.kicad_sym")(options "")(descr ""))
+  (lib (name "mosfet_small")(type "KiCad")(uri "/home/simon/Dropbox/UNRN/4.Laboratorio de Electronica Analogica/PCB final/componentes/CSD17585F5/KiCADv6/2026-01-12_15-11-56.kicad_sym")(options "")(descr ""))
+)

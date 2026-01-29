@@ -1,0 +1,89 @@
+(ExpressProject "LMx58B_LM2904B"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "17.4-2020 S006-[08/12/21]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\library\fixed_models\lmx58b_lm2904b.olb"
+        (Type "Schematic Library")))
+    ("Allegro Netlist Directory" "allegro")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "61215")
+    (NoModify)
+    (File ".\lmx58b_lm2904b.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\lmx58b_lm2904b-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\lmx58b_lm2904b-pspicefiles\schematic1\transient.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lmx58b_lm2904b-pspicefiles\schematic1\transient.sim"
+        (DisplayName "SCHEMATIC1-Transient")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\fixed_models\lmx58b_lm2904b.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\fixed_models\lmx58b_lm2904b.lib")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (Folder "Logs")
+  (PartMRUSelector
+    (LMX58B_LM2904B
+      (FullPartName "LMX58B_LM2904B.Normal")
+      (LibraryName
+         "C:\USERS\A0232807\DOCUMENTS\MODELING\MODEL_FIX_REUPLOAD\FIXED_MODELS\LMX58B_LM2904B.OLB")
+      (DeviceIndex "0"))
+    (VSIN
+      (FullPartName "VSIN.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "Library")
+      (Path "Design Resources" "Library"
+         ".\library\fixed_models\lmx58b_lm2904b.olb")
+      (Path "Outputs")
+      (Select "Design Resources" ".\lmx58b_lm2904b.dsn"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 368 0 755"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1225 24 773")
+        (Scroll "0 0")
+        (Zoom "146")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\A0232807\DOCUMENTS\MODELING\MODEL_FIX_REUPLOAD\LMX58B_LM2904B.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (LastUsedLibraryBrowseDirectory
+     "C:\Users\a0232807\Documents\Modeling\model_fix_reupload\Fixed_models")
+  (MPSSessionName "a0232807"))

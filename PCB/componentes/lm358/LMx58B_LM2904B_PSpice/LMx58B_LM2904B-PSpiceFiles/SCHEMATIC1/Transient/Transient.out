@@ -1,0 +1,305 @@
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Transient.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../fixed_models/lmx58b_lm2904b.lib" 
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1m 0 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 N([VO])
+.PROBE64 N([VIN])
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source LMX58B_LM2904B
+V_V1         VCC 0 18
+V_V2         0 VEE 18
+V_V3         VIN 0  
++SIN 0 1 1k 0 0 0
+X_U1         VIN VO VCC VEE VO LMX58B_LM2904B
+
+**** RESUMING Transient.cir ****
+.END
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.Xi_nn.DVNF X_U1.Xi_np.DVNF X_U1.Xe_n.DVN   
+          IS  100.000000E-18  100.000000E-18  100.000000E-18 
+          KF  316.227800E-15  316.227800E-15   31.622780E-12 
+
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.R_NOISELESS 
+  T_Measured   27            
+   T_Current -273.15         
+           R    1            
+
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.BB_SW      X_U1.ESD_SW     X_U1.OL_SW      X_U1.OR_SW      
+         RON   50              50               1.000000E-03     .01         
+        ROFF    1.000000E+12    1.000000E+12    1.000000E+09    1.000000E+09 
+         VON     .7              .25             .9             1.000000E-03 
+        VOFF    0               0                .8             0            
+
+
+               X_U1.S_VSWITCH_1 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U1.S_VSWITCH_2 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U1.S_VSWITCH_3 
+         RON    1.000000E-03 
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U1.S_VSWITCH_4 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .45         
+
+
+               X_U1.S_VSWITCH_5 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .45         
+
+
+Starting pseudo-transient algorithm.
+
+INFO(ORPSIM-16594): To improve Pseudotransient Convergence and Performance, set following options to relax stabilization criteria for capacitor currents and inductor voltages: PTRANABSTOL=1e-5, PTRANVNTOL=1e-4
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VO) 300.0E-06  (  VCC)   18.0000  (  VEE)  -18.0000  (  VIN)    0.0000      
+
+(X_U1.22)-18.00E-06                   (X_U1.23)   -1.8000                       
+
+(X_U1.24) 300.0E-06                   (X_U1.25) 300.0E-06                       
+
+(X_U1.26) 300.0E-06                   (X_U1.27) 300.0E-06                       
+
+(X_U1.28) 896.3E-06                   (X_U1.29) 215.2E-06                       
+
+(X_U1.30) 925.2E-06                   (X_U1.31) 231.2E-09                       
+
+(X_U1.32) 925.0E-06                   (X_U1.33) 300.0E-06                       
+
+(X_U1.34) 310.0E-06                   (X_U1.35) 310.0E-06                       
+
+(X_U1.36) 370.1E-09                   (X_U1.37) 100.0E-12                       
+
+(X_U1.38)-2.251E-12                   (X_U1.39)-2.251E-12                       
+
+(X_U1.40)-2.251E-12                   (X_U1.41)-2.251E-12                       
+
+(X_U1.42)    1.2003                   (X_U1.43)    1.2003                       
+
+(X_U1.44)   -1.1997                   (X_U1.45)   -1.1997                       
+
+(X_U1.46) 300.0E-06                   (X_U1.47) 18.00E-06                       
+
+(X_U1.48)    1.8000                   (X_U1.49) 151.9E-15                       
+
+(X_U1.50) 68.57E-12                   (X_U1.51)   40.0000                       
+
+(X_U1.52)  -40.0000                   (X_U1.53) 148.8E-15                       
+
+(X_U1.54) 148.8E-15                   (X_U1.55)    1.2003                       
+
+(X_U1.56)   -1.1997                   (X_U1.57)  180.0000                       
+
+(X_U1.58) -180.0000                   (X_U1.59) 310.0E-06                       
+
+(X_U1.60) 148.8E-15                   (X_U1.61) 148.8E-15                       
+
+(X_U1.62) 148.8E-15                   (X_U1.63) 148.8E-15                       
+
+(X_U1.64) 148.8E-15                   (X_U1.65) 148.8E-15                       
+
+(X_U1.66)   16.8300                   (X_U1.67)  -17.9750                       
+
+(X_U1.68)   16.8300                   (X_U1.69)  -17.9750                       
+
+(X_U1.70) 148.8E-15                   (X_U1.71) 148.8E-15                       
+
+(X_U1.72) 148.8E-15                   (X_U1.73) 148.8E-15                       
+
+(X_U1.74) 148.8E-15                   (X_U1.75)-9.500E-06                       
+
+(X_U1.76) 300.0E-06                   (X_U1.77) 310.0E-06                       
+
+(X_U1.78) 300.0E-06                   (X_U1.79)  -18.0000                       
+
+(X_U1.80)   16.5000                   (X_U1.81) 148.8E-15                       
+
+(X_U1.82)  -18.0000                   (X_U1.83)   18.0000                       
+
+(X_U1.84) 264.0E-06                   (X_U1.85) 264.0E-06                       
+
+(X_U1.86) 264.0E-06                   (X_U1.CRS)    1.0000                      
+
+(X_U1.MID) 148.8E-15                  (X_U1.ESDn) 300.0E-06                     
+
+(X_U1.ESDp) 100.0E-12                 (X_U1.VCLP) 310.0E-06                     
+
+(X_U1.CLAMP) 310.0E-06                (X_U1.SW_OL) 148.8E-15                    
+
+(X_U1.VCC_B)   18.0000                (X_U1.VEE_B)  -18.0000                    
+
+(X_U1.VIMON)-9.500E-06                (X_U1.VOUT_S) 300.0E-06                   
+
+(X_U1.VSENSE) 310.0E-06               (X_U1.Xe_n.3)    0.0000                   
+
+(X_U1.Xe_n.4)    0.0000               (X_U1.Xe_n.5)    0.0000                   
+
+(X_U1.Xe_n.6)    0.0000               (X_U1.Xe_n.7)     .8338                   
+
+(X_U1.Xe_n.8)     .8338               (X_U1.XU1.ZC)    1.0000                   
+
+(X_U1.VCC_CLP)   16.8300              (X_U1.VEE_CLP)  -17.9750                  
+
+(X_U1.Xi_nn.3)    0.0000              (X_U1.Xi_nn.4)    0.0000                  
+
+(X_U1.Xi_nn.5)    0.0000              (X_U1.Xi_nn.6)    0.0000                  
+
+(X_U1.Xi_nn.7)     .8338              (X_U1.Xi_nn.8)     .8338                  
+
+(X_U1.Xi_np.3)    0.0000              (X_U1.Xi_np.4)    0.0000                  
+
+(X_U1.Xi_np.5)    0.0000              (X_U1.Xi_np.6)    0.0000                  
+
+(X_U1.Xi_np.7)     .8338              (X_U1.Xi_np.8)     .8338                  
+
+(X_U1.CL_CLAMP) 310.0E-06             (X_U1.XU1.VREF)    -.0400                 
+
+(X_U1.XU1.VSHF)     .0400             (X_U1.CLAW_CLAMP) 310.0E-06           
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -3.000E-04
+    V_V2        -3.000E-04
+    V_V3         1.000E-08
+    X_U1.V_GRp  -1.800E-10
+    X_U1.V_GRn   1.800E-10
+    X_U1.V_ISCp  -4.000E-11
+    X_U1.V_ISCn   4.000E-11
+    X_U1.V_ORn   0.000E+00
+    X_U1.V11     2.400E-12
+    X_U1.V_ORp   0.000E+00
+    X_U1.V12    -2.400E-12
+    X_U1.V4     -9.500E-09
+    X_U1.VCM_MIN   1.800E-11
+    X_U1.VCM_MAX  -1.650E-11
+    X_U1.V_OS    8.274E-16
+    X_U1.XU1.V1   0.000E+00
+
+    TOTAL POWER DISSIPATION   1.08E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 08/12/21 11:33:15 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =        4.42
+  Total job time (using Solver 1)   =        2.31
+

@@ -1,0 +1,208 @@
+
+**** 08/12/21 11:32:58 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Transient.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../fixed_models/lmx58b_lm2904b.lib" 
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1m 0 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source LMX58B_LM2904B
+V_V1         VCC 0 18
+V_V2         0 VEE 18
+V_V3         VIN 0  
++SIN 0 1 1k 0 0 0
+X_U1         VIN VO VCC VEE VO LMX58B_LM2904B
+
+**** RESUMING Transient.cir ****
+.END
+
+INFO(ORPSIM-15423): Unable to find index file lmx58b_lm2904b.ind for library file lmx58b_lm2904b.lib.
+
+INFO(ORPSIM-15422): Making new index file lmx58b_lm2904b.ind for library file lmx58b_lm2904b.lib.
+
+Index has 18 entries from 1 file(s).
+
+**** 08/12/21 11:32:58 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.Xi_nn.DVNF X_U1.Xi_np.DVNF X_U1.Xe_n.DVN   
+          IS  100.000000E-18  100.000000E-18  100.000000E-18 
+          KF  316.227800E-15  316.227800E-15   31.622780E-12 
+
+
+**** 08/12/21 11:32:58 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.R_NOISELESS 
+  T_Measured   27            
+   T_Current -273.15         
+           R    1            
+
+
+**** 08/12/21 11:32:58 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.BB_SW      X_U1.ESD_SW     X_U1.OL_SW      X_U1.OR_SW      
+         RON   50              50               1.000000E-03     .01         
+        ROFF    1.000000E+12    1.000000E+12    1.000000E+09    1.000000E+09 
+         VON     .7              .25             .9             1.000000E-03 
+        VOFF    0               0                .8             0            
+
+
+               X_U1.S_VSWITCH_1 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U1.S_VSWITCH_2 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U1.S_VSWITCH_3 
+         RON    1.000000E-03 
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U1.S_VSWITCH_4 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .45         
+
+
+               X_U1.S_VSWITCH_5 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .45         
+
+
+ERROR(ORPSIM-16583): Detected an imported model containing transistors or diodes. For such models, PSpice for TI supports a minimum of one and maximum of three traces. Reduce the number of traces and simulate again.
+
+
+ABORTING SIMULATION
+**** 08/12/21 11:32:58 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Transient"  [ C:\Users\a0232807\Documents\Modeling\model_fix_reupload\LMx58B_LM2904B-PSpiceFiles\SCHEMATIC1\
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+Node counts:
+  Top level (NUNODS)                =           4
+  External (NCNODS)                 =         107
+  Total (NUMNOD)                    =         107
+
+Total device count (NUMEL)          =         226
+  Capacitors (C)                    =          31
+  Diodes (D)                        =           6
+  VCVS (E)                          =          13
+  VCCS (G)                          =          40
+  CCVS (H)                          =           3
+  Current Sources (I)               =           9
+  Resistors (R)                     =         103
+  VSwitches (S)                     =           5
+  Voltage Sources (V)               =          16
+
+Number of subcircuits (X)           =          21
+
+Matrix statistics:
+  Matrix size (NSTOP)               =         139
+  Initial no. elements (NTTAR)      =         543
+  No. elements w/ fillin (NTTBR)    =         543
+  No. fillins (IFILL)               =           0
+  No. overflows (NTTOV)             =           0
+  No. LU operations (IOPS)          =           0
+  Percent sparsity (PERSPA)         =      97.190
+
+Analysis statistics:
+  No. total time points (NUMTTP)    =           0
+  No. rejected time points (NUMRTP) =           0
+  No. iterations (NUMNIT)           =           0
+
+Load Threads                        =           1
+
+Runtime statistics:                       Seconds      Iterations
+  Matrix load                       =        0.00
+  Matrix solution                   =        0.00               1
+  Readin                            =        4.23
+  General setup                     =        0.00
+  CMI setup                     =        0.00
+  Setup                             =        0.00
+  DC sweep                          =        0.00               0
+  Bias point                        =        0.00               0
+  AC and noise                      =        0.00               0
+  Total transient analysis          =        0.00
+  Output                            =        0.00
+  Overhead                          =         .14
+  Total job time (using Solver 1)   =        4.23
+

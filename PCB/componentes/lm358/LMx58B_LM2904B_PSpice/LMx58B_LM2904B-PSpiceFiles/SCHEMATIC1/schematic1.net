@@ -1,0 +1,6 @@
+* source LMX58B_LM2904B
+V_V1         VCC 0 18
+V_V2         0 VEE 18
+V_V3         VIN 0  
++SIN 0 1 1k 0 0 0
+X_U1         VIN VO VCC VEE VO LMX58B_LM2904B
