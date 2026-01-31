@@ -115,6 +115,118 @@
                 </table>
 
                 <p><strong>Consideraciones de layout:</strong> Los encapsulados SMD se priorizaron para reducir inductancias parásitas, mientras que componentes como el LM35 en TO-220 ubicados en sensores externos permitieron montaje mecánico robusto donde se requería transferencia térmica directa.</p>
+
+                <hr style="border: 1px solid #c41e3a; margin: 40px 0;" />
+
+                <h2>Fase 2: Implementación Física - PCB de 6 Capas</h2>
+
+                <h3>Estrategia de Stackup</h3>
+                <p>La distribución en 6 capas se optimizó para garantizar integridad de señal y facilitar el debugging, con una separación clara de funciones:</p>
+
+                <table>
+                    <tr>
+                        <th>Capa</th>
+                        <th>Designación</th>
+                        <th>Contenido Principal</th>
+                        <th>Consideración Clave</th>
+                    </tr>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>F.Cu (Top)</td>
+                        <td>Señales analógicas críticas</td>
+                        <td>Accesible para medición, trazos cortos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td>In1.Cu</td>
+                        <td>Plano de tierra contínuo</td>
+                        <td>Referencia de baja impedancia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td>In2.Cu</td>
+                        <td>Distribución de alimentación</td>
+                        <td>Separación entre potencia limpia y general</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td>In3.Cu</td>
+                        <td>Señales de control y setpoints</td>
+                        <td>Aislamiento de rutas analógicas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>In4.Cu</td>
+                        <td>Interconexiones y LEDs</td>
+                        <td>Capa utilitaria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td>B.Cu (Bottom)</td>
+                        <td>Rutas analógicas de largo recorrido</td>
+                        <td>"Autopistas" con routing predecible</td>
+                    </tr>
+                </table>
+
+                <h3>Visualización de Capas</h3>
+                <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
+                  <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="img/pcb.0.board1.png" alt="Capas 1 y 2" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">F.Cu + In1.Cu</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="img/pcb.0.board2.png" alt="Capas 3 y 4" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">In2.Cu + In3.Cu</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="img/pcb.0.board3.png" alt="Capas 5 y 6" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">In4.Cu + B.Cu</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="img/pcb.0.board4.png" alt="Sensores Externos" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Módulos Sensoriales</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3>Metodología de Routing</h3>
+                <p>El routing siguió una jerarquía estricta, priorizando integridad sobre conveniencia:</p>
+
+                <ol style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Tierra</strong> - Establecimiento de referencia con múltiples vías</li>
+                    <li><strong>Alimentación</strong> - Trazos dimensionados según corriente requerida. Se separa alimentación de integrados (<code>power_clean</code>) de alimentación general</li>
+                    <li><strong>Señales de feedback</strong> - Rutas directas y protegidas</li>
+                    <li><strong>Señales analógicas</strong> - Minimización de longitud y cruces</li>
+                    <li><strong>Control y LEDs</strong> - Completado de interconexiones</li>
+                </ol>
+
+                <p>Esta secuencia aseguró que las señales más sensibles tuvieran rutas óptimas antes de comprometer espacio con funcionalidades secundarias.</p>
+
+                <h3>Subsistemas Externos y Conectividad</h3>
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="img/pcb.0.3Dboard4.png" alt="Módulos Sensoriales Externos" style="max-width: 100%; border: 2px solid #003366;">
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Sensores y actuadores distribuidos - solución modular con conectividad claramente identificada</p>
+                </div>
+
+                <p>El sistema completo se extiende más allá del PCB principal mediante módulos externos:</p>
+
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>4 módulos de detección de luz</strong>, cada uno con 1 LDR para cobertura omnidireccional.</li>
+                    <li><strong>2 sensores de temperatura LM35</strong> para monitoreo térmico en ubicaciones críticas.</li>
+                    <li><strong>1 módulo heater</strong> activado por la señal de alerta de baja temperatura.</li>
+                    <li><strong>2 finales de carrera</strong> para detección física de apertura y cierre de paneles solares.</li>
+                </ul>
+
+                <p>Cada módulo es un <strong>PCB cuadrado de doble capa</strong> con orificios para montaje mecánico robusto. La interconexión con el board principal se realiza mediante cables conectados a <strong>borneras rotuladas en ambos extremos</strong>, asegurando una instalación libre de errores y facilitando el mantenimiento o reemplazo individual de cualquier subsistema sin afectar al conjunto.</p>
+
+                <h3>Puntos Clave del Diseño</h3>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Separación efectiva de dominios:</strong> Las 63 señales organizadas en clases permitieron aplicar reglas de diseño consistentes y automatizadas.</li>
+                    <li><strong>Routing jerárquico exitoso:</strong> Comenzar con referencia y alimentación, luego señales críticas, finalmente funcionalidades secundarias.</li>
+                    <li><strong>Debugging incorporado:</strong> Todas las señales críticas accesibles en capas externas, con espacio para puntos de prueba donde fue necesario.</li>
+                    <li><strong>Cumplimiento sobrado de especificaciones:</strong> El diseño final excede los requerimientos mínimos de clearance y ancho de trazo del fabricante seleccionado.</li>
+                </ul>
             </div>
         </main>
         <div id="footer-container"></div>
