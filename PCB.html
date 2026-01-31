@@ -204,21 +204,35 @@
                 <p>Esta secuencia aseguró que las señales más sensibles tuvieran rutas óptimas antes de comprometer espacio con funcionalidades secundarias.</p>
 
                 <h3>Subsistemas Externos y Conectividad</h3>
-                <div style="text-align: center; margin: 30px 0;">
-                    <img src="img/pcb.0.3Dboard4.png" alt="Módulos Sensoriales Externos" style="max-width: 100%; border: 2px solid #003366;">
-                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Sensores y actuadores distribuidos - solución modular con conectividad claramente identificada</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; align-items: flex-start;">
+                    <div style="flex: 1 1 300px; min-width: 300px;">
+                        <img src="img/pcb.0.3Dboard4.png" alt="Módulos Sensoriales Externos" style="width: 100%; border: 2px solid #003366;">
+                        <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Sensores y actuadores distribuidos - solución modular con conectividad claramente identificada</p>
+                    </div>
+                    <div style="flex: 1 1 300px; min-width: 300px;">
+                        <p>El sistema completo se extiende más allá del PCB principal mediante módulos externos:</p>
+
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li><strong>4 módulos de detección de luz</strong>, cada uno con 1 LDR para cobertura omnidireccional.</li>
+                            <li><strong>2 sensores de temperatura LM35</strong> para monitoreo térmico en ubicaciones críticas.</li>
+                            <li><strong>1 módulo heater</strong> activado por la señal de alerta de baja temperatura.</li>
+                            <li><strong>2 finales de carrera</strong> para detección física de apertura y cierre de paneles solares.</li>
+                        </ul>
+
+                        <p>Cada módulo es un <strong>PCB cuadrado de doble capa</strong> con orificios para montaje mecánico robusto. La interconexión con el board principal se realiza mediante cables conectados a <strong>borneras rotuladas en ambos extremos</strong>, asegurando una instalación libre de errores y facilitando el mantenimiento o reemplazo individual de cualquier subsistema sin afectar al conjunto.</p>
+                    </div>
                 </div>
-
-                <p>El sistema completo se extiende más allá del PCB principal mediante módulos externos:</p>
-
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><strong>4 módulos de detección de luz</strong>, cada uno con 1 LDR para cobertura omnidireccional.</li>
-                    <li><strong>2 sensores de temperatura LM35</strong> para monitoreo térmico en ubicaciones críticas.</li>
-                    <li><strong>1 módulo heater</strong> activado por la señal de alerta de baja temperatura.</li>
-                    <li><strong>2 finales de carrera</strong> para detección física de apertura y cierre de paneles solares.</li>
-                </ul>
-
-                <p>Cada módulo es un <strong>PCB cuadrado de doble capa</strong> con orificios para montaje mecánico robusto. La interconexión con el board principal se realiza mediante cables conectados a <strong>borneras rotuladas en ambos extremos</strong>, asegurando una instalación libre de errores y facilitando el mantenimiento o reemplazo individual de cualquier subsistema sin afectar al conjunto.</p>
+                <style>
+                    @media (max-width: 768px) {
+                        .content-wrapper div[style*="display: flex"] {
+                            flex-direction: column !important;
+                        }
+                        .content-wrapper div[style*="min-width: 300px"] {
+                            min-width: 100% !important;
+                            margin-bottom: 20px;
+                        }
+                    }
+                </style>
 
                 <h3>Puntos Clave del Diseño</h3>
                 <ul style="margin-left: 20px; margin-bottom: 20px;">
