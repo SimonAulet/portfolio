@@ -43,7 +43,7 @@
                 <blockquote>
                 <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/FPGA/Alarm"><code>https://github.com/SimonAulet/portfolio/tree/main/FPGA/Alarm</code></a></p>
                 </blockquote>
-                <p><img src="img/alarma_arch_transparent.png" alt="Arquitectura del Sistema de Alarma" /> <em>Arquitectura del sistema: flujo de señales entre la detección de secuencia y el control de estados.</em></p>
+                <p><img src="img/fpga.alarma_arch_transparent.png" alt="Arquitectura del Sistema de Alarma" /> <em>Arquitectura del sistema: flujo de señales entre la detección de secuencia y el control de estados.</em></p>
                 <h3 id="lógica-de-control-y-funcionamiento">Lógica de Control y Funcionamiento</h3>
                 <p>La interfaz de usuario consta de tres pulsadores de combinación (<code>b1</code>, <code>b2</code>, <code>b3</code>) y un comando de validación (<code>check</code>). El sistema evalúa la secuencia ingresada únicamente cuando se presiona la validación, lo que permite una lógica de control robusta: si el usuario intenta validar una secuencia incorrecta mientras el sistema está armado, la transición es inmediata hacia el estado de Alarma. Del mismo modo, el estado de alerta se dispara ante la activación del sensor de movimiento (<code>MOV</code>).</p>
                 <h3 id="estrategia-de-sincronización">Estrategia de Sincronización</h3>
@@ -151,7 +151,7 @@
                 </p>
                 </td>
                 <td width="40%" valign="top">
-                <img src="img/secuenciador_fsm.png" alt="Diagrama de Estados Secuenciador" width="100%">
+                <img src="img/fpga.secuenciador_fsm.png" alt="Diagrama de Estados Secuenciador" width="100%">
                 <p align="center">
                 <em>Diagrama de estados del secuenciador (Moore)</em>
                 </p>
@@ -243,12 +243,12 @@
                 </p>
                 </td>
                 <td width="60%" valign="top">
-                <img src="img/fa_esquema.png" alt="Esquemático Full Adder" width="100%">
+                <img src="img/fpga.fa_esquema.png" alt="Esquemático Full Adder" width="100%">
                 <br>
                 <p align="center">
                 <em>Arquitectura con 2 Half-Adders</em>
                 </p>
-                <br> <img src="img/fa_sim.png" alt="Simulación Full Adder" width="100%">
+                <br> <img src="img/fpga.fa_sim.png" alt="Simulación Full Adder" width="100%">
                 <p align="center">
                 <em>Validación de tabla de verdad</em>
                 </p>
@@ -278,12 +278,12 @@
                 </p>
                 </td>
                 <td width="60%" valign="top">
-                <img src="img/alu_dec.png" alt="Simulación ALU Decimal" width="100%">
+                <img src="img/fpga.alu_dec.png" alt="Simulación ALU Decimal" width="100%">
                 <p align="center">
                 <em>Aritmética: Suma y Resta (Signo)</em>
                 </p>
                 <br>
-                <img src="img/alu_bin.png" alt="Simulación ALU Binaria" width="100%">
+                <img src="img/fpga.alu_bin.png" alt="Simulación ALU Binaria" width="100%">
                 <p align="center">
                 <em>Lógica: AND y OR (Bitwise)</em>
                 </p>
@@ -310,15 +310,15 @@
                 </ul>
                 </td>
                 <td width="60%" valign="top">
-                <img src="img/cnt_init.png" alt="Inicio del contador" width="100%">
+                <img src="img/fpga.cnt_init.png" alt="Inicio del contador" width="100%">
                 <p align="center">
                 <em>1. Inicio de cuenta (0 a 5)</em>
                 </p>
-                <br> <img src="img/cnt_change.png" alt="Cambio de modulo" width="100%">
+                <br> <img src="img/fpga.cnt_change.png" alt="Cambio de modulo" width="100%">
                 <p align="center">
                 <em>2. Cambio de N "on-the-fly"</em>
                 </p>
-                <br> <img src="img/cnt_reset.png" alt="Reset del contador" width="100%">
+                <br> <img src="img/fpga.cnt_reset.png" alt="Reset del contador" width="100%">
                 <p align="center">
                 <em>3. Reset Asíncrono</em>
                 </p>
@@ -337,7 +337,7 @@
                 </p>
                 </td>
                 <td width="60%" valign="top" style="text-align: center;">
-                <img src="img/detector101_fsm_transparent.png" alt="FSM Detector 101" width="70%">
+                <img src="img/fpga.detector101_fsm_transparent.png" alt="FSM Detector 101" width="70%">
                 </td>
                 </tr>
                 </table>
