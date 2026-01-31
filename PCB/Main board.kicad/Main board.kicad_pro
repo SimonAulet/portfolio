@@ -540,7 +540,7 @@
         "name": "Control",
         "pcb_color": "rgb(0, 227, 255)",
         "priority": 6,
-        "schematic_color": "rgb(206, 90, 255)",
+        "schematic_color": "rgb(30, 128, 59)",
         "track_width": 0.3,
         "via_diameter": 0.3,
         "via_drill": 0.1,
@@ -625,7 +625,7 @@
         "name": "pwr signal",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2,
-        "schematic_color": "rgb(255, 94, 91)",
+        "schematic_color": "rgb(202, 187, 87)",
         "track_width": 0.4,
         "via_diameter": 1.0,
         "via_drill": 0.6,
@@ -693,7 +693,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -707,10 +707,10 @@
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
-      "field_delimiter": ";",
+      "field_delimiter": ",",
       "keep_line_breaks": false,
       "keep_tabs": false,
-      "name": "---",
+      "name": "CSV",
       "ref_delimiter": ",",
       "ref_range_delimiter": "",
       "string_delimiter": "\""
@@ -844,7 +844,7 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "",
+    "net_format_name": "KiCad",
     "ngspice": {
       "fix_include_paths": true,
       "meta": {

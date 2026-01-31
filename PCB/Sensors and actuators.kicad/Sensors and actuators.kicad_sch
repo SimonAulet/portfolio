@@ -2549,7 +2549,7 @@
 		)
 	)
 	(rectangle
-		(start 139.192 87.884)
+		(start 139.192 86.36)
 		(end 277.114 142.24)
 		(stroke
 			(width 0)
@@ -2573,7 +2573,7 @@
 		(uuid 961bfe83-f075-4c39-a412-244b961c4084)
 	)
 	(rectangle
-		(start 15.494 18.542)
+		(start 13.97 18.542)
 		(end 56.896 190.5)
 		(stroke
 			(width 0)
