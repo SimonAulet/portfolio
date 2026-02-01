@@ -250,6 +250,36 @@ footer a:hover {
     margin: 10px 0;
 }
 
+/* ===== ESTILOS PARA LISTAS ===== */
+.content-wrapper ul,
+.content-wrapper ol {
+    margin: 15px 0;
+    padding-left: 40px; /* Espacio para bullets/números */
+    line-height: 1.6;
+}
+
+.content-wrapper li {
+    margin-bottom: 8px;
+    padding-left: 5px; /* Espacio entre bullet/número y texto */
+}
+
+/* Estilo específico para listas no ordenadas */
+.content-wrapper ul {
+    list-style-type: disc; /* Bullets tradicionales */
+}
+
+/* Estilo específico para listas ordenadas */
+.content-wrapper ol {
+    list-style-type: decimal; /* Números */
+}
+
+/* Para listas dentro de tablas o otros contenedores */
+.content-wrapper table ul,
+.content-wrapper table ol {
+    padding-left: 25px; /* Menos espacio en tablas */
+    margin: 10px 0;
+}
+
 .content-wrapper details {
     background: #f8f8f8;
     border: 1px solid #ddd;
@@ -362,7 +392,19 @@ footer a:hover {
 
 }
 
+/* Para móvil */
 @media (max-width: 768px) {
+    /* Ajustes para listas en móvil */
+    .content-wrapper ul,
+    .content-wrapper ol {
+        padding-left: 30px; /* Menos espacio en móvil */
+    }
+    
+    .content-wrapper table ul,
+    .content-wrapper table ol {
+        padding-left: 20px;
+    }
+
     /* Asegurar que el texto en las celdas se ajuste */
     .content-wrapper table td {
         white-space: normal !important; /* Forzar saltos de línea */
