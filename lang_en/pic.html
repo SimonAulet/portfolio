@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Sistemas Embebidos con PIC - Portafolio Técnico</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- Prism.js para syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nasm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fundamentos de Sistemas Embebidos con PIC</h1>
+            <p class="subtitle">Simón Aulet · PIC16F18875 · Ensamblador · C Embebido</p>
+            <p class="description">Proyectos académicos en ensamblador y C para microcontroladores <strong>PIC16F18875</strong>, enfocados en manejo directo de hardware y transición hacia abstracciones mediante Microchip Code Configurator.</p>
+            <div class="tech-tags">
+                <span>PIC16F18875</span>
+                <span>Ensamblador</span>
+                <span>C Embebido</span>
+                <span>Microcontroladores</span>
+                <span>MCC</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                <hr />
+                <h2 id="proyectos-implementados">Proyectos Implementados</h2>
+                <p>Esta serie de proyectos representa un recorrido desde el control directo de hardware en ensamblador hasta la implementación de drivers abstractos en C, estableciendo una comprensión crítica del costo de las operaciones y los límites del hardware.</p>
+
+                <h3 id="blink-en-ensamblador-control-directo-de-gpio">1. Blink en Ensamblador – Control Directo de GPIO</h3>
+                <p>Implementación básica de control de LEDs mediante manipulación directa de registros en ensamblador, sin abstracciones de alto nivel.</p>
+                <blockquote>
+                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X</code></a></p>
+                </blockquote>
+
+                <details>
+                <summary>
+                Ver Código: Blink en Ensamblador (blink.s)
+                </summary>
+                <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
+                  LIST
+                  #include <xc.inc>
+                  ////////////////////////////////////////////////////////////////
+
+                  ; PIC16F18875 Configuration Bit Settings
+
+                  ; Assembly source line config statements
+
+                  ; CONFIG1
+                  ;  CONFIG  FEXTOSC = ECH         ; External Oscillator mode selection bits (EC above 8MHz; PFM set to high power)
+                  ;  CONFIG  RSTOSC = LFINT        ; Power-up default value for COSC bits (LFINTOSC)
+                  ;  CONFIG  CLKOUTEN = OFF        ; Clock Out Enable bit (CLKOUT function is disabled; i/o or oscillator function on OSC2)
+                  ;  CONFIG  CSWEN = ON            ; Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
+                  ;  CONFIG  FCMEN = ON            ; Fail-Safe Clock Monitor Enable bit (FSCM timer enabled)
+
+                  CONFIG  FEXTOSC = OFF        ; Desactiva el oscilador externo
+                  CONFIG  RSTOSC = HFINT1      ; Usa el oscilador interno de alta frecuencia (1 MHz)
+                  CONFIG  CLKOUTEN = OFF       ; Deshabilita la salida de reloj
+                  CONFIG  CSWEN = ON           ; Permite cambiar la frecuencia en tiempo de ejecución
+                  CONFIG  FCMEN = OFF          ; Desactiva el Fail-Safe Clock Monitor (ya no es necesario)
+
+                  ; CONFIG2
+                    CONFIG  MCLRE = ON            ; Master Clear Enable bit (MCLR pin is Master Clear function)
+                    CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+                    CONFIG  LPBOREN = OFF         ; Low-Power BOR enable bit (ULPBOR disabled)
+                    CONFIG  BOREN = ON            ; Brown-out reset enable bits (Brown-out Reset Enabled, SBOREN bit is ignored)
+                    CONFIG  BORV = LO             ; Brown-out Reset Voltage Selection (Brown-out Reset Voltage (VBOR) set to 1.9V on LF, and 2.45V on F Devices)
+                    CONFIG  ZCD = OFF             ; Zero-cross detect disable (Zero-cross detect circuit is disabled at POR.)
+                    CONFIG  PPS1WAY = ON          ; Peripheral Pin Select one-way control (The PPSLOCK bit can be cleared and set only once in software)
+                    CONFIG  STVREN = ON           ; Stack Overflow/Underflow Reset Enable bit (Stack Overflow or Underflow will cause a reset)
+
+                  ; CONFIG3
+                    CONFIG  WDTCPS = WDTCPS_31    ; WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+                    CONFIG  WDTE = ON             ; WDT operating mode (WDT enabled regardless of sleep; SWDTEN ignored)
+                    CONFIG  WDTCWS = WDTCWS_7     ; WDT Window Select bits (window always open (100%); software control; keyed access not required)
+                    CONFIG  WDTCCS = SC           ; WDT input clock selector (Software Control)
+
+                  ; CONFIG4
+                    CONFIG  WRT = OFF             ; UserNVM self-write protection bits (Write protection off)
+                    CONFIG  SCANE = available     ; Scanner Enable bit (Scanner module is available for use)
+                    CONFIG  LVP = ON              ; Low Voltage Programming Enable bit (Low Voltage programming enabled. MCLR/Vpp pin function is MCLR.)
+
+                  ; CONFIG5
+                    CONFIG  CP = OFF              ; UserNVM Program memory code protection bit (Program Memory code protection disabled)
+                    CONFIG  CPD = OFF             ; DataNVM code protection bit (Data EEPROM code protection disabled)
+
+                  ///////////////////////////////////////////////////////////////
+                  PSECT resetVec,class=CODE,delta=2
+                  resetVec:
+                      PAGESEL main
+                      goto    main
+
+                  PSECT code
+                  main:
+                      CLRF   TRISA        ; Configurar PORTA como salida
+
+                  START:
+                      MOVLW  00000000B    ; Apagar LED en RA3
+                      MOVWF  PORTA
+
+                      CALL Retardo        ; Llamar al retardo
+
+                      MOVLW  11111111B    ; Encender LED en RA3
+                      MOVWF  PORTA
+
+                      CALL Retardo        ; Llamar al retardo
+
+                      GOTO   START        ; Repetir el ciclo
+
+                  ;-------------------
+                  ; Subrutina de Retardo
+                  ;-------------------
+                  Retardo:
+               	    MOVLW   0xFF
+               	    MOVWF   0x20
+
+               	    MOVLW   0xFF
+               	    MOVWF   0x21
+
+               	    MOVLW   0x16
+               	    MOVWF   0x22
+
+               	Loop1: ;decrementa 20
+               	    DECFSZ  0x20, F
+               	    GOTO    Loop1
+               	Loop2: ;decrementa 21
+               	    MOVLW   0xFF
+               	    MOVWF   0x20 ;reseteo reg 1
+               	    DECFSZ  0x21, F
+               	    GOTO    Loop1
+               	Loop3: ;decrementa 22
+               	    MOVLW   0xFF
+               	    MOVWF   0x20 ;reseteo reg 1
+               	    MOVLW   0xFF
+               	    MOVWF   0x21 ;reseteo reg 2
+               	    DECFSZ  0x22, F
+               	    GOTO    Loop1
+               	    RETURN
+                      END main
+                </code></pre>
+                </details>
+
+                <h4>Características Técnicas</h4>
+                <ul>
+                <li><strong>Temporización:</strong> Mediante triple loop en ensamblador</li>
+                <li><strong>Configuración:</strong> Manual de puertos sin abstracciones</li>
+                <li><strong>Oscilador:</strong> Interno HFINT1 a 1 MHz</li>
+                <li><strong>GPIO:</strong> Control directo de puerto A</li>
+                </ul>
+                <p><strong>Valor Pedagógico:</strong> Comprensión del costo de ciclo de instrucción y temporización precisa.</p>
+
+                <h3 id="lectura-de-potenciometro-en-ensamblador">2. Lectura de Potenciómetro en Ensamblador</h3>
+                <p>Sistema de adquisición analógica mediante ADC de 8 bits con visualización en barra de LEDs.</p>
+                <blockquote>
+                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X</code></a></p>
+                </blockquote>
+
+                <details>
+                <summary>
+                Ver Código: Lectura ADC en Ensamblador (potenciometro.s)
+                </summary>
+                <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
+                  LIST
+                  #include <xc.inc>
+                  ////////////////////////////////////////////////////////////////
+
+                  ; PIC16F18875 Configuration Bit Settings
+
+                  ; Assembly source line config statements
+
+                  ; CONFIG1
+                    CONFIG  FEXTOSC = OFF         ; External Oscillator mode selection bits (EC above 8MHz; PFM set to high power)
+                    CONFIG  RSTOSC = HFINT1       ; Power-up default value for COSC bits (LFINTOSC)
+                    CONFIG  CLKOUTEN = OFF        ; Clock Out Enable bit (CLKOUT function is disabled; i/o or oscillator function on OSC2)
+                    CONFIG  CSWEN = ON            ; Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
+                    CONFIG  FCMEN = OFF           ; Fail-Safe Clock Monitor Enable bit (FSCM timer enabled)
+
+                  ; CONFIG2
+                    CONFIG  MCLRE = ON            ; Master Clear Enable bit (MCLR pin is Master Clear function)
+                    CONFIG  PWRTE = OFF           ; Power-up Timer Enable bit (PWRT disabled)
+                    CONFIG  LPBOREN = OFF         ; Low-Power BOR enable bit (ULPBOR disabled)
+                    CONFIG  BOREN = ON            ; Brown-out reset enable bits (Brown-out Reset Enabled, SBOREN bit is ignored)
+                    CONFIG  BORV = LO             ; Brown-out Reset Voltage Selection (Brown-out Reset Voltage (VBOR) set to 1.9V on LF, and 2.45V on F Devices)
+                    CONFIG  ZCD = OFF             ; Zero-cross detect disable (Zero-cross detect circuit is disabled at POR.)
+                    CONFIG  PPS1WAY = ON          ; Peripheral Pin Select one-way control (The PPSLOCK bit can be cleared and set only once in software)
+                    CONFIG  STVREN = ON           ; Stack Overflow/Underflow Reset Enable bit (Stack Overflow or Underflow will cause a reset)
+
+                  ; CONFIG3
+                    CONFIG  WDTCPS = WDTCPS_31    ; WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+                    CONFIG  WDTE = OFF            ; WDT operating mode (WDT enabled regardless of sleep; SWDTEN ignored)
+                    CONFIG  WDTCWS = WDTCWS_7     ; WDT Window Select bits (window always open (100%); software control; keyed access not required)
+                    CONFIG  WDTCCS = SC           ; WDT input clock selector (Software Control)
+
+                  ; CONFIG4
+                    CONFIG  WRT = OFF             ; UserNVM self-write protection bits (Write protection off)
+                    CONFIG  SCANE = available     ; Scanner Enable bit (Scanner module is available for use)
+                    CONFIG  LVP = ON              ; Low Voltage Programming Enable bit (Low Voltage programming enabled. MCLR/Vpp pin function is MCLR.)
+
+                  ; CONFIG5
+                    CONFIG  CP = OFF              ; UserNVM Program memory code protection bit (Program Memory code protection disabled)
+                    CONFIG  CPD = OFF             ; DataNVM code protection bit (Data EEPROM code protection disabled)
+
+                  ; CONFIG ADC
+                    BSF ANSELA, 0        ; Configurar RA0 como analógico
+                    BSF TRISA, 0         ; Configurar RA0 como entrada
+                    MOVLW 0x01           ; Seleccionar canal AN0 (RA0)
+                    MOVWF ADPCH
+                    MOVLW 0b00010101     ; ADC ON, Clock FRC, Justificado a la izquierda
+                    MOVWF ADCON0
+                    MOVLW 0b10000000     ; Referencia VDD y VSS, Justificado a la izquierda
+                    MOVWF ADCON1
+
+                  ; CONFIG LEDS
+                  MOVLW   0b00001111   ; RA4 a 7 como salidas, el resto como estaban
+                  ANDWF   TRISA, F
+
+
+                  // config statements should precede project file includes.
+
+                  ///////////////////////////////////////////////////////////////
+                  PSECT resetVec,class=CODE,delta=2
+                  resetVec:
+                      PAGESEL main                ;Salta al Main
+                      goto    main
+                  PSECT code
+
+                  main:
+
+                  START:
+
+                  GOTO adc
+                    MOVLW  0b01010101
+                    MOVWF  0x20
+
+                    ;alterno 0x20 entre unos  y ceros
+                    BTFSC 0x20, 7
+                    MOVLW 0b00000000  ;00 L2
+                    BTFSS 0x20, 7
+                    MOVLW 0b11111111  ;10 L4
+                    MOVWF 0x20
+
+                  ;chequeo resultado del potenciometro
+
+                    BTFSC 0x20, 7		;primer bit
+                    GOTO msb1
+                    GOTO msb0
+
+                  msb1:
+                    BTFSC 0x20, 6		;segundo  bit
+                    GOTO nivel4
+                    GOTO nivel3
+
+                  msb0:
+                    BTFSC 0x20, 6		;segundo  bit
+                    GOTO nivel2
+                    GOTO nivel1
+
+                  adc:
+                      BSF ADCON0, 0        ; Iniciar conversión
+                      BTFSC ADCON0, 1      ; Esperar a que termine (mientras GO/DONE=1)
+                      GOTO $-1
+
+                      MOVF ADRESH, W       ; Me van a interesar solo los 2 msb
+                      MOVWF 0x20
+
+                      RETURN
+
+                  ;los bits de los leds son 4, 5, 6 y 7 del puerto A
+                  nivel0: ;0000
+                    MOVF  LATA, W
+                    ANDLW 0b00001111
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel1: ;0001
+                    MOVF  LATA, 0
+                    ANDLW 0b00011111
+                    IORLW 0b00010000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel2: ;0011
+                    MOVF  LATA, 0
+                    ANDLW 0b00111111
+                    IORLW 0b00110000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel3: ;0111
+                    MOVF  LATA, 0
+                    ANDLW 0b01111111
+                    IORLW 0b01110000
+                    MOVWF LATA
+
+                    GOTO  START
+
+                  nivel4: ;1111
+                    MOVF  LATA, 0
+                    IORLW 0b11110000
+                    MOVWF LATA
+                    GOTO  START
+                  END main
+                </code></pre>
+                </details>
+
+                <h4>Características Técnicas</h4>
+                <ul>
+                <li><strong>ADC:</strong> 8 bits en canal AN0 (RA0)</li>
+                <li><strong>Procesamiento:</strong> Los 2 bits más significativos determinan nivel en barra de LEDs</li>
+                <li><strong>Visualización:</strong> Representación visual en RA4–RA7</li>
+                <li><strong>Resolución:</strong> 4 niveles discretos (2 bits)</li>
+                </ul>
+                <p><strong>Valor Pedagógico:</strong> Entendimiento del proceso de conversión A/D y mapeo de valores.</p>
+
+                <h3 id="integracion-con-lcd-en-c">3. Integración con LCD en C</h3>
+                <p>Transición a programación estructurada en C con uso de librerías y abstracciones mediante Microchip Code Configurator.</p>
+                <blockquote>
+                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X</code></a></p>
+                </blockquote>
+
+                <details>
+                <summary>
+                Ver Código: Integración LCD en C (main.c)
+                </summary>
+                <pre class="line-numbers"><code class="language-c">#include "mcc_generated_files/mcc.h"
+                  #include "seri_lcd.h"
+
+                  /*
+                                           Main application
+                   */
+                  void main(void)
+                  {
+                      // initialize the device
+                      SYSTEM_Initialize();
+
+                      // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
+                      // Use the following macros to:
+
+                      // Enable the Global Interrupts
+                     INTERRUPT_GlobalInterruptEnable();
+
+                      // Enable the Peripheral Interrupts
+                     INTERRUPT_PeripheralInterruptEnable();
+
+                      // Disable the Global Interrupts
+                      //INTERRUPT_GlobalInterruptDisable();
+
+                      // Disable the Peripheral Interrupts
+                      //INTERRUPT_PeripheralInterruptDisable();
+                    __delay_ms(500);
+                      lcd_start();
+                      int valor;
+                      while (1)
+                      {
+
+                        char buffer[17];
+
+                        __delay_ms(50);
+                        lcd_delete();
+                        valor = ADCC_GetSingleConversion(POT);
+                        sprintf(buffer, "%d", valor);
+                        lcd_writemessage(1, 1, buffer);
+                      }
+                  }
+                </code></pre>
+                </details>
+
+                <h4>Características Técnicas</h4>
+                <ul>
+                <li><strong>Abstracción:</strong> Mediante <code>Microchip Code Configurator</code></li>
+                <li><strong>Display:</strong> LCD de caracteres 16x2 con interfaz I2C</li>
+                <li><strong>Arquitectura:</strong> Mantenimiento del core funcional con drivers abstractos</li>
+                <li><strong>Librerías:</strong> Uso de APIs estandarizadas para periféricos</li>
+                </ul>
+                <p><strong>Valor Pedagógico:</strong> Transición de bajo nivel a programación estructurada con abstracciones.</p>
+
+                <h2 id="especificaciones-tecnicas">Especificaciones Técnicas</h2>
+                <p>Resumen de componentes y configuraciones utilizadas en los proyectos.</p>
+
+                <table class="four-columns">
+                <tr>
+                <th>Componente</th>
+                <th>Especificación</th>
+                <th>Proyecto</th>
+                <th>Lenguaje</th>
+                </tr>
+                <tr>
+                <td>Microcontrolador</td>
+                <td>PIC16F18875</td>
+                <td>Todos</td>
+                <td>ASM/C</td>
+                </tr>
+                <tr>
+                <td>Oscilador</td>
+                <td>HFINT1 @ 1MHz</td>
+                <td>Blink</td>
+                <td>Ensamblador</td>
+                </tr>
+                <tr>
+                <td>ADC</td>
+                <td>8-bit, Canal AN0</td>
+                <td>Potenciómetro</td>
+                <td>Ensamblador</td>
+                </tr>
+                <tr>
+                <td>Display</td>
+                <td>LCD 16x2 Caracteres</td>
+                <td>Integración LCD</td>
+                <td>C</td>
+                </tr>
+                <tr>
+                <td>Herramienta</td>
+                <td>Microchip MCC</td>
+                <td>Integración LCD</td>
+                <td>C</td>
+                </tr>
+                <tr>
+                <td>GPIO</td>
+                <td>Puerto A (RA0-RA7)</td>
+                <td>Todos</td>
+                <td>ASM/C</td>
+                </tr>
+                <tr>
+                <td>Comunicación</td>
+                <td>I2C para LCD</td>
+                <td>Integración LCD</td>
+                <td>C</td>
+                </tr>
+                </table>
+
+                <h2 id="valor-de-los-fundamentos">Valor de los Fundamentos</h2>
+                <p>Estos proyectos establecen la comprensión crítica del costo de las operaciones y los límites del hardware. La experiencia de escribir retardos en ensamblador y configurar registros manualmente ilumina el funcionamiento interno de los microcontroladores.</p>
+
+                <blockquote>
+                <p><strong>Recorrido formativo:</strong> El recorrido desde control bit-a-bit en ensamblador hasta drivers abstractos en C ayuda para un entendimiento completo de la pila de software embebido.</p>
+                </blockquote>
+
+                <p>La transición progresiva entre niveles de abstracción permite:</p>
+                <ul>
+                <li><strong>Comprensión de costos:</strong> Evaluación del impacto de cada operación en ciclos de reloj</li>
+                <li><strong>Optimización consciente:</strong> Toma de decisiones informadas sobre uso de recursos</li>
+                <li><strong>Debugging efectivo:</strong> Capacidad para diagnosticar problemas a múltiples niveles</li>
+                <li><strong>Selección de herramientas:</strong> Criterio para elegir entre control directo o abstracciones</li>
+                </ul>
+
+                <div class="tech-tags">
+                    <span>Fundamentos</span>
+                    <span>Hardware Directo</span>
+                    <span>Abstracción</span>
+                    <span>Stack Embebido</span>
+                    <span>Optimización</span>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer-container"></div>
+    </div>
+    <script>
+            fetch('components/footer-general.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
+</body>
+</html>

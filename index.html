@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Portfolio - Simón Aulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .language-selector {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .language-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .language-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .language-options {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .language-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            min-width: 180px;
+        }
+
+        .language-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #4a6fa5;
+        }
+
+        .flag {
+            width: 80px;
+            height: 60px;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .language-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-desc {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .language-options {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .language-title {
+                font-size: 2rem;
+            }
+
+            .language-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <h1 class="language-title">Technical Portfolio</h1>
+            <p class="language-subtitle">
+                Welcome to my engineering portfolio. This site showcases practical projects in PCB design, RF engineering,
+                FPGA development, microcontrollers, and remote sensing.
+            </p>
+
+            <div class="language-options">
+                <a href="lang_es/index.html" class="language-option">
+                    <img src="https://flagcdn.com/w320/es.png" alt="Bandera de España" class="flag" width="80" height="60">
+                    <div class="language-name">Español</div>
+                    <div class="language-desc">Spanish version</div>
+                </a>
+
+                <a href="lang_en/index.html" class="language-option">
+                    <img src="https://flagcdn.com/w320/gb.png" alt="Flag of United Kingdom" class="flag" width="80" height="60">
+                    <div class="language-name">English</div>
+                    <div class="language-desc">English version</div>
+                </a>
+            </div>
+
+            <div style="margin-top: 3rem; color: #888; font-size: 0.9rem;">
+                <p>Simón Aulet · PCB · RF · FPGA · Microcontrollers · Remote Sensing</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

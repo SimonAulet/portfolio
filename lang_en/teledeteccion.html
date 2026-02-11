@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Teledetección Ambiental - Portafolio Técnico</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Análisis de Teledetección Ambiental</h1>
+            <p class="subtitle">Monitoreo de cambios en cobertura terrestre mediante imágenes Landsat</p>
+            <p class="description">Este conjunto de trabajos aplica técnicas de teledetección óptica para analizar tres fenómenos ambientales críticos en Argentina: deforestación en el noroeste, incendios en la Patagonia y dinámica de nieve/glaciares en Cuyo. Cada caso utiliza índices espectrales específicos procesados con <strong>ESA SNAP</strong> a partir de imágenes Landsat, siguiendo metodologías estandarizadas en la literatura científica.</p>
+            <div class="tech-tags">
+                <span>Teledetección</span>
+                <span>Landsat</span>
+                <span>ESA SNAP</span>
+                <span>Análisis Ambiental</span>
+                <span>NDVI</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                <hr />
+
+                <h2 id="resumen-de-proyectos">Resumen de proyectos</h2>
+                <p>Los siguientes proyectos analizan diferentes fenómenos ambientales utilizando técnicas de teledetección con imágenes Landsat:</p>
+
+                <table>
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Ubicación</th>
+                        <th>Período</th>
+                        <th>Índice utilizado</th>
+                        <th>Satélite</th>
+                        <th>Producto</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Deforestación</strong></td>
+                        <td>Joaquín V. González, Salta</td>
+                        <td>1986–2017</td>
+                        <td>NDVI</td>
+                        <td>Landsat 5 / Landsat 8</td>
+                        <td>Mapa de cambio de cobertura</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Incendios</strong></td>
+                        <td>Lago Cholila, Chubut</td>
+                        <td>Enero–Abril 2015</td>
+                        <td>NBR / ΔNBR</td>
+                        <td>Landsat 8</td>
+                        <td>Mapa de severidad de quemado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glaciares/Nieve</strong></td>
+                        <td>Cerro de la Majadita, San Juan</td>
+                        <td>2018 (estacional)</td>
+                        <td>Snow Index (SI)</td>
+                        <td>Landsat 8</td>
+                        <td>Mapa de dinámica estacional</td>
+                    </tr>
+                </table>
+
+                <h2 id="deforestacion-noroeste">1. Deforestación en el noroeste argentino</h2>
+                <p>La región del Chaco Salteño ha experimentado una fuerte transformación por expansión agrícola. Este análisis cuantifica la pérdida de bosque nativo alrededor de Joaquín V. González entre 1986 y 2017.</p>
+
+                <h3 id="metodologia-deforestacion">Metodología</h3>
+                <ul>
+                    <li>Descarga de imágenes Landsat 5 (1986) y Landsat 8 (2017), path 230, row 77.</li>
+                    <li>Cálculo del <strong>Índice de Vegetación de Diferencia Normalizada (NDVI)</strong> para cada fecha:</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Fórmula NDVI:</strong> <code>NDVI = (NIR - Rojo) / (NIR + Rojo)</code></p>
+                </blockquote>
+
+                <ul>
+                    <li>Clasificación no supervisada (k-means, 3 clases) del NDVI apilado.</li>
+                    <li>Asignación de categorías:
+                        <ul>
+                            <li><strong style="color: #27ae60;">Verde:</strong> Vegetación conservada (alto NDVI sin cambio).</li>
+                            <li><strong style="color: #e67e22;">Naranja:</strong> Áreas con disminución de NDVI por pérdida de bosque.</li>
+                            <li><strong style="color: #f1c40f;">Amarillo:</strong> Zonas de baja vegetación sin cambios significativos.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <img src="../img/tele.deforestacion.png" alt="Mapa de deforestación en Salta (1986-2017)">
+                <p><em>Mapa de deforestación en Salta (1986-2017) - Análisis de cambio de NDVI</em></p>
+
+                <h3 id="resultado-deforestacion">Resultado</h3>
+                <p>El mapa evidencia un patrón claro de reducción de áreas verdes, correspondiente a la frontera agropecuaria en expansión. La técnica permite cuantificar la superficie transformada y localizar los focos de deforestación.</p>
+
+                <h2 id="incendios-patagonia">2. Incendios en la Patagonia</h2>
+                <p>En 2015, un incendio de grandes dimensiones afectó la región de Lago Cholila (Chubut). Este trabajo evalúa la severidad del daño mediante el Índice de Quemado Normalizado.</p>
+
+                <h3 id="metodologia-incendios">Metodología</h3>
+                <ul>
+                    <li>Imágenes Landsat 8 previa (21/01/2015) y posterior (11/04/2015) al incendio, path 232, row 89.</li>
+                    <li>Cálculo del <strong>Normalized Burn Ratio (NBR)</strong> para cada escena:</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Fórmula NBR:</strong> <code>NBR = (NIR - SWIR2) / (NIR + SWIR2)</code></p>
+                </blockquote>
+
+                <ul>
+                    <li>Obtención de la diferencia temporal (<strong>ΔNBR</strong>):</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Fórmula ΔNBR:</strong> <code>ΔNBR = NBR<sub>pre</sub> - NBR<sub>post</sub></code></p>
+                </blockquote>
+
+                <ul>
+                    <li>Clasificación por umbrales en siete categorías de severidad, desde "recrecimiento vegetal" hasta "severidad alta de incendio".</li>
+                </ul>
+
+                <img src="../img/tele.incendios.jpg" alt="Mapa de severidad de incendios en Lago Cholila (2015)">
+                <p><em>Mapa de severidad de incendios en Lago Cholila (2015) - Análisis ΔNBR</em></p>
+
+                <h3 id="resultado-incendios">Resultado</h3>
+                <p>La zona núcleo del incendio muestra valores altos de ΔNBR (tonos rojos), indicando severidad moderada-alta. Las áreas periféricas presentan menor severidad, mientras que algunos sectores verdes sugieren rebrote post-fuego.</p>
+
+                <h2 id="glaciares-cuyo">3. Dinámica estacional de nieve y glaciares en Cuyo</h2>
+                <p>La criósfera andina es un reservorio estratégico de agua. Este análisis identifica la cobertura nival permanente y estacional en el Cerro de la Majadita (San Juan) durante 2018.</p>
+
+                <h3 id="metodologia-glaciares">Metodología</h3>
+                <ul>
+                    <li>Imágenes Landsat 8 de verano (04/01/2018) e invierno (15/07/2018), path 233, row 81.</li>
+                    <li>Cálculo del <strong>Snow Index (SI)</strong> para cada fecha:</li>
+                </ul>
+
+                <blockquote>
+                    <p><strong>Fórmula Snow Index:</strong> <code>SI = Rojo / SWIR1</code></p>
+                </blockquote>
+
+                <ul>
+                    <li>Determinación de un umbral espectral para discriminar áreas con nieve.</li>
+                    <li>Combinación binaria de las capas de verano e invierno para obtener cuatro clases:
+                        <ul>
+                            <li>Sin nieve</li>
+                            <li>Nieve solo en verano</li>
+                            <li>Nieve solo en invierno</li>
+                            <li>Nieve permanente (todo el año)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <img src="../img/tele.glaciares.png" alt="Mapa de dinámica estacional de nieve/hielo en San Juan (2018)">
+                <p><em>Mapa de dinámica estacional de nieve/hielo en San Juan (2018) - Análisis Snow Index</em></p>
+
+                <h3 id="resultado-glaciares">Resultado</h3>
+                <p>Se identifican claramente los cuerpos de nieve/hielo permanente (azul oscuro), cruciales para el aporte hídrico estacional. La distribución de nieve estacional refleja el gradiente altitudinal y la exposición de laderas.</p>
+
+                <h2 id="aspectos-tecnicos">Aspectos técnicos destacados</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <h3>Software</h3>
+                            <p>Procesamiento realizado con <strong>ESA SNAP</strong>, herramienta estándar en teledetección óptica.</p>
+                        </td>
+                        <td>
+                            <h3>Datos</h3>
+                            <p>Imágenes Landsat Collection 2 Level 2, con correcciones atmosféricas ya aplicadas.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Índices espectrales</h3>
+                            <p>Selección adecuada según el fenómeno estudiado (NDVI, NBR, SI).</p>
+                        </td>
+                        <td>
+                            <h3>Análisis temporal</h3>
+                            <p>Comparación multitemporal para capturar dinámicas de cambio.</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <h2 id="reflexion-final">Reflexión final</h2>
+                <p>Estos trabajos demuestran la capacidad de la teledetección para monitorear cambios ambientales a escala regional con rigor cuantitativo. La elección de índices adecuados, el procesamiento consistente en SNAP y la interpretación contextual de los resultados permiten transformar datos satelitales en información útil para la gestión territorial y ambiental.</p>
+            </div>
+        </main>
+        <div id="footer-container"></div>
+    </div>
+    <script>
+            fetch('components/footer-general.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
+</body>
+</html>

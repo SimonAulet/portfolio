@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Técnico - Simón Aulet</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Portafolio Técnico</h1>
+            <p class="subtitle">Simón Aulet · PCB · RF · FPGA · Microcontroladores · Teledetección</p>
+            <p class="description">Selección de proyectos prácticos en ingeniería, con enfoque en implementación real, simulación y medición.</p>
+        </header>
+
+        <main>
+            <div class="projects-grid">
+
+                <!-- Proyecto PCB -->
+                <a href="PCB.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Diseño de PCB 6 Capas</h2>
+                        <p>Sistema de control satelital analógico: diseño en KiCad, simulación en LTSpice y validación de circuitos analógicos discretos.</p>
+                        <div class="tech-tags">
+                            <span>KiCad</span>
+                            <span>LTSpice</span>
+                            <span>PCB 6 Capas</span>
+                            <span>Diseño Analógico</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto RF - Antenas -->
+                <a href="antenas.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Diseño de Antenas</h2>
+                        <p>Cuatro antenas simuladas en CST: dipolo, helicoidal, Yagi-Uda y loop. Análisis de parámetros S, diagramas de radiación y optimización.</p>
+                        <div class="tech-tags">
+                            <span>RF</span>
+                            <span>CST</span>
+                            <span>Simulación EM</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto RF - Wilkinson -->
+                <a href="wilkinson.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Divisor Wilkinson 1 GHz</h2>
+                        <p>Divisor de potencia balanceado: diseño en ADS, fabricación CNC con sustrato Rogers y medición con VNA Rohde & Schwarz.</p>
+                        <div class="tech-tags">
+                            <span>RF</span>
+                            <span>ADS</span>
+                            <span>Skrf</span>
+                            <span>VNA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto Microcontroladores -->
+                <a href="ESP32.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Configurador WiFi ESP32</h2>
+                        <p>Sistema embebido con interfaz web para configuración inalámbrica de redes WiFi. Implementado en ESP32 con servidor HTTP.</p>
+                        <div class="tech-tags">
+                            <span>ESP32</span>
+                            <span>C++</span>
+                            <span>WiFi</span>
+                            <span>Web Server</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto FPGA -->
+                <a href="FPGA.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Proyectos en FPGA</h2>
+                        <p>Diseños digitales en Verilog: ALU, secuenciadores, máquinas de estado y sistema de alarma. Simulación y síntesis para FPGA.</p>
+                        <div class="tech-tags">
+                            <span>Verilog</span>
+                            <span>FPGA</span>
+                            <span>Artix-7</span>
+                            <span>Sistemas digitales</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto PIC -->
+                <a href="pic.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Fundamentos con PIC</h2>
+                        <p>Proyectos en ensamblador y C para PIC16F18875: control directo de hardware, ADC, LCD y transición a abstracciones con Microchip MCC.</p>
+                        <div class="tech-tags">
+                            <span>PIC16F18875</span>
+                            <span>Ensamblador</span>
+                            <span>C Embebido</span>
+                            <span>Microcontroladores</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto Teledetección -->
+                <a href="teledeteccion.html" class="project-card">
+                    <div class="card-content">
+                        <h2>Análisis de Teledetección</h2>
+                        <p>Monitoreo ambiental con Landsat: deforestación en Salta, incendios en Chubut y dinámica de glaciares en San Juan.</p>
+                        <div class="tech-tags">
+                            <span>SNAP</span>
+                            <span>Landsat</span>
+                            <span>NDVI</span>
+                            <span>NBR</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+        <div id="footer-general"></div>
+    </div>
+    <script>
+            fetch('../components/footer-index.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-general').innerHTML = data;
+                });
+    </script>
+</body>
+</html>
