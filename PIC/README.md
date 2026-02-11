@@ -1,42 +1,42 @@
-# Código Fuente - Proyectos PIC
+# Source Code - PIC Projects
 
-Código fuente de los proyectos de programación de microcontroladores PIC presentados en `pic.html`.
+Source code for PIC microcontroller programming projects presented in `pic.html`.
 
-## Estructura de Directorios
+## Directory Structure
 
-- `LCD_CON_I2C.X/` - Control de pantalla LCD mediante interfaz I2C
-- `blink.X/` - Ejemplo básico de parpadeo de LED
-- `potenciometro.X/` - Lectura de potenciómetro y control analógico
+- `LCD_CON_I2C.X/` - LCD display control via I2C interface
+- `blink.X/` - Basic LED blink example
+- `potenciometro.X/` - Potentiometer reading and analog control
 
-## Descripción de Proyectos
+## Project Description
 
 ### LCD_CON_I2C
-Control de pantalla LCD mediante comunicación I2C. Implementa driver para pantallas de caracteres con interfaz I2C, reduciendo el número de pines requeridos.
+LCD display control via I2C communication. Implements driver for character displays with I2C interface, reducing the number of required pins.
 
 ### blink
-Ejemplo básico de programación de PIC. Control de LED mediante temporizaciones, demostrando configuración de puertos GPIO y manejo de retardos.
+Basic PIC programming example. LED control through timing, demonstrating GPIO port configuration and delay handling.
 
 ### potenciometro
-Lectura de señal analógica desde potenciómetro y procesamiento digital. Incluye conversión ADC, filtrado y control basado en valores analógicos.
+Analog signal reading from potentiometer and digital processing. Includes ADC conversion, filtering, and control based on analog values.
 
-## Tecnologías
+## Technologies
 
-- Microcontroladores: PIC16, PIC18 series
-- Lenguaje: C (MPLAB XC8 Compiler)
-- Entorno: MPLAB X IDE
-- Protocolos: I2C, ADC, GPIO
+- Microcontrollers: PIC16, PIC18 series
+- Language: C (MPLAB XC8 Compiler)
+- Environment: MPLAB X IDE
+- Protocols: I2C, ADC, GPIO
 
-## Uso
+## Usage
 
-Cada proyecto está configurado para MPLAB X IDE. Abrir el archivo `.X` correspondiente en MPLAB X para cargar el proyecto completo.
+Each project is configured for MPLAB X IDE. Open the corresponding `.X` file in MPLAB X to load the complete project.
 
-## Compilación y Programación
+## Compilation and Programming
 
-1. Abrir proyecto en MPLAB X IDE
-2. Configurar dispositivo PIC específico
-3. Compilar con XC8 Compiler
-4. Programar mediante PICKit o programador compatible
+1. Open project in MPLAB X IDE
+2. Configure specific PIC device
+3. Compile with XC8 Compiler
+4. Program using PICKit or compatible programmer
 
-## Documentación
+## Documentation
 
-La documentación detallada de cada proyecto se encuentra en los archivos fuente y en la página web correspondiente `pic.html`.
+Detailed documentation for each project is found in the source files and in the corresponding web page `pic.html`.

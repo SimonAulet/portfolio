@@ -1,34 +1,34 @@
-# Código Fuente - Proyectos FPGA
+# Source Code - FPGA Projects
 
-Código fuente de los proyectos de diseño digital con FPGA presentados en `FPGA.html`.
+Source code for digital design projects with FPGA presented in `FPGA.html`.
 
-## Estructura de Directorios
+## Directory Structure
 
-- `Alarm/` - Sistema de alarma con temporizador
-- `Moore_seq/` - Máquina de estados de Moore secuencial
-- `Verilog/` - Ejemplos y proyectos en Verilog
+- `Alarm/` - Alarm system with timer
+- `Moore_seq/` - Sequential Moore state machine
+- `Verilog/` - Verilog examples and projects
 
-## Descripción de Proyectos
+## Project Description
 
 ### Alarm
-Sistema de alarma implementado en FPGA que incluye temporizador, sensores y lógica de control. Diseñado para demostrar integración de periféricos y manejo de temporizaciones.
+Alarm system implemented in FPGA including timer, sensors, and control logic. Designed to demonstrate peripheral integration and timing management.
 
 ### Moore_seq
-Implementación de una máquina de estados de Moore con lógica secuencial. Ejemplo educativo de diseño de sistemas digitales secuenciales.
+Implementation of a Moore state machine with sequential logic. Educational example of sequential digital system design.
 
 ### Verilog
-Colección de módulos y ejemplos en Verilog HDL para FPGA. Incluye componentes básicos y proyectos integrados.
+Collection of Verilog HDL modules and examples for FPGA. Includes basic components and integrated projects.
 
-## Tecnologías
+## Technologies
 
-- Lenguaje: Verilog HDL
-- Herramientas: Xilinx Vivado
-- Plataformas: FPGA Xilinx, Altera
+- Language: Verilog HDL
+- Tools: Xilinx Vivado
+- Platforms: Xilinx FPGA, Altera
 
-## Uso
+## Usage
 
-Cada directorio contiene su propio conjunto de archivos fuente. Para simular o sintetizar, utilizar las herramientas de desarrollo de FPGA correspondientes.
+Each directory contains its own set of source files. To simulate or synthesize, use the corresponding FPGA development tools.
 
-## Documentación
+## Documentation
 
-La documentación detallada de cada proyecto se encuentra en los archivos fuente y en la página web correspondiente `FPGA.html`.
+Detailed documentation for each project is found in the source files and in the corresponding web page `FPGA.html`.

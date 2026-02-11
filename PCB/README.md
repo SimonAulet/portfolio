@@ -1,76 +1,76 @@
-# Código Fuente - Diseño de PCB 6 Capas para Sistema de Control Satelital Analógico
+# Source Code - 6-Layer PCB Design for Analog Satellite Control System
 
-Código fuente y recursos del proyecto de diseño de PCB presentado en `PCB.html`.
+Source code and resources for the PCB design project presented in `PCB.html`.
 
-## Estructura de Directorios
+## Directory Structure
 
-- `componentes/` - Librerías personalizadas de componentes para KiCad
-- `datasheets/` - Documentación técnica de componentes utilizados
-- `LTSpice/` - Simulaciones de circuitos analógicos
-- `Main board.kicad/` - Proyecto KiCad del PCB principal de 6 capas
-- `Sensors and actuators.kicad/` - Proyecto KiCad de los módulos sensoriales externos
+- `componentes/` - Custom component libraries for KiCad
+- `datasheets/` - Technical documentation of used components
+- `LTSpice/` - Analog circuit simulations
+- `Main board.kicad/` - KiCad project for the main 6-layer PCB
+- `Sensors and actuators.kicad/` - KiCad project for external sensor modules
 
-## Descripción de Proyectos
+## Project Description
 
-### Main Board (PCB Principal - 6 Capas)
-Diseño integral de un sistema de control satelital analógico implementado con componentes discretos. El PCB de 6 capas integra:
-- Detección de orientación mediante fotoresistencias
-- Sensado térmico con LM35
-- Generación de PWM analógica
-- Posicionamiento de servomotor
-- Circuitos de timing con 555
-- Latches analógicos con transistores NPN
-- Lógica de control autónoma
+### Main Board (Main PCB - 6 Layers)
+Comprehensive design of an analog satellite control system implemented with discrete components. The 6-layer PCB integrates:
+- Orientation detection using photoresistors
+- Thermal sensing with LM35
+- Analog PWM generation
+- Servomotor positioning
+- Timing circuits with 555
+- Analog latches with NPN transistors
+- Autonomous control logic
 
-### Sensors and Actuators (Módulos Externos - 2 Capas)
-PCB auxiliar que contiene los sensores y actuadores distribuidos:
-- Fotoresistencias para detección de luz/orientación
-- Sensores de temperatura LM35
-- Drivers MOSFET para conmutación de relays
+### Sensors and Actuators (External Modules - 2 Layers)
+Auxiliary PCB containing distributed sensors and actuators:
+- Photoresistors for light/orientation detection
+- LM35 temperature sensors
+- MOSFET drivers for relay switching
 - Heater
 
-## Contenido Detallado
+## Detailed Content
 
 ### `componentes/`
-Librerías personalizadas de componentes descargados de sitios oficiales:
-- `CSD17577Q5A/` - MOSFET N-Channel (Texas Instruments)
-- `CSD17585F5/` - MOSFET P-Channel (Texas Instruments)
-- `lm35/` - Sensor de temperatura
-- `lm358/` - Amplificador operacional dual
+Custom component libraries downloaded from official sites:
+- `CSD17577Q5A/` - N-Channel MOSFET (Texas Instruments)
+- `CSD17585F5/` - P-Channel MOSFET (Texas Instruments)
+- `lm35/` - Temperature sensor
+- `lm358/` - Dual operational amplifier
 
-Cada carpeta contiene:
-- Símbolo esquemático (.lib/.kicad_sym)
-- Footprint PCB (.pretty/.kicad_mod)
-- Modelo 3D (.step/.wrl)
-- Archivos de documentación
+Each folder contains:
+- Schematic symbol (.lib/.kicad_sym)
+- PCB footprint (.pretty/.kicad_mod)
+- 3D model (.step/.wrl)
+- Documentation files
 
 ### `datasheets/`
-Documentación técnica oficial de los componentes:
-- Hojas de datos PDF de todos los componentes utilizados
-- Notas de aplicación relevantes
-- Especificaciones eléctricas y mecánicas
+Official technical documentation of components:
+- PDF datasheets of all used components
+- Relevant application notes
+- Electrical and mechanical specifications
 
 ### `LTSpice/`
-Simulaciones de circuitos analógicos críticos:
-- `1.hysteresis.asc` - Comparadores con histéresis (Schmitt trigger)
-- `2.latch.asc` - Latches implementados con transistores NPN
-- `3.orient.asc` - Circuito de detección de orientación con LDR
-- `4.power_select.asc` - Lógica de conmutación de fuentes de alimentación
-- `5.timming.asc` - Circuitos de temporización con 555
+Analog circuit simulations of critical circuits:
+- `1.hysteresis.asc` - Hysteresis comparators (Schmitt trigger)
+- `2.latch.asc` - Latches implemented with NPN transistors
+- `3.orient.asc` - Orientation detection circuit with LDR
+- `4.power_select.asc` - Power source switching logic
+- `5.timming.asc` - Timing circuits with 555
 
 ### `Main board.kicad/`
-Proyecto completo de KiCad para el PCB principal:
-- Esquemático jerárquico organizado por subsistemas
-- Listas de materiales (BOM) con proveedores
-- PCB ruteado
+Complete KiCad project for the main PCB:
+- Hierarchical schematic organized by subsystems
+- Bill of materials (BOM) with suppliers
+- Routed PCB
 
 ### `Sensors and actuators.kicad/`
-Proyecto de KiCad para los módulos externos:
-- Diseño de doble capa optimizado para fabricación
-- Footprints para montaje industrial
+KiCad project for external modules:
+- Double-layer design optimized for manufacturing
+- Footprints for industrial mounting
 
-## Tecnologías
+## Technologies
 
-- **Diseño PCB**: KiCad 9.0.7
-- **Simulación**: LTSpice 26.0.1
+- **PCB Design**: KiCad 9.0.7
+- **Simulation**: LTSpice 26.0.1
 - **Material**: FR4, 1.6mm, 1oz copper

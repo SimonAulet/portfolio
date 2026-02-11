@@ -1,31 +1,31 @@
-# Portafolio Técnico - Simón Aulet
+# Technical Portfolio - Simón Aulet
 
-Portafolio técnico profesional diseñado para GitHub Pages que muestra proyectos de ingeniería en electrónica, sistemas embebidos, RF y programación.
+Professional technical portfolio designed for GitHub Pages showcasing engineering projects in electronics, embedded systems, RF, and programming.
 
-## Estructura del Proyecto
+## Project Structure
 
-- `index.html` - Página principal del portafolio
-- `PCB.html` - Diseño de PCB 6 capas para sistema de control satelital
-- `ESP32.html` - Sistema de configuración web para dispositivos embebidos
-- `FPGA.html` - Proyectos de diseño digital con FPGA
-- `pic.html` - Programación de microcontroladores PIC
-- `wilkinson.html` - Divisor de potencia Wilkinson en RF
-- `antenas.html` - Proyectos de diseño de antenas
-- `teledeteccion.html` - Proyectos de teledetección
+- `index.html` - Main portfolio page
+- `PCB.html` - 6-layer PCB design for satellite control system
+- `ESP32.html` - Web configuration system for embedded devices
+- `FPGA.html` - Digital design projects with FPGA
+- `pic.html` - PIC microcontroller programming
+- `wilkinson.html` - Wilkinson power divider in RF
+- `antenas.html` - Antenna design projects
+- `teledeteccion.html` - Remote sensing projects
 
-## Cómo Visualizar
+## How to View
 
-El portafolio está disponible en GitHub Pages. Dirigirse a https://simonaulet.github.io/portfolio/
+The portfolio is available on GitHub Pages. Go to https://simonaulet.github.io/portfolio/
 
-## Estructura de Código Fuente
+## Source Code Structure
 
-Los proyectos individuales tienen su propio código fuente organizado en subdirectorios:
+Individual projects have their own source code organized in subdirectories:
 
-- `PCB/` - Diseños KiCad, simulaciones LTSpice y librerías de componentes
-- `ESP32/` - Firmware ESP-IDF, interfaz web y configuración
-- `FPGA/` - Código Verilog para proyectos de diseño digital
-- `Wilkinson_power_divider/` - Archivos de diseño y análisis del divisor Wilkinson
+- `PCB/` - KiCad designs, LTSpice simulations, and component libraries
+- `ESP32/` - ESP-IDF firmware, web interface, and configuration
+- `FPGA/` - Verilog code for digital design projects
+- `Wilkinson_power_divider/` - Wilkinson divider design and analysis files
 
-## Licencia
+## License
 
-Este portafolio es de uso personal y profesional. Los proyectos individuales pueden tener sus propias licencias especificadas en sus respectivos directorios.
+This portfolio is for personal and professional use. Individual projects may have their own licenses specified in their respective directories.

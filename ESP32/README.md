@@ -1,45 +1,45 @@
-# Configurador Web para ESP32
+# Web Configurator for ESP32
 
-Este proyecto permite configurar salidas GPIO de un ESP32 a través de una interfaz web accesible vía Wi-Fi. Simula un menú de mantenimiento para un dispositivo configurable desde el navegador.
+This project allows configuring GPIO outputs of an ESP32 through a web interface accessible via Wi-Fi. It simulates a maintenance menu for a device configurable from the browser.
 
-## Funcionalidades principales
+## Main Features
 
-- El ESP32 se inicia en modo Access Point con un captive portal
-- Interfaz web clara y accesible desde cualquier dispositivo
-- Permite:
-  - Probar configuraciones instantáneamente (GPIO ON/OFF)
-  - Guardar configuraciones en memoria no volátil (NVS)
-  - Aplicar configuraciones persistentes en el arranque
+- ESP32 starts in Access Point mode with a captive portal
+- Clear web interface accessible from any device
+- Allows:
+  - Testing configurations instantly (GPIO ON/OFF)
+  - Saving configurations to non-volatile memory (NVS)
+  - Applying persistent configurations at boot
 
-## Requisitos
+## Requirements
 
-- ESP-IDF instalado y configurado
-- ESP32 (WROOM o compatible)
-- Navegador para acceder al portal
-- Acceso a la terminal (`idf.py`)
-- Protoboard + 3 leds + 3 resistencias de 220 ohm
+- ESP-IDF installed and configured
+- ESP32 (WROOM or compatible)
+- Browser to access the portal
+- Terminal access (`idf.py`)
+- Breadboard + 3 LEDs + 3 220 ohm resistors
 
-## Instrucciones rápidas
+## Quick Instructions
 
 ```
-Armar protoboard segun "conexiónes.svg"
+Assemble breadboard according to "conexiónes.svg"
 idf.py set-target esp32
-idf.py menuconfig         # Ir a example para cambiar ssid y pwd
+idf.py menuconfig         # Go to example to change ssid and pwd
 idf.py build
 idf.py flash
 idf.py monitor
 ```
 
-Luego, conectarse al Wi-Fi creado por el ESP32, y acceder desde el navegador (se redirige automáticamente).
+Then, connect to the Wi-Fi created by the ESP32, and access from the browser (redirects automatically).
 
-## Estructura
+## Structure
 
-- `src/main.c`: Por el momento, la totalidad del programa
-- `src/root.html`: Pagina web para interactuar una vez configurado
-- `Informe.pdf`: documentación completa del proyecto
+- `src/main.c`: Currently, the entire program
+- `src/root.html`: Web page for interaction once configured
+- `Informe.pdf`: Complete project documentation
 
-## Autor
+## Author
 
-Desarrollado por Simon Aulet para la materia "Arquitectura de Computadoras y Sistemas Embebidos" – UNRN 2025.
+Developed by Simon Aulet for the course "Computer Architecture and Embedded Systems" – UNRN 2025.
 
-Para más descrpción completa ver el informe
+For a complete description, see the report
