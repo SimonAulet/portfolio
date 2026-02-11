@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Configuración Web para Dispositivos Embebidos - Simón Aulet</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -32,7 +32,7 @@
 
         <main>
             <div class="content-wrapper">
-                <img src="img/esp.flujo_simplificado.png" alt="Flujo de uso simplificado del configurador">
+                <img src="../img/esp.flujo_simplificado.png" alt="Flujo de uso simplificado del configurador">
                 <p><em>Figura 1: Flujo de uso completo. El usuario se conecta a la red WiFi del ESP32, es redirigido automáticamente al portal web donde visualiza y modifica la configuración. Los cambios se almacenan en memoria no volátil (NVS) y persisten tras reinicios, aplicándose directamente al hardware de la máquina.</em></p>
 
                 <hr />
@@ -76,11 +76,11 @@
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
                     <div>
-                        <img src="img/esp.web.png" alt="Interface web del captive portal">
+                        <img src="../img/esp.web.png" alt="Interface web del captive portal">
                         <p><em>Figura 2: Interface web servida desde el ESP32. Permite probar configuraciones temporalmente y guardarlas de forma persistente en NVS.</em></p>
                     </div>
                     <div>
-                        <img src="img/esp.funcionando_web.jpeg" alt="Celular conectado al configurador">
+                        <img src="../img/esp.funcionando_web.jpeg" alt="Celular conectado al configurador">
                         <p><em>Figura 3: Prueba física con smartphone conectado al portal. La redirección automática (captive portal) funciona en dispositivos reales.</em></p>
                     </div>
                 </div>
@@ -88,11 +88,11 @@
                 <table>
                     <tr>
                         <td>
-                            <img src="img/esp.proto-1.jpg" alt="Prototipo con configuración 1">
+                            <img src="../img/esp.proto-1.jpg" alt="Prototipo con configuración 1">
                             <p><em>Figura 4: Configuración física 1 aplicada. LEDs representan estados de salidas GPIO mapeados a funciones específicas.</em></p>
                         </td>
                         <td>
-                            <img src="img/esp.proto-2.jpg" alt="Prototipo con configuración 2">
+                            <img src="../img/esp.proto-2.jpg" alt="Prototipo con configuración 2">
                             <p><em>Figura 5: Configuración física 2 aplicada. Cambios realizados desde la web se reflejan inmediatamente en el hardware.</em></p>
                         </td>
                     </tr>
@@ -117,13 +117,13 @@
                 <h3>Poster de presentación</h3>
                 <p>Resumen visual del sistema, su arquitectura y flujo de uso.</p>
                 <div style="margin: 20px 0; width: 100%; height: 500px;">
-                    <iframe src="ESP32/Poster.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
+                    <iframe src="../ESP32/Poster.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
                 </div>
 
                 <h3>Informe técnico</h3>
                 <p>Documento completo con motivación, desarrollo, implementación y resultados del proyecto.</p>
                 <div style="margin: 20px 0; width: 100%; height: 600px;">
-                    <iframe src="ESP32/Informe.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
+                    <iframe src="../ESP32/Informe.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
                 </div>
 
                 <h3>Repositorio del Proyecto</h3>
