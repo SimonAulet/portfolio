@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap');
 
 
 * {
@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
     line-height: 1.5;
     color: #111;
@@ -399,7 +399,7 @@ footer a:hover {
     .content-wrapper ol {
         padding-left: 30px; /* Menos espacio en móvil */
     }
-    
+
     .content-wrapper table ul,
     .content-wrapper table ol {
         padding-left: 20px;
