@@ -1,0 +1,17 @@
+<footer>
+    <div class="footer-content">
+        <p>© 2026 · Simón Aulet · Technical Portfolio</p>
+        <p class="footer-links">
+            <a href="lang_en/index.html">Main Portfolio</a> ·
+            <a href="mailto:simon.aulet@gmail.com">Contact</a> ·
+            <a href="linkedin.com/in/simón-aulet-471745119">LinkedIn</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // This script will run when the footer is inserted
+    document.querySelectorAll('.current-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+</script>
