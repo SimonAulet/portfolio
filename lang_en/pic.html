@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundamentos de Sistemas Embebidos con PIC - Portafolio Técnico</title>
+    <title>Embedded Systems Fundamentals with PIC - Technical Portfolio</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <!-- Prism.js para syntax highlighting -->
+    <!-- Prism.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -21,36 +21,36 @@
 <body>
     <div class="container">
         <header>
-            <h1>Fundamentos de Sistemas Embebidos con PIC</h1>
-            <p class="subtitle">Simón Aulet · PIC16F18875 · Ensamblador · C Embebido</p>
-            <p class="description">Proyectos académicos en ensamblador y C para microcontroladores <strong>PIC16F18875</strong>, enfocados en manejo directo de hardware y transición hacia abstracciones mediante Microchip Code Configurator.</p>
+            <h1>Embedded Systems Fundamentals with PIC</h1>
+            <p class="subtitle">Simón Aulet · PIC16F18875 · Assembly · Embedded C</p>
+            <p class="description">Academic projects in assembly and C for <strong>PIC16F18875</strong> microcontrollers, focused on direct hardware manipulation and transition toward abstractions using Microchip Code Configurator.</p>
             <div class="tech-tags">
                 <span>PIC16F18875</span>
-                <span>Ensamblador</span>
-                <span>C Embebido</span>
-                <span>Microcontroladores</span>
+                <span>Assembly</span>
+                <span>Embedded C</span>
+                <span>Microcontrollers</span>
                 <span>MCC</span>
             </div>
             <div class="navigation">
-                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
             </div>
         </header>
 
         <main>
             <div class="content-wrapper">
                 <hr />
-                <h2 id="proyectos-implementados">Proyectos Implementados</h2>
-                <p>Esta serie de proyectos representa un recorrido desde el control directo de hardware en ensamblador hasta la implementación de drivers abstractos en C, estableciendo una comprensión crítica del costo de las operaciones y los límites del hardware.</p>
+                <h2 id="implemented-projects">Implemented Projects</h2>
+                <p>This series of projects represents a journey from direct hardware control in assembly to the implementation of abstract drivers in C, establishing critical understanding of operation costs and hardware limitations.</p>
 
-                <h3 id="blink-en-ensamblador-control-directo-de-gpio">1. Blink en Ensamblador – Control Directo de GPIO</h3>
-                <p>Implementación básica de control de LEDs mediante manipulación directa de registros en ensamblador, sin abstracciones de alto nivel.</p>
+                <h3 id="blink-in-assembly-direct-gpio-control">1. Blink in Assembly – Direct GPIO Control</h3>
+                <p>Basic LED control implementation through direct register manipulation in assembly, without high-level abstractions.</p>
                 <blockquote>
-                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X</code></a></p>
+                <p><strong>Source Code:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/blink.X</code></a></p>
                 </blockquote>
 
                 <details>
                 <summary>
-                Ver Código: Blink en Ensamblador (blink.s)
+                View Code: Blink in Assembly (blink.s)
                 </summary>
                 <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
                   LIST
@@ -68,11 +68,11 @@
                   ;  CONFIG  CSWEN = ON            ; Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
                   ;  CONFIG  FCMEN = ON            ; Fail-Safe Clock Monitor Enable bit (FSCM timer enabled)
 
-                  CONFIG  FEXTOSC = OFF        ; Desactiva el oscilador externo
-                  CONFIG  RSTOSC = HFINT1      ; Usa el oscilador interno de alta frecuencia (1 MHz)
-                  CONFIG  CLKOUTEN = OFF       ; Deshabilita la salida de reloj
-                  CONFIG  CSWEN = ON           ; Permite cambiar la frecuencia en tiempo de ejecución
-                  CONFIG  FCMEN = OFF          ; Desactiva el Fail-Safe Clock Monitor (ya no es necesario)
+                  CONFIG  FEXTOSC = OFF        ; Disable external oscillator
+                  CONFIG  RSTOSC = HFINT1      ; Use internal high-frequency oscillator (1 MHz)
+                  CONFIG  CLKOUTEN = OFF       ; Disable clock output
+                  CONFIG  CSWEN = ON           ; Allow frequency change at runtime
+                  CONFIG  FCMEN = OFF          ; Disable Fail-Safe Clock Monitor (no longer needed)
 
                   ; CONFIG2
                     CONFIG  MCLRE = ON            ; Master Clear Enable bit (MCLR pin is Master Clear function)
@@ -107,23 +107,23 @@
 
                   PSECT code
                   main:
-                      CLRF   TRISA        ; Configurar PORTA como salida
+                      CLRF   TRISA        ; Configure PORTA as output
 
                   START:
-                      MOVLW  00000000B    ; Apagar LED en RA3
+                      MOVLW  00000000B    ; Turn off LED on RA3
                       MOVWF  PORTA
 
-                      CALL Retardo        ; Llamar al retardo
+                      CALL Retardo        ; Call delay
 
-                      MOVLW  11111111B    ; Encender LED en RA3
+                      MOVLW  11111111B    ; Turn on LED on RA3
                       MOVWF  PORTA
 
-                      CALL Retardo        ; Llamar al retardo
+                      CALL Retardo        ; Call delay
 
-                      GOTO   START        ; Repetir el ciclo
+                      GOTO   START        ; Repeat cycle
 
                   ;-------------------
-                  ; Subrutina de Retardo
+                  ; Delay Subroutine
                   ;-------------------
                   Retardo:
                	    MOVLW   0xFF
@@ -135,19 +135,19 @@
                	    MOVLW   0x16
                	    MOVWF   0x22
 
-               	Loop1: ;decrementa 20
+               	Loop1: ;decrement 20
                	    DECFSZ  0x20, F
                	    GOTO    Loop1
-               	Loop2: ;decrementa 21
+               	Loop2: ;decrement 21
                	    MOVLW   0xFF
-               	    MOVWF   0x20 ;reseteo reg 1
+               	    MOVWF   0x20 ;reset reg 1
                	    DECFSZ  0x21, F
                	    GOTO    Loop1
-               	Loop3: ;decrementa 22
+               	Loop3: ;decrement 22
                	    MOVLW   0xFF
-               	    MOVWF   0x20 ;reseteo reg 1
+               	    MOVWF   0x20 ;reset reg 1
                	    MOVLW   0xFF
-               	    MOVWF   0x21 ;reseteo reg 2
+               	    MOVWF   0x21 ;reset reg 2
                	    DECFSZ  0x22, F
                	    GOTO    Loop1
                	    RETURN
@@ -155,24 +155,24 @@
                 </code></pre>
                 </details>
 
-                <h4>Características Técnicas</h4>
+                <h4>Technical Features</h4>
                 <ul>
-                <li><strong>Temporización:</strong> Mediante triple loop en ensamblador</li>
-                <li><strong>Configuración:</strong> Manual de puertos sin abstracciones</li>
-                <li><strong>Oscilador:</strong> Interno HFINT1 a 1 MHz</li>
-                <li><strong>GPIO:</strong> Control directo de puerto A</li>
+                <li><strong>Timing:</strong> Through triple loop in assembly</li>
+                <li><strong>Configuration:</strong> Manual port setup without abstractions</li>
+                <li><strong>Oscillator:</strong> Internal HFINT1 at 1 MHz</li>
+                <li><strong>GPIO:</strong> Direct port A control</li>
                 </ul>
-                <p><strong>Valor Pedagógico:</strong> Comprensión del costo de ciclo de instrucción y temporización precisa.</p>
+                <p><strong>Educational Value:</strong> Understanding instruction cycle cost and precise timing.</p>
 
-                <h3 id="lectura-de-potenciometro-en-ensamblador">2. Lectura de Potenciómetro en Ensamblador</h3>
-                <p>Sistema de adquisición analógica mediante ADC de 8 bits con visualización en barra de LEDs.</p>
+                <h3 id="potentiometer-reading-in-assembly">2. Potentiometer Reading in Assembly</h3>
+                <p>Analog acquisition system using 8-bit ADC with LED bar visualization.</p>
                 <blockquote>
-                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X</code></a></p>
+                <p><strong>Source Code:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/potenciometro.X</code></a></p>
                 </blockquote>
 
                 <details>
                 <summary>
-                Ver Código: Lectura ADC en Ensamblador (potenciometro.s)
+                View Code: ADC Reading in Assembly (potenciometro.s)
                 </summary>
                 <pre class="line-numbers"><code class="language-nasm">PROCESSOR 16F18875
                   LIST
@@ -216,17 +216,17 @@
                     CONFIG  CPD = OFF             ; DataNVM code protection bit (Data EEPROM code protection disabled)
 
                   ; CONFIG ADC
-                    BSF ANSELA, 0        ; Configurar RA0 como analógico
-                    BSF TRISA, 0         ; Configurar RA0 como entrada
-                    MOVLW 0x01           ; Seleccionar canal AN0 (RA0)
+                    BSF ANSELA, 0        ; Configure RA0 as analog
+                    BSF TRISA, 0         ; Configure RA0 as input
+                    MOVLW 0x01           ; Select channel AN0 (RA0)
                     MOVWF ADPCH
-                    MOVLW 0b00010101     ; ADC ON, Clock FRC, Justificado a la izquierda
+                    MOVLW 0b00010101     ; ADC ON, Clock FRC, Left justified
                     MOVWF ADCON0
-                    MOVLW 0b10000000     ; Referencia VDD y VSS, Justificado a la izquierda
+                    MOVLW 0b10000000     ; VDD and VSS reference, Left justified
                     MOVWF ADCON1
 
                   ; CONFIG LEDS
-                  MOVLW   0b00001111   ; RA4 a 7 como salidas, el resto como estaban
+                  MOVLW   0b00001111   ; RA4 to 7 as outputs, rest as they were
                   ANDWF   TRISA, F
 
 
@@ -235,7 +235,7 @@
                   ///////////////////////////////////////////////////////////////
                   PSECT resetVec,class=CODE,delta=2
                   resetVec:
-                      PAGESEL main                ;Salta al Main
+                      PAGESEL main                ;Jump to Main
                       goto    main
                   PSECT code
 
@@ -247,40 +247,40 @@
                     MOVLW  0b01010101
                     MOVWF  0x20
 
-                    ;alterno 0x20 entre unos  y ceros
+                    ;alternate 0x20 between ones and zeros
                     BTFSC 0x20, 7
                     MOVLW 0b00000000  ;00 L2
                     BTFSS 0x20, 7
                     MOVLW 0b11111111  ;10 L4
                     MOVWF 0x20
 
-                  ;chequeo resultado del potenciometro
+                  ;check potentiometer result
 
-                    BTFSC 0x20, 7		;primer bit
+                    BTFSC 0x20, 7		;first bit
                     GOTO msb1
                     GOTO msb0
 
                   msb1:
-                    BTFSC 0x20, 6		;segundo  bit
+                    BTFSC 0x20, 6		;second bit
                     GOTO nivel4
                     GOTO nivel3
 
                   msb0:
-                    BTFSC 0x20, 6		;segundo  bit
+                    BTFSC 0x20, 6		;second bit
                     GOTO nivel2
                     GOTO nivel1
 
                   adc:
-                      BSF ADCON0, 0        ; Iniciar conversión
-                      BTFSC ADCON0, 1      ; Esperar a que termine (mientras GO/DONE=1)
+                      BSF ADCON0, 0        ; Start conversion
+                      BTFSC ADCON0, 1      ; Wait for completion (while GO/DONE=1)
                       GOTO $-1
 
-                      MOVF ADRESH, W       ; Me van a interesar solo los 2 msb
+                      MOVF ADRESH, W       ; I will only be interested in the 2 MSBs
                       MOVWF 0x20
 
                       RETURN
 
-                  ;los bits de los leds son 4, 5, 6 y 7 del puerto A
+                  ;LED bits are 4, 5, 6 and 7 of port A
                   nivel0: ;0000
                     MOVF  LATA, W
                     ANDLW 0b00001111
@@ -321,24 +321,24 @@
                 </code></pre>
                 </details>
 
-                <h4>Características Técnicas</h4>
+                <h4>Technical Features</h4>
                 <ul>
-                <li><strong>ADC:</strong> 8 bits en canal AN0 (RA0)</li>
-                <li><strong>Procesamiento:</strong> Los 2 bits más significativos determinan nivel en barra de LEDs</li>
-                <li><strong>Visualización:</strong> Representación visual en RA4–RA7</li>
-                <li><strong>Resolución:</strong> 4 niveles discretos (2 bits)</li>
+                <li><strong>ADC:</strong> 8-bit on channel AN0 (RA0)</li>
+                <li><strong>Processing:</strong> The 2 most significant bits determine LED bar level</li>
+                <li><strong>Visualization:</strong> Visual representation on RA4–RA7</li>
+                <li><strong>Resolution:</strong> 4 discrete levels (2 bits)</li>
                 </ul>
-                <p><strong>Valor Pedagógico:</strong> Entendimiento del proceso de conversión A/D y mapeo de valores.</p>
+                <p><strong>Educational Value:</strong> Understanding the A/D conversion process and value mapping.</p>
 
-                <h3 id="integracion-con-lcd-en-c">3. Integración con LCD en C</h3>
-                <p>Transición a programación estructurada en C con uso de librerías y abstracciones mediante Microchip Code Configurator.</p>
+                <h3 id="lcd-integration-in-c">3. LCD Integration in C</h3>
+                <p>Transition to structured programming in C using libraries and abstractions through Microchip Code Configurator.</p>
                 <blockquote>
-                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X</code></a></p>
+                <p><strong>Source Code:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X"><code>https://github.com/SimonAulet/portfolio/tree/main/PIC/LCD_CON_I2C.X</code></a></p>
                 </blockquote>
 
                 <details>
                 <summary>
-                Ver Código: Integración LCD en C (main.c)
+                View Code: LCD Integration in C (main.c)
                 </summary>
                 <pre class="line-numbers"><code class="language-c">#include "mcc_generated_files/mcc.h"
                   #include "seri_lcd.h"
@@ -383,90 +383,90 @@
                 </code></pre>
                 </details>
 
-                <h4>Características Técnicas</h4>
+                <h4>Technical Features</h4>
                 <ul>
-                <li><strong>Abstracción:</strong> Mediante <code>Microchip Code Configurator</code></li>
-                <li><strong>Display:</strong> LCD de caracteres 16x2 con interfaz I2C</li>
-                <li><strong>Arquitectura:</strong> Mantenimiento del core funcional con drivers abstractos</li>
-                <li><strong>Librerías:</strong> Uso de APIs estandarizadas para periféricos</li>
+                <li><strong>Abstraction:</strong> Through <code>Microchip Code Configurator</code></li>
+                <li><strong>Display:</strong> 16x2 character LCD with I2C interface</li>
+                <li><strong>Architecture:</strong> Maintenance of functional core with abstract drivers</li>
+                <li><strong>Libraries:</strong> Use of standardized APIs for peripherals</li>
                 </ul>
-                <p><strong>Valor Pedagógico:</strong> Transición de bajo nivel a programación estructurada con abstracciones.</p>
+                <p><strong>Educational Value:</strong> Transition from low-level to structured programming with abstractions.</p>
 
-                <h2 id="especificaciones-tecnicas">Especificaciones Técnicas</h2>
-                <p>Resumen de componentes y configuraciones utilizadas en los proyectos.</p>
+                <h2 id="technical-specifications">Technical Specifications</h2>
+                <p>Summary of components and configurations used in the projects.</p>
 
                 <table class="four-columns">
                 <tr>
-                <th>Componente</th>
-                <th>Especificación</th>
-                <th>Proyecto</th>
-                <th>Lenguaje</th>
+                <th>Component</th>
+                <th>Specification</th>
+                <th>Project</th>
+                <th>Language</th>
                 </tr>
                 <tr>
-                <td>Microcontrolador</td>
+                <td>Microcontroller</td>
                 <td>PIC16F18875</td>
-                <td>Todos</td>
+                <td>All</td>
                 <td>ASM/C</td>
                 </tr>
                 <tr>
-                <td>Oscilador</td>
+                <td>Oscillator</td>
                 <td>HFINT1 @ 1MHz</td>
                 <td>Blink</td>
-                <td>Ensamblador</td>
+                <td>Assembly</td>
                 </tr>
                 <tr>
                 <td>ADC</td>
-                <td>8-bit, Canal AN0</td>
-                <td>Potenciómetro</td>
-                <td>Ensamblador</td>
+                <td>8-bit, Channel AN0</td>
+                <td>Potentiometer</td>
+                <td>Assembly</td>
                 </tr>
                 <tr>
                 <td>Display</td>
-                <td>LCD 16x2 Caracteres</td>
-                <td>Integración LCD</td>
+                <td>16x2 Character LCD</td>
+                <td>LCD Integration</td>
                 <td>C</td>
                 </tr>
                 <tr>
-                <td>Herramienta</td>
+                <td>Tool</td>
                 <td>Microchip MCC</td>
-                <td>Integración LCD</td>
+                <td>LCD Integration</td>
                 <td>C</td>
                 </tr>
                 <tr>
                 <td>GPIO</td>
-                <td>Puerto A (RA0-RA7)</td>
-                <td>Todos</td>
+                <td>Port A (RA0-RA7)</td>
+                <td>All</td>
                 <td>ASM/C</td>
                 </tr>
                 <tr>
-                <td>Comunicación</td>
-                <td>I2C para LCD</td>
-                <td>Integración LCD</td>
+                <td>Communication</td>
+                <td>I2C for LCD</td>
+                <td>LCD Integration</td>
                 <td>C</td>
                 </tr>
                 </table>
 
-                <h2 id="valor-de-los-fundamentos">Valor de los Fundamentos</h2>
-                <p>Estos proyectos establecen la comprensión crítica del costo de las operaciones y los límites del hardware. La experiencia de escribir retardos en ensamblador y configurar registros manualmente ilumina el funcionamiento interno de los microcontroladores.</p>
+                <h2 id="value-of-fundamentals">Value of Fundamentals</h2>
+                <p>These projects establish critical understanding of operation costs and hardware limitations. The experience of writing delays in assembly and manually configuring registers illuminates the internal workings of microcontrollers.</p>
 
                 <blockquote>
-                <p><strong>Recorrido formativo:</strong> El recorrido desde control bit-a-bit en ensamblador hasta drivers abstractos en C ayuda para un entendimiento completo de la pila de software embebido.</p>
+                <p><strong>Educational journey:</strong> The journey from bit-by-bit control in assembly to abstract drivers in C aids in complete understanding of the embedded software stack.</p>
                 </blockquote>
 
-                <p>La transición progresiva entre niveles de abstracción permite:</p>
+                <p>The progressive transition between abstraction levels enables:</p>
                 <ul>
-                <li><strong>Comprensión de costos:</strong> Evaluación del impacto de cada operación en ciclos de reloj</li>
-                <li><strong>Optimización consciente:</strong> Toma de decisiones informadas sobre uso de recursos</li>
-                <li><strong>Debugging efectivo:</strong> Capacidad para diagnosticar problemas a múltiples niveles</li>
-                <li><strong>Selección de herramientas:</strong> Criterio para elegir entre control directo o abstracciones</li>
+                <li><strong>Cost understanding:</strong> Evaluation of each operation's impact on clock cycles</li>
+                <li><strong>Conscious optimization:</strong> Informed decision-making about resource usage</li>
+                <li><strong>Effective debugging:</strong> Ability to diagnose problems at multiple levels</li>
+                <li><strong>Tool selection:</strong> Criteria for choosing between direct control or abstractions</li>
                 </ul>
 
                 <div class="tech-tags">
-                    <span>Fundamentos</span>
-                    <span>Hardware Directo</span>
-                    <span>Abstracción</span>
-                    <span>Stack Embebido</span>
-                    <span>Optimización</span>
+                    <span>Fundamentals</span>
+                    <span>Direct Hardware</span>
+                    <span>Abstraction</span>
+                    <span>Embedded Stack</span>
+                    <span>Optimization</span>
                 </div>
             </div>
         </main>
@@ -474,7 +474,7 @@
         <div id="footer-container"></div>
     </div>
     <script>
-            fetch('components/footer-general.html')
+            fetch('../components/footer-general_en.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;

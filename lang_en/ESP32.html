@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Configuración Web para Dispositivos Embebidos - Simón Aulet</title>
+    <title>Web Configuration System for Embedded Devices - Simón Aulet</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,129 +14,129 @@
 <body>
     <div class="container">
         <header>
-            <h1>Sistema de Configuración Web para Dispositivos Embebidos</h1>
-            <p class="subtitle">Simón Aulet · ESP32 · WiFi · Captive Portal · Sistemas Embebidos</p>
-            <p class="description">Sistema de configuración persistente basado en ESP32 que reemplaza interfaces físicas limitadas (LCD + botones) por un captive portal web servido directamente desde el microcontrolador.</p>
+            <h1>Web Configuration System for Embedded Devices</h1>
+            <p class="subtitle">Simón Aulet · ESP32 · WiFi · Captive Portal · Embedded Systems</p>
+            <p class="description">Persistent configuration system based on ESP32 that replaces limited physical interfaces (LCD + buttons) with a captive portal web served directly from the microcontroller.</p>
             <div class="tech-tags">
                 <span>ESP32</span>
                 <span>WiFi</span>
                 <span>Captive Portal</span>
                 <span>ESP-IDF</span>
-                <span>Sistemas Embebidos</span>
+                <span>Embedded Systems</span>
                 <span>Web Server</span>
             </div>
             <div class="navigation">
-                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
             </div>
         </header>
 
         <main>
             <div class="content-wrapper">
-                <img src="../img/esp.flujo_simplificado.png" alt="Flujo de uso simplificado del configurador">
-                <p><em>Figura 1: Flujo de uso completo. El usuario se conecta a la red WiFi del ESP32, es redirigido automáticamente al portal web donde visualiza y modifica la configuración. Los cambios se almacenan en memoria no volátil (NVS) y persisten tras reinicios, aplicándose directamente al hardware de la máquina.</em></p>
+                <img src="../img/esp.flujo_simplificado.png" alt="Simplified usage flow of the configurator">
+                <p><em>Figure 1: Complete usage flow. The user connects to the ESP32's WiFi network, is automatically redirected to the web portal where they view and modify configuration. Changes are stored in non-volatile memory (NVS) and persist after reboots, applying directly to the machine's hardware.</em></p>
 
                 <hr />
 
-                <h2 id="especificaciones-tecnicas">Especificaciones Técnicas</h2>
+                <h2 id="especificaciones-tecnicas">Technical Specifications</h2>
 
                 <table>
                     <tr>
-                        <th>Componente</th>
-                        <th>Tecnología / Especificación</th>
+                        <th>Component</th>
+                        <th>Technology / Specification</th>
                     </tr>
                     <tr>
-                        <td><strong>Microcontrolador</strong></td>
+                        <td><strong>Microcontroller</strong></td>
                         <td>ESP32-WROOM (Xtensa Dual-Core)</td>
                     </tr>
                     <tr>
-                        <td><strong>Modo de Red</strong></td>
-                        <td>Access Point (AP) con Captive Portal</td>
+                        <td><strong>Network Mode</strong></td>
+                        <td>Access Point (AP) with Captive Portal</td>
                     </tr>
                     <tr>
-                        <td><strong>Protocolos</strong></td>
-                        <td>HTTP (Servidor Web), DNS Hijacking</td>
+                        <td><strong>Protocols</strong></td>
+                        <td>HTTP (Web Server), DNS Hijacking</td>
                     </tr>
                     <tr>
-                        <td><strong>Persistencia</strong></td>
-                        <td>Non-Volatile Storage (NVS) de ESP-IDF</td>
+                        <td><strong>Persistence</strong></td>
+                        <td>Non-Volatile Storage (NVS) from ESP-IDF</td>
                     </tr>
                     <tr>
                         <td><strong>Framework</strong></td>
                         <td>ESP-IDF v5.4.1</td>
                     </tr>
                     <tr>
-                        <td><strong>Interfaz</strong></td>
-                        <td>HTML/CSS/JS servido desde flash</td>
+                        <td><strong>Interface</strong></td>
+                        <td>HTML/CSS/JS served from flash</td>
                     </tr>
                 </table>
 
                 <hr />
 
-                <h2 id="implementacion-y-validacion">Implementación y Validación</h2>
+                <h2 id="implementacion-y-validacion">Implementation and Validation</h2>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
                     <div>
-                        <img src="../img/esp.web.png" alt="Interface web del captive portal">
-                        <p><em>Figura 2: Interface web servida desde el ESP32. Permite probar configuraciones temporalmente y guardarlas de forma persistente en NVS.</em></p>
+                        <img src="../img/esp.web.png" alt="Web interface of the captive portal">
+                        <p><em>Figure 2: Web interface served from the ESP32. Allows testing configurations temporarily and saving them persistently in NVS.</em></p>
                     </div>
                     <div>
-                        <img src="../img/esp.funcionando_web.jpeg" alt="Celular conectado al configurador">
-                        <p><em>Figura 3: Prueba física con smartphone conectado al portal. La redirección automática (captive portal) funciona en dispositivos reales.</em></p>
+                        <img src="../img/esp.funcionando_web.jpeg" alt="Smartphone connected to the configurator">
+                        <p><em>Figure 3: Physical test with smartphone connected to the portal. Automatic redirection (captive portal) works on real devices.</em></p>
                     </div>
                 </div>
 
                 <table>
                     <tr>
                         <td>
-                            <img src="../img/esp.proto-1.jpg" alt="Prototipo con configuración 1">
-                            <p><em>Figura 4: Configuración física 1 aplicada. LEDs representan estados de salidas GPIO mapeados a funciones específicas.</em></p>
+                            <img src="../img/esp.proto-1.jpg" alt="Prototype with configuration 1">
+                            <p><em>Figure 4: Physical configuration 1 applied. LEDs represent GPIO output states mapped to specific functions.</em></p>
                         </td>
                         <td>
-                            <img src="../img/esp.proto-2.jpg" alt="Prototipo con configuración 2">
-                            <p><em>Figura 5: Configuración física 2 aplicada. Cambios realizados desde la web se reflejan inmediatamente en el hardware.</em></p>
+                            <img src="../img/esp.proto-2.jpg" alt="Prototype with configuration 2">
+                            <p><em>Figure 5: Physical configuration 2 applied. Changes made from the web are immediately reflected in the hardware.</em></p>
                         </td>
                     </tr>
                 </table>
 
                 <hr />
 
-                <h2 id="valor-del-sistema">Valor del Sistema</h2>
+                <h2 id="valor-del-sistema">System Value</h2>
 
-                <p>Este sistema demuestra que una solución de configuración web robusta y profesional es alcanzable con hardware mínimo y coste reducido. El uso de un solo ESP32, sin componentes externos, mantiene la implementación simple y económica mientras entrega funcionalidad completa.</p>
+                <p>This system demonstrates that a robust, professional web configuration solution is achievable with minimal hardware and reduced cost. Using only one ESP32, without external components, keeps the implementation simple and economical while delivering full functionality.</p>
 
-                <p>El desarrollo se aceleró partiendo de la plantilla oficial <code>captive_portal</code> de ESP-IDF, sobre la cual se construyeron las capas de abstracción de configuración y persistencia. Esto permitió enfocar el esfuerzo en la lógica de aplicación en lugar de diseñar componentes de red ya probados.</p>
+                <p>Development was accelerated by starting from the official ESP-IDF <code>captive_portal</code> template, upon which configuration and persistence abstraction layers were built. This allowed focusing effort on application logic rather than designing already-proven network components.</p>
 
-                <p>El resultado es un sistema que funciona de inmediato al conectarse, con tiempos de respuesta bajos y persistencia de configuración verificada tras múltiples ciclos de reinicio. Una solución práctica para despliegues reales en entornos técnicos e industriales.</p>
+                <p>The result is a system that works immediately upon connection, with low response times and verified configuration persistence after multiple reboot cycles. A practical solution for real deployments in technical and industrial environments.</p>
 
                 <hr />
 
-                <h2 id="documentacion">Documentación y Código Fuente</h2>
+                <h2 id="documentacion">Documentation and Source Code</h2>
 
-                <p>Material complementario que resume el proyecto y detalla el desarrollo técnico:</p>
+                <p>Complementary material summarizing the project and detailing technical development:</p>
 
-                <h3>Poster de presentación</h3>
-                <p>Resumen visual del sistema, su arquitectura y flujo de uso.</p>
+                <h3>Presentation Poster</h3>
+                <p>Visual summary of the system, its architecture and usage flow.</p>
                 <div style="margin: 20px 0; width: 100%; height: 500px;">
                     <iframe src="../ESP32/Poster.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
                 </div>
 
-                <h3>Informe técnico</h3>
-                <p>Documento completo con motivación, desarrollo, implementación y resultados del proyecto.</p>
+                <h3>Technical Report</h3>
+                <p>Complete document with motivation, development, implementation and project results.</p>
                 <div style="margin: 20px 0; width: 100%; height: 600px;">
                     <iframe src="../ESP32/Informe.pdf" style="width: 100%; height: 100%; border: 2px solid #003366;"></iframe>
                 </div>
 
-                <h3>Repositorio del Proyecto</h3>
+                <h3>Project Repository</h3>
                 <blockquote>
-                <p><strong>Código Fuente:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/ESP32"><code>https://github.com/SimonAulet/portfolio/tree/main/ESP32</code></a></p>
-                <p style="font-size: 0.9em; margin-top: 8px; color: #555;">Contiene todo el código del sistema: firmware ESP-IDF, interfaz web, configuración de build system (CMake), y scripts de desarrollo.</p>
+                <p><strong>Source Code:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/ESP32"><code>https://github.com/SimonAulet/portfolio/tree/main/ESP32</code></a></p>
+                <p style="font-size: 0.9em; margin-top: 8px; color: #555;">Contains all system code: ESP-IDF firmware, web interface, build system configuration (CMake), and development scripts.</p>
                 </blockquote>
             </div>
         </main>
         <div id="footer-container"></div>
     </div>
     <script>
-            fetch('components/footer-general.html')
+            fetch('../components/footer-general_en.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antenas Simuladas - Compilación de Diseños - Simón Aulet</title>
+    <title>Simulated Antennas - Design Compilation - Simón Aulet</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,343 +14,343 @@
 <body>
     <div class="container">
         <header>
-            <h1>Antenas Simuladas - Compilación de Diseños</h1>
-            <p class="subtitle">Simón Aulet · RF · CST · Simulación EM · Antenas</p>
-            <p class="description">Cuatro antenas simuladas en CST: dipolo, helicoidal, Yagi-Uda y loop. Análisis de parámetros S, diagramas de radiación y optimización.</p>
+            <h1>Simulated Antennas - Design Compilation</h1>
+            <p class="subtitle">Simón Aulet · RF · CST · EM Simulation · Antennas</p>
+            <p class="description">Four antennas simulated in CST: dipole, helical, Yagi-Uda, and loop. Analysis of S-parameters, radiation patterns, and optimization.</p>
             <div class="tech-tags">
                 <span>RF</span>
                 <span>CST</span>
-                <span>Simulación EM</span>
-                <span>Antenas</span>
-                <span>Parámetros S</span>
-                <span>Diagramas de Radiación</span>
+                <span>EM Simulation</span>
+                <span>Antennas</span>
+                <span>S-Parameters</span>
+                <span>Radiation Patterns</span>
             </div>
             <div class="navigation">
-                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
             </div>
         </header>
 
         <main>
             <div class="content-wrapper">
 
-                <h2 id="1-antena-dipolo-de-media-onda">1. Antena Dipolo de Media Onda (λ/2) - Sintonizado</h2>
+                <h2 id="1-antena-dipolo-de-media-onda">1. Half-Wave Dipole Antenna (λ/2) - Tuned</h2>
 
-                <p><strong>Configuración:</strong> Dipolo delgado alimentado en el centro, orientado en Z. Dimensiones finales optimizadas mediante <em>parameter sweep</em>.</p>
+                <p><strong>Configuration:</strong> Thin center-fed dipole, oriented along Z-axis. Final dimensions optimized through <em>parameter sweep</em>.</p>
 
-                <h3 id="11-parámetros-en-1-ghz">1.1 Parámetros en 1 GHz</h3>
+                <h3 id="11-parámetros-en-1-ghz">1.1 Parameters at 1 GHz</h3>
 
                 <table>
                     <tr>
-                        <th>Parámetro</th>
-                        <th>Valor</th>
+                        <th>Parameter</th>
+                        <th>Value</th>
                     </tr>
                     <tr>
-                        <td><strong>Frecuencia de resonancia</strong></td>
+                        <td><strong>Resonance frequency</strong></td>
                         <td>1.0 GHz</td>
                     </tr>
                     <tr>
-                        <td><strong>S<sub>11</sub> mínimo</strong></td>
+                        <td><strong>Minimum S<sub>11</sub></strong></td>
                         <td>-28.0 dB</td>
                     </tr>
                     <tr>
-                        <td><strong>Directividad máxima</strong></td>
+                        <td><strong>Maximum directivity</strong></td>
                         <td>2.12 dBi</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia total</strong></td>
+                        <td><strong>Total efficiency</strong></td>
                         <td>-0.1715 dB (∼96%)</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td><strong>Radiation efficiency</strong></td>
                         <td>0.001466 dB (∼99.9%)</td>
                     </tr>
                     <tr>
-                        <td><strong>Ancho de haz (-3 dB) - Plano E</strong></td>
+                        <td><strong>Beamwidth (-3 dB) - E-plane</strong></td>
                         <td>78.3°</td>
                     </tr>
                 </table>
 
-                <h3 id="12-patrón-de-radiación-3d-y-cortes-principales">1.2 Patrón de Radiación 3D y Cortes Principales</h3>
+                <h3 id="12-patrón-de-radiación-3d-y-cortes-principales">1.2 3D Radiation Pattern and Principal Cuts</h3>
 
-                <img src="../img/antenna.dipolo_3D.png" alt="Diagrama de Directividad 3D (escala log.)">
-                <p><em>Figura 1.1 - Patrón de radiación 3D.</em> Visualización en escala logarítmica de la directividad. Muestra el patrón toroidal ("donut") característico, con máximos en el plano ecuatorial (XY) y nulos en el eje del dipolo (Z). Este resultado corresponde a la longitud de dipolo sintonizada tras un barrido paramétrico (<em>parameter sweep</em>).</p>
+                <img src="../img/antenna.dipolo_3D.png" alt="3D Directivity Diagram (log scale)">
+                <p><em>Figure 1.1 - 3D radiation pattern.</em> Logarithmic scale visualization of directivity. Shows the characteristic toroidal ("donut") pattern, with maxima in the equatorial plane (XY) and nulls along the dipole axis (Z). This result corresponds to the tuned dipole length after a parametric sweep (<em>parameter sweep</em>).</p>
 
                 <table>
                     <tr>
                         <td width="50%">
-                            <img src="../img/antenna.dipolo_E-field.png" alt="Corte Plano E">
-                            <p style="text-align: center;"><em>Figura 1.2 - Corte Plano E (φ=0°)</em></p>
+                            <img src="../img/antenna.dipolo_E-field.png" alt="E-plane Cut">
+                            <p style="text-align: center;"><em>Figure 1.2 - E-plane Cut (φ=0°)</em></p>
                         </td>
                         <td width="50%">
-                            <img src="../img/antenna.dipolo_H-field.png" alt="Corte Plano H">
-                            <p style="text-align: center;"><em>Figura 1.3 - Corte Plano H (θ=90°)</em></p>
+                            <img src="../img/antenna.dipolo_H-field.png" alt="H-plane Cut">
+                            <p style="text-align: center;"><em>Figure 1.3 - H-plane Cut (θ=90°)</em></p>
                         </td>
                     </tr>
                 </table>
 
-                <p><em>Figura 1.2 & 1.3 - Patrones en planos E y H.</em> El corte en el <strong>Plano E</strong> (que contiene al dipolo) muestra el diagrama clásico de dos lóbulos con un ancho de haz de 78.3°. El corte en el <strong>Plano H</strong> (perpendicular al dipolo) valida la omnidireccionalidad teórica.</p>
+                <p><em>Figure 1.2 & 1.3 - E and H-plane patterns.</em> The cut in the <strong>E-plane</strong> (containing the dipole) shows the classic two-lobe pattern with a beamwidth of 78.3°. The cut in the <strong>H-plane</strong> (perpendicular to the dipole) validates the theoretical omnidirectionality.</p>
 
-                <h3 id="13-optimización-y-respuesta-en-frecuencia">1.3 Optimización y Respuesta en Frecuencia</h3>
+                <h3 id="13-optimización-y-respuesta-en-frecuencia">1.3 Optimization and Frequency Response</h3>
 
-                <img src="../img/antenna.dipolo_S11.png" alt="Parámetro S11 con parameter sweep">
-                <p><em>Figura 1.4 - Optimización de impedancia.</em> Curva del parámetro S<sub>11</sub> para el factor de longitud óptimo (<strong>0.463333λ</strong>), obtenido tras un barrido paramétrico (mult. de 0.45 a 0.49λ). El mínimo de <strong>-28 dB a 1 GHz</strong> confirma la sintonía precisa lograda y una adaptación de impedancia óptima.</p>
+                <img src="../img/antenna.dipolo_S11.png" alt="S11 Parameter with parameter sweep">
+                <p><em>Figure 1.4 - Impedance optimization.</em> S<sub>11</sub> parameter curve for the optimal length factor (<strong>0.463333λ</strong>), obtained after a parametric sweep (mult. from 0.45 to 0.49λ). The minimum of <strong>-28 dB at 1 GHz</strong> confirms the precise tuning achieved and optimal impedance matching.</p>
 
-                <h3 id="14-conclusión-del-diseño">1.4 Conclusión del Diseño</h3>
+                <h3 id="14-conclusión-del-diseño">1.4 Design Conclusion</h3>
 
-                <p>El dipolo fue modelado y optimizado sistemáticamente mediante un parameter sweep de su longitud, logrando una resonancia precisa a 1 GHz con un S<sub>11</sub> de -28 dB. El patrón de radiación obtenido coincide con la teoría, presentando una directividad de 2.12 dBi y eficiencias superiores al 96%, validando la calidad de la simulación y el proceso de sintonía.</p>
+                <p>The dipole was systematically modeled and optimized through a parameter sweep of its length, achieving precise resonance at 1 GHz with an S<sub>11</sub> of -28 dB. The obtained radiation pattern matches theory, showing a directivity of 2.12 dBi and efficiencies above 96%, validating the simulation quality and tuning process.</p>
 
                 <hr />
 
-                <h2 id="2-antena-helicoidal-en-modo-axial-rhcp">2. Antena Helicoidal en Modo Axial (RHCP)</h2>
+                <h2 id="2-antena-helicoidal-en-modo-axial-rhcp">2. Helical Antenna in Axial Mode (RHCP)</h2>
 
-                <p><strong>Configuración de diseño:</strong> Antena helicoidal de N=5 vueltas, optimizada para polarización circular derecha (RHCP) en la frecuencia objetivo de f = 1 GHz. La geometría se dimensionó para forzar el modo axial: diámetro D = λ/π ≈ 95.5 mm y paso S = λ/4 ≈ 75.0 mm, montada sobre un plano de tierra de diámetro λ/2.</p>
+                <p><strong>Design configuration:</strong> Helical antenna with N=5 turns, optimized for right-hand circular polarization (RHCP) at the target frequency f = 1 GHz. The geometry was dimensioned to force axial mode operation: diameter D = λ/π ≈ 95.5 mm and pitch S = λ/4 ≈ 75.0 mm, mounted on a ground plane of diameter λ/2.</p>
 
-                <h3 id="21-parámetros-en-1-ghz">2.1 Parámetros en 1 GHz</h3>
+                <h3 id="21-parámetros-en-1-ghz">2.1 Parameters at 1 GHz</h3>
 
                 <table>
                     <tr>
-                        <th>Parámetro</th>
-                        <th>Valor</th>
+                        <th>Parameter</th>
+                        <th>Value</th>
                     </tr>
                     <tr>
-                        <td><strong>Frecuencia de operación</strong></td>
+                        <td><strong>Operating frequency</strong></td>
                         <td>1.0 GHz</td>
                     </tr>
                     <tr>
-                        <td><strong>Modo de polarización</strong></td>
+                        <td><strong>Polarization mode</strong></td>
                         <td>RHCP (Right-Hand Circular Polarization)</td>
                     </tr>
                     <tr>
-                        <td><strong>Directividad máxima</strong></td>
+                        <td><strong>Maximum directivity</strong></td>
                         <td>9.13 dBi</td>
                     </tr>
                     <tr>
-                        <td><strong>Ancho de haz (-3 dB)</strong></td>
+                        <td><strong>Beamwidth (-3 dB)</strong></td>
                         <td>54.8°</td>
                     </tr>
                     <tr>
-                        <td><strong>Relación axial (AR) en eje</strong></td>
+                        <td><strong>Axial ratio (AR) on axis</strong></td>
                         <td>≈ 0 dB</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td><strong>Radiation efficiency</strong></td>
                         <td>-0.002 dB (≈ 99.95%)</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia total</strong></td>
+                        <td><strong>Total efficiency</strong></td>
                         <td>-1.55 dB (≈ 70%)</td>
                     </tr>
                 </table>
 
-                <h3 id="22-patrón-de-radiación-3d-y-verificación-del-modo">2.2 Patrón de Radiación 3D y Verificación del Modo</h3>
+                <h3 id="22-patrón-de-radiación-3d-y-verificación-del-modo">2.2 3D Radiation Pattern and Mode Verification</h3>
 
-                <img src="../img/antenna.helix_3D.png" alt="Patrón de radiación 3D de la antena helicoidal">
-                <p><em>Figura 2.1 - Diagrama de radiación 3D.</em> Visualización del patrón en 1 GHz. El lóbulo principal pronunciado y direccional a lo largo del eje de la hélice (+Z) es la firma inequívoca de la operación en el modo axial deseado.</p>
+                <img src="../img/antenna.helix_3D.png" alt="3D radiation pattern of the helical antenna">
+                <p><em>Figure 2.1 - 3D radiation diagram.</em> Pattern visualization at 1 GHz. The pronounced and directional main lobe along the helix axis (+Z) is the unequivocal signature of operation in the desired axial mode.</p>
 
-                <h3 id="23-calidad-del-haz-y-polarización-circular">2.3 Calidad del Haz y Polarización Circular</h3>
+                <h3 id="23-calidad-del-haz-y-polarización-circular">2.3 Beam Quality and Circular Polarization</h3>
 
                 <table>
                     <tr>
                         <td width="50%">
-                            <img src="../img/antenna.helix_axial.png" alt="Corte del patrón de radiación">
-                            <p style="text-align: center;"><em>Figura 2.2 - Corte del patrón (Plano axial)</em></p>
+                            <img src="../img/antenna.helix_axial.png" alt="Radiation pattern cut">
+                            <p style="text-align: center;"><em>Figure 2.2 - Pattern cut (Axial plane)</em></p>
                         </td>
                         <td width="50%">
-                            <img src="../img/antenna.helix_rel-axial.png" alt="Relación Axial">
-                            <p style="text-align: center;"><em>Figura 2.3 - Relación Axial (AR) en el plano axial</em></p>
+                            <img src="../img/antenna.helix_rel-axial.png" alt="Axial Ratio">
+                            <p style="text-align: center;"><em>Figure 2.3 - Axial Ratio (AR) in the axial plane</em></p>
                         </td>
                     </tr>
                 </table>
 
-                <p><em>Figura 2.2 & 2.3 - Análisis conjunto.</em> El corte del patrón (Figura 2.2) cuantifica la directividad (9.13 dBi) y el ancho de haz (54.8°). La gráfica de Relación Axial (Figura 2.3) valida la calidad de la polarización circular: un valor de AR cercano a 0 dB en la dirección del eje (θ = 0°) confirma una polarización circular derecha (RHCP) casi perfecta en el corazón del lóbulo principal, cumpliendo con el objetivo de diseño más exigente de esta antena.</p>
+                <p><em>Figure 2.2 & 2.3 - Combined analysis.</em> The pattern cut (Figure 2.2) quantifies directivity (9.13 dBi) and beamwidth (54.8°). The Axial Ratio plot (Figure 2.3) validates circular polarization quality: an AR value close to 0 dB in the axial direction (θ = 0°) confirms nearly perfect right-hand circular polarization (RHCP) at the heart of the main lobe, meeting the most demanding design objective of this antenna.</p>
 
-                <h3 id="24-patrón-en-el-plano-transversal">2.4 Patrón en el Plano Transversal</h3>
+                <h3 id="24-patrón-en-el-plano-transversal">2.4 Pattern in the Transverse Plane</h3>
 
-                <img src="../img/antenna.helix_superior.png" alt="Patrón de radiación en el plano transversal">
-                <p><em>Figura 2.4 - Patrón en plano transversal.</em> Corte en el plano XY (θ = 90°), perpendicular al eje de la antena. Muestra una directividad baja (-2.51 dBi) y un patrón casi omnidireccional, confirmando que la radiación se concentra efectivamente en el frente de la hélice y no se dispersa por los costados.</p>
+                <img src="../img/antenna.helix_superior.png" alt="Radiation pattern in the transverse plane">
+                <p><em>Figure 2.4 - Pattern in transverse plane.</em> Cut in the XY plane (θ = 90°), perpendicular to the antenna axis. Shows low directivity (-2.51 dBi) and an almost omnidirectional pattern, confirming that radiation is effectively concentrated in front of the helix and does not scatter to the sides.</p>
 
-                <h3 id="25-conclusión-del-diseño">2.5 Conclusión del Diseño</h3>
+                <h3 id="25-conclusión-del-diseño">2.5 Design Conclusion</h3>
 
-                <p>El diseño logra con éxito una antena helicoidal operando en el modo axial, combinando una directividad apreciable con una polarización circular de alta calidad. La relación axial cercana a 0 dB en el eje del haz es un resultado particularmente destacable, que valida la precisión del dimensionado geométrico y la correcta excitación del modo. Este conjunto de características la convierte en un modelo efectivo para aplicaciones que requieren polarización circular y radiación direccional, como en enlaces satelitales o de telemetría.</p>
+                <p>The design successfully achieves a helical antenna operating in axial mode, combining appreciable directivity with high-quality circular polarization. The axial ratio close to 0 dB on the beam axis is a particularly notable result, validating the precision of geometric dimensioning and correct mode excitation. This set of characteristics makes it an effective model for applications requiring circular polarization and directional radiation, such as in satellite links or telemetry.</p>
 
                 <hr />
 
-                <h2 id="3-antena-yagi-uda-para-uhf-6-elementos">3. Antena Yagi-Uda para UHF (6 elementos)</h2>
+                <h2 id="3-antena-yagi-uda-para-uhf-6-elementos">3. Yagi-Uda Antenna for UHF (6 elements)</h2>
 
-                <p><strong>Objetivo de diseño:</strong> Antena direccional para 550 MHz con directividad >10 dBi.</p>
+                <p><strong>Design objective:</strong> Directional antenna for 550 MHz with directivity >10 dBi.</p>
 
-                <h3 id="31-parámetros-de-diseño-y-resultados">3.1 Parámetros de Diseño y Resultados</h3>
+                <h3 id="31-parámetros-de-diseño-y-resultados">3.1 Design Parameters and Results</h3>
 
                 <table class="four-columns">
                     <tr>
-                        <th>Parámetro</th>
-                        <th>Valor</th>
-                        <th>Parámetro</th>
-                        <th>Valor</th>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                        <th>Parameter</th>
+                        <th>Value</th>
                     </tr>
                     <tr>
-                        <td><strong>Frecuencia central (f₀)</strong></td>
+                        <td><strong>Center frequency (f₀)</strong></td>
                         <td>550 MHz</td>
-                        <td><strong>Longitud de onda (λ)</strong></td>
+                        <td><strong>Wavelength (λ)</strong></td>
                         <td>0.545 m</td>
                     </tr>
                     <tr>
-                        <td><strong>Directividad alcanzada (D₀)</strong></td>
+                        <td><strong>Achieved directivity (D₀)</strong></td>
                         <td>10.87 dBi</td>
-                        <td><strong>Pérdidas por retorno</strong></td>
+                        <td><strong>Return loss</strong></td>
                         <td>20.0 dB</td>
                     </tr>
                     <tr>
-                        <td><strong>Ancho de haz (-3 dB) (Plano E)</strong></td>
+                        <td><strong>Beamwidth (-3 dB) (E-plane)</strong></td>
                         <td>43.1°</td>
-                        <td><strong>Nivel de lóbulo lateral (Plano E)</strong></td>
+                        <td><strong>Side lobe level (E-plane)</strong></td>
                         <td>-10.5 dB</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia total</strong></td>
+                        <td><strong>Total efficiency</strong></td>
                         <td>-0.082 dB (∼98%)</td>
-                        <td><strong>Relación Delante/Atrás (aprox.)</strong></td>
+                        <td><strong>Front-to-back ratio (approx.)</strong></td>
                         <td>10.9 dB</td>
                     </tr>
                 </table>
 
-                <h3 id="32-dimensiones-clave">3.2 Dimensiones Clave</h3>
+                <h3 id="32-dimensiones-clave">3.2 Key Dimensions</h3>
 
-                <p><strong>Dimensiones clave (basadas en NBS Tech. Note 688):</strong></p>
+                <p><strong>Key dimensions (based on NBS Tech. Note 688):</strong></p>
 
                 <table>
                     <tr>
-                        <th>Elemento</th>
-                        <th>Dimensión</th>
+                        <th>Element</th>
+                        <th>Dimension</th>
                     </tr>
                     <tr>
                         <td>Reflector (L1)</td>
                         <td>48.2 cm</td>
                     </tr>
                     <tr>
-                        <td>Dipolo plegado (L2)</td>
+                        <td>Folded dipole (L2)</td>
                         <td>24.8 cm</td>
                     </tr>
                     <tr>
-                        <td>Directores (L3-L6)</td>
+                        <td>Directors (L3-L6)</td>
                         <td>42.8 cm - 42.0 cm</td>
                     </tr>
                     <tr>
-                        <td>Espaciado entre directores</td>
+                        <td>Spacing between directors</td>
                         <td>25.0 cm</td>
                     </tr>
                     <tr>
-                        <td>Radio de elementos (Al)</td>
+                        <td>Element radius (Al)</td>
                         <td>2.32 mm (0.232 cm)</td>
                     </tr>
                 </table>
 
-                <h3 id="33-modelo-y-respuesta-de-la-antena">3.3 Modelo y Respuesta de la Antena</h3>
+                <h3 id="33-modelo-y-respuesta-de-la-antena">3.3 Model and Antenna Response</h3>
 
-                <img src="../img/antenna.yagi_uda_3D-5.png" alt="Modelo 3D de la antena Yagi-Uda">
-                <p><em>Figura 3.1 - Modelo Físico.</em> Estructura simulada con 6 elementos: un reflector, un dipolo plegado activo y 4 directores. Los elementos conductores son de aluminio hueco, montados en una barra portante de PVC. El dipolo plegado, sintonizado para una impedancia cercana a 200 Ω, se adapta a 50 Ω mediante un balun 4:1 realizado con coaxial de 50Ω, facilitando la conexión directa.</p>
+                <img src="../img/antenna.yagi_uda_3D-5.png" alt="3D model of the Yagi-Uda antenna">
+                <p><em>Figure 3.1 - Physical Model.</em> Simulated structure with 6 elements: one reflector, one active folded dipole, and 4 directors. The conductive elements are hollow aluminum, mounted on a PVC support rod. The folded dipole, tuned for an impedance close to 200 Ω, is matched to 50 Ω using a 4:1 balun made with 50Ω coaxial cable, facilitating direct connection.</p>
 
-                <h3 id="34-características-de-radiación">3.4 Características de Radiación</h3>
+                <h3 id="34-características-de-radiación">3.4 Radiation Characteristics</h3>
 
-                <img src="../img/antenna.yagi_uda_3D-4.png" alt="Diagrama de radiación 3D - Directividad">
-                <p><em>Figura 3.2 - Patrón de Radiación 3D.</em> Diagrama de directividad en escala logarítmica. Se confirma la directividad de 10.87 dBi y la alta eficiencia de radiación (-0.037 dB).</p>
+                <img src="../img/antenna.yagi_uda_3D-4.png" alt="3D radiation diagram - Directivity">
+                <p><em>Figure 3.2 - 3D Radiation Pattern.</em> Directivity diagram in logarithmic scale. Confirms directivity of 10.87 dBi and high radiation efficiency (-0.037 dB).</p>
 
                 <table>
                     <tr>
                         <td width="50%">
-                            <img src="../img/antenna.yagi_uda_E-plane.png" alt="Corte Plano E">
-                            <p style="text-align: center;"><em>Figura 3.3 - Corte Plano E (vista superior, θ = 90°)</em></p>
+                            <img src="../img/antenna.yagi_uda_E-plane.png" alt="E-plane Cut">
+                            <p style="text-align: center;"><em>Figure 3.3 - E-plane Cut (top view, θ = 90°)</em></p>
                         </td>
                         <td width="50%">
-                            <img src="../img/antenna.yagi_uda_H-plane.png" alt="Corte Plano H">
-                            <p style="text-align: center;"><em>Figura 3.4 - Corte Plano H (vista lateral, φ = 0°)</em></p>
+                            <img src="../img/antenna.yagi_uda_H-plane.png" alt="H-plane Cut">
+                            <p style="text-align: center;"><em>Figure 3.4 - H-plane Cut (side view, φ = 0°)</em></p>
                         </td>
                     </tr>
                 </table>
 
-                <p><em>Figura 3.3 & 3.4 - Cortes en Planos Principales.</em> El <strong>Plano E</strong> (que contiene los elementos) muestra el lóbulo principal más estrecho (43.1°) y mejor supresión de lóbulos laterales. El <strong>Plano H</strong> presenta un haz ligeramente más ancho (49.6°).</p>
+                <p><em>Figure 3.3 & 3.4 - Principal Plane Cuts.</em> The <strong>E-plane</strong> (containing the elements) shows the narrower main lobe (43.1°) and better side lobe suppression. The <strong>H-plane</strong> presents a slightly wider beam (49.6°).</p>
 
-                <h3 id="35-respuesta-eléctrica-y-adaptación">3.5 Respuesta Eléctrica y Adaptación</h3>
+                <h3 id="35-respuesta-eléctrica-y-adaptación">3.5 Electrical Response and Matching</h3>
 
-                <img src="../img/antenna.yagi_uda_S11.png" alt="Parámetro S11 de la antena">
-                <p><em>Figura 3.5 - Parámetro de Reflexión (S₁₁).</em> La curva muestra un mínimo de -20.0 dB en la frecuencia central de 550 MHz, superando el requisito de pérdidas por retorno > 15 dB.</p>
+                <img src="../img/antenna.yagi_uda_S11.png" alt="S11 Parameter of the antenna">
+                <p><em>Figure 3.5 - Reflection Parameter (S₁₁).</em> The curve shows a minimum of -20.0 dB at the center frequency of 550 MHz, exceeding the return loss requirement > 15 dB.</p>
 
-                <img src="../img/antenna.yagi_uda_Z-params.png" alt="Parámetros de impedancia de entrada">
-                <p><em>Figura 3.6 - Impedancia de Entrada (Z<sub>in</sub>).</em> En 550 MHz, la impedancia es Z<sub>in</sub> = 207.6 - j5.44 Ω. La componente real cercana a 200 Ω es perfecta para el balun 4:1, y la pequeña reactancia (-j5.44 Ω) despreciable.</p>
+                <img src="../img/antenna.yagi_uda_Z-params.png" alt="Input impedance parameters">
+                <p><em>Figure 3.6 - Input Impedance (Z<sub>in</sub>).</em> At 550 MHz, the impedance is Z<sub>in</sub> = 207.6 - j5.44 Ω. The real component close to 200 Ω is perfect for the 4:1 balun, and the small reactance (-j5.44 Ω) is negligible.</p>
 
-                <h3 id="36-conclusión-del-diseño">3.6 Conclusión del Diseño</h3>
+                <h3 id="36-conclusión-del-diseño">3.6 Design Conclusion</h3>
 
-                <p>El diseño resultó en una antena Yagi-Uda práctica y de alto rendimiento para UHF, que supera holgadamente las especificaciones iniciales. La elección de un dipolo plegado como radiante simplifica enormemente la adaptación: su impedancia natural de ∼200 Ω se conjuga perfectamente con un balun 4:1 construible con un simple tramo de coaxial, eliminando la necesidad de circuitos impresos o componentes discretos.</p>
+                <p>The design resulted in a practical, high-performance Yagi-Uda antenna for UHF, comfortably exceeding initial specifications. The choice of a folded dipole as the radiating element greatly simplifies matching: its natural impedance of ∼200 Ω perfectly matches a 4:1 balun constructible with a simple coaxial section, eliminating the need for printed circuits or discrete components.</p>
 
                 <hr />
 
-                <h2 id="4-antena-loop-de-perímetro-13-λ">4. Antena Loop de Perímetro 1.3 λ</h2>
+                <h2 id="4-antena-loop-de-perímetro-13-λ">4. Loop Antenna with 1.3 λ Perimeter</h2>
 
-                <p><strong>Objetivo:</strong> Análisis de una antena loop circular de perímetro C = 1.3λ operando a 1 GHz, para estudiar sus características en modo no dipolo magnético debido a su gran tamaño eléctrico.</p>
+                <p><strong>Objective:</strong> Analysis of a circular loop antenna with perimeter C = 1.3λ operating at 1 GHz, to study its characteristics in non-magnetic dipole mode due to its large electrical size.</p>
 
-                <h3 id="41-parámetros-de-diseño-y-resultados-en-f₀">4.1 Parámetros de Diseño y Resultados en f₀</h3>
+                <h3 id="41-parámetros-de-diseño-y-resultados-en-f₀">4.1 Design Parameters and Results at f₀</h3>
 
                 <table>
                     <tr>
-                        <th>Parámetro</th>
-                        <th>Valor</th>
+                        <th>Parameter</th>
+                        <th>Value</th>
                     </tr>
                     <tr>
-                        <td><strong>Frecuencia de operación (f₀)</strong></td>
+                        <td><strong>Operating frequency (f₀)</strong></td>
                         <td>1 GHz</td>
                     </tr>
                     <tr>
-                        <td><strong>Perímetro de la circunferencia (C)</strong></td>
+                        <td><strong>Circumference perimeter (C)</strong></td>
                         <td>1.3λ</td>
                     </tr>
                     <tr>
-                        <td><strong>Radio del conductor (Cu)</strong></td>
+                        <td><strong>Conductor radius (Cu)</strong></td>
                         <td>4 mm</td>
                     </tr>
                     <tr>
-                        <td><strong>Directividad máxima</strong></td>
+                        <td><strong>Maximum directivity</strong></td>
                         <td>4.38 dBi</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia de radiación</strong></td>
+                        <td><strong>Radiation efficiency</strong></td>
                         <td>-0.0024 dB (∼99.9%)</td>
                     </tr>
                     <tr>
-                        <td><strong>Eficiencia total</strong></td>
+                        <td><strong>Total efficiency</strong></td>
                         <td>-4.86 dB (∼32%)</td>
                     </tr>
                 </table>
 
-                <h3 id="42-caracterización-del-modo-de-radiación">4.2 Caracterización del Modo de Radiación</h3>
+                <h3 id="42-caracterización-del-modo-de-radiación">4.2 Radiation Mode Characterization</h3>
 
-                <img src="../img/antenna.loop_3D.png" alt="Diagrama de radiación 3D del Loop resonante">
-                <p><em>Figura 4.1 - Patrón 3D complejo.</em> Para un loop de 1.3λ, el diagrama deja de ser el toroide simple de un dipolo magnético. Se observa una estructura multilobulada, indicativa de una distribución de corriente no uniforme a lo largo del conductor, característica de loops eléctricamente grandes.</p>
+                <img src="../img/antenna.loop_3D.png" alt="3D radiation diagram of the resonant Loop">
+                <p><em>Figure 4.1 - Complex 3D pattern.</em> For a 1.3λ loop, the diagram is no longer the simple toroid of a magnetic dipole. A multilobed structure is observed, indicative of non-uniform current distribution along the conductor, characteristic of electrically large loops.</p>
 
                 <table>
                     <tr>
                         <td width="50%">
-                            <img src="../img/antenna.loop_E-field.png" alt="Corte Plano E - Patrón complejo">
-                            <p style="text-align: center;"><em>Figura 4.2 - Corte Plano E (φ = 0°)</em></p>
+                            <img src="../img/antenna.loop_E-field.png" alt="E-plane Cut - Complex pattern">
+                            <p style="text-align: center;"><em>Figure 4.2 - E-plane Cut (φ = 0°)</em></p>
                         </td>
                         <td width="50%">
-                            <img src="../img/antenna.loop_H-field.png" alt="Corte Plano H - Patrón complejo">
-                            <p style="text-align: center;"><em>Figura 4.3 - Corte Plano H (θ = 90°)</em></p>
+                            <img src="../img/antenna.loop_H-field.png" alt="H-plane Cut - Complex pattern">
+                            <p style="text-align: center;"><em>Figure 4.3 - H-plane Cut (θ = 90°)</em></p>
                         </td>
                     </tr>
                 </table>
 
-                <p><em>Figura 4.2 & 4.3 - Patrones en planos E y H.</em> Ambos cortes presentan lóbulos secundarios y nulos pronunciados, lo que confirma que la antena ya no opera en el modo de dipolo magnético. La directividad medida (4.38 dBi) es superior a la de un loop pequeño.</p>
+                <p><em>Figure 4.2 & 4.3 - E and H-plane patterns.</em> Both cuts show pronounced secondary lobes and nulls, confirming that the antenna no longer operates in magnetic dipole mode. The measured directivity (4.38 dBi) is higher than that of a small loop.</p>
 
-                <h3 id="43-análisis-de-impedancia-y-respuesta-en-frecuencia">4.3 Análisis de Impedancia y Respuesta en Frecuencia</h3>
+                <h3 id="43-análisis-de-impedancia-y-respuesta-en-frecuencia">4.3 Impedance Analysis and Frequency Response</h3>
 
-                <img src="../img/antenna.loop_Z-params.png" alt="Impedancia de entrada del Loop de 1.3λ">
-                <p><em>Figura 4.4 - Impedancia de entrada vs. Frecuencia.</em> La gráfica muestra la evolución de los parámetros Z en un barrido de 0.5 a 1.5 GHz. En la frecuencia de diseño (1 GHz), la impedancia es Z<sub>in</sub> ≈ 500 + j30 Ω.</p>
+                <img src="../img/antenna.loop_Z-params.png" alt="Input impedance of the 1.3λ Loop">
+                <p><em>Figure 4.4 - Input impedance vs. Frequency.</em> The plot shows the evolution of Z parameters in a sweep from 0.5 to 1.5 GHz. At the design frequency (1 GHz), the impedance is Z<sub>in</sub> ≈ 500 + j30 Ω.</p>
 
-                <p>La <strong>alta resistencia de radiación (∼500 Ω)</strong> es un resultado directo del gran tamaño eléctrico del loop (1.3λ), que lo aleja del comportamiento de un dipolo magnético de baja impedancia. Esta desadaptación extrema con la impedancia de referencia del puerto (50 Ω) es la causa principal de la baja eficiencia total (-4.86 dB), ya que provoca una alta reflexión de potencia a pesar de la excelente eficiencia de radiación intrínseca de la estructura.</p>
+                <p>The <strong>high radiation resistance (∼500 Ω)</strong> is a direct result of the loop's large electrical size (1.3λ), which moves it away from the low-impedance behavior of a magnetic dipole. This extreme mismatch with the port reference impedance (50 Ω) is the main cause of the low total efficiency (-4.86 dB), as it causes high power reflection despite the structure's excellent intrinsic radiation efficiency.</p>
 
-                <h3 id="44-conclusión-del-análisis">4.4 Conclusión del Análisis</h3>
+                <h3 id="44-conclusión-del-análisis">4.4 Analysis Conclusion</h3>
 
-                <p>La simulación del loop de 1.3λ confirmó las propiedades distintivas de una antena de gran tamaño eléctrico: un patrón de radiación complejo y multilobulado y una alta resistencia de radiación (∼500 Ω). La combinación de una excelente eficiencia de radiación con una baja eficiencia total evidencia la necesidad de un sistema de adaptación de impedancia en este tipo de diseños.</p>
+                <p>The simulation of the 1.3λ loop confirmed the distinctive properties of a large electrical size antenna: a complex, multilobed radiation pattern and high radiation resistance (∼500 Ω). The combination of excellent radiation efficiency with low total efficiency highlights the need for an impedance matching system in this type of design.</p>
 
                 <hr />
 
@@ -359,7 +359,7 @@
         <div id="footer-container"></div>
     </div>
     <script>
-            fetch('../components/footer-general.html')
+            fetch('../components/footer-general_en.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;

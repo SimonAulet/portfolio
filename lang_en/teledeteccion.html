@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Teledetección Ambiental - Portafolio Técnico</title>
+    <title>Environmental Remote Sensing Analysis - Technical Portfolio</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +14,18 @@
 <body>
     <div class="container">
         <header>
-            <h1>Análisis de Teledetección Ambiental</h1>
-            <p class="subtitle">Monitoreo de cambios en cobertura terrestre mediante imágenes Landsat</p>
-            <p class="description">Este conjunto de trabajos aplica técnicas de teledetección óptica para analizar tres fenómenos ambientales críticos en Argentina: deforestación en el noroeste, incendios en la Patagonia y dinámica de nieve/glaciares en Cuyo. Cada caso utiliza índices espectrales específicos procesados con <strong>ESA SNAP</strong> a partir de imágenes Landsat, siguiendo metodologías estandarizadas en la literatura científica.</p>
+            <h1>Environmental Remote Sensing Analysis</h1>
+            <p class="subtitle">Monitoring land cover changes using Landsat imagery</p>
+            <p class="description">This set of works applies optical remote sensing techniques to analyze three critical environmental phenomena in Argentina: deforestation in the northwest, fires in Patagonia, and snow/glacier dynamics in Cuyo. Each case uses specific spectral indices processed with <strong>ESA SNAP</strong> from Landsat imagery, following standardized methodologies in scientific literature.</p>
             <div class="tech-tags">
-                <span>Teledetección</span>
+                <span>Remote Sensing</span>
                 <span>Landsat</span>
                 <span>ESA SNAP</span>
-                <span>Análisis Ambiental</span>
+                <span>Environmental Analysis</span>
                 <span>NDVI</span>
             </div>
             <div class="navigation">
-                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
             </div>
         </header>
 
@@ -33,168 +33,168 @@
             <div class="content-wrapper">
                 <hr />
 
-                <h2 id="resumen-de-proyectos">Resumen de proyectos</h2>
-                <p>Los siguientes proyectos analizan diferentes fenómenos ambientales utilizando técnicas de teledetección con imágenes Landsat:</p>
+                <h2 id="project-summary">Project Summary</h2>
+                <p>The following projects analyze different environmental phenomena using remote sensing techniques with Landsat imagery:</p>
 
                 <table>
                     <tr>
-                        <th>Proyecto</th>
-                        <th>Ubicación</th>
-                        <th>Período</th>
-                        <th>Índice utilizado</th>
-                        <th>Satélite</th>
-                        <th>Producto</th>
+                        <th>Project</th>
+                        <th>Location</th>
+                        <th>Period</th>
+                        <th>Index used</th>
+                        <th>Satellite</th>
+                        <th>Product</th>
                     </tr>
                     <tr>
-                        <td><strong>Deforestación</strong></td>
+                        <td><strong>Deforestation</strong></td>
                         <td>Joaquín V. González, Salta</td>
                         <td>1986–2017</td>
                         <td>NDVI</td>
                         <td>Landsat 5 / Landsat 8</td>
-                        <td>Mapa de cambio de cobertura</td>
+                        <td>Land cover change map</td>
                     </tr>
                     <tr>
-                        <td><strong>Incendios</strong></td>
+                        <td><strong>Fires</strong></td>
                         <td>Lago Cholila, Chubut</td>
-                        <td>Enero–Abril 2015</td>
+                        <td>January–April 2015</td>
                         <td>NBR / ΔNBR</td>
                         <td>Landsat 8</td>
-                        <td>Mapa de severidad de quemado</td>
+                        <td>Burn severity map</td>
                     </tr>
                     <tr>
-                        <td><strong>Glaciares/Nieve</strong></td>
+                        <td><strong>Glaciers/Snow</strong></td>
                         <td>Cerro de la Majadita, San Juan</td>
-                        <td>2018 (estacional)</td>
+                        <td>2018 (seasonal)</td>
                         <td>Snow Index (SI)</td>
                         <td>Landsat 8</td>
-                        <td>Mapa de dinámica estacional</td>
+                        <td>Seasonal dynamics map</td>
                     </tr>
                 </table>
 
-                <h2 id="deforestacion-noroeste">1. Deforestación en el noroeste argentino</h2>
-                <p>La región del Chaco Salteño ha experimentado una fuerte transformación por expansión agrícola. Este análisis cuantifica la pérdida de bosque nativo alrededor de Joaquín V. González entre 1986 y 2017.</p>
+                <h2 id="northwest-deforestation">1. Deforestation in northwest Argentina</h2>
+                <p>The Chaco Salteño region has experienced significant transformation due to agricultural expansion. This analysis quantifies the loss of native forest around Joaquín V. González between 1986 and 2017.</p>
 
-                <h3 id="metodologia-deforestacion">Metodología</h3>
+                <h3 id="deforestation-methodology">Methodology</h3>
                 <ul>
-                    <li>Descarga de imágenes Landsat 5 (1986) y Landsat 8 (2017), path 230, row 77.</li>
-                    <li>Cálculo del <strong>Índice de Vegetación de Diferencia Normalizada (NDVI)</strong> para cada fecha:</li>
+                    <li>Download of Landsat 5 (1986) and Landsat 8 (2017) images, path 230, row 77.</li>
+                    <li>Calculation of the <strong>Normalized Difference Vegetation Index (NDVI)</strong> for each date:</li>
                 </ul>
 
                 <blockquote>
-                    <p><strong>Fórmula NDVI:</strong> <code>NDVI = (NIR - Rojo) / (NIR + Rojo)</code></p>
+                    <p><strong>NDVI Formula:</strong> <code>NDVI = (NIR - Red) / (NIR + Red)</code></p>
                 </blockquote>
 
                 <ul>
-                    <li>Clasificación no supervisada (k-means, 3 clases) del NDVI apilado.</li>
-                    <li>Asignación de categorías:
+                    <li>Unsupervised classification (k-means, 3 classes) of stacked NDVI.</li>
+                    <li>Category assignment:
                         <ul>
-                            <li><strong style="color: #27ae60;">Verde:</strong> Vegetación conservada (alto NDVI sin cambio).</li>
-                            <li><strong style="color: #e67e22;">Naranja:</strong> Áreas con disminución de NDVI por pérdida de bosque.</li>
-                            <li><strong style="color: #f1c40f;">Amarillo:</strong> Zonas de baja vegetación sin cambios significativos.</li>
+                            <li><strong style="color: #27ae60;">Green:</strong> Preserved vegetation (high NDVI without change).</li>
+                            <li><strong style="color: #e67e22;">Orange:</strong> Areas with decreased NDVI due to forest loss.</li>
+                            <li><strong style="color: #f1c40f;">Yellow:</strong> Low vegetation zones without significant changes.</li>
                         </ul>
                     </li>
                 </ul>
 
-                <img src="../img/tele.deforestacion.png" alt="Mapa de deforestación en Salta (1986-2017)">
-                <p><em>Mapa de deforestación en Salta (1986-2017) - Análisis de cambio de NDVI</em></p>
+                <img src="../img/tele.deforestacion.png" alt="Deforestation map in Salta (1986-2017)">
+                <p><em>Deforestation map in Salta (1986-2017) - NDVI change analysis</em></p>
 
-                <h3 id="resultado-deforestacion">Resultado</h3>
-                <p>El mapa evidencia un patrón claro de reducción de áreas verdes, correspondiente a la frontera agropecuaria en expansión. La técnica permite cuantificar la superficie transformada y localizar los focos de deforestación.</p>
+                <h3 id="deforestation-result">Result</h3>
+                <p>The map shows a clear pattern of reduction in green areas, corresponding to the expanding agricultural frontier. The technique allows quantification of the transformed area and localization of deforestation hotspots.</p>
 
-                <h2 id="incendios-patagonia">2. Incendios en la Patagonia</h2>
-                <p>En 2015, un incendio de grandes dimensiones afectó la región de Lago Cholila (Chubut). Este trabajo evalúa la severidad del daño mediante el Índice de Quemado Normalizado.</p>
+                <h2 id="patagonia-fires">2. Fires in Patagonia</h2>
+                <p>In 2015, a large-scale fire affected the Lago Cholila region (Chubut). This work evaluates damage severity using the Normalized Burn Ratio.</p>
 
-                <h3 id="metodologia-incendios">Metodología</h3>
+                <h3 id="fires-methodology">Methodology</h3>
                 <ul>
-                    <li>Imágenes Landsat 8 previa (21/01/2015) y posterior (11/04/2015) al incendio, path 232, row 89.</li>
-                    <li>Cálculo del <strong>Normalized Burn Ratio (NBR)</strong> para cada escena:</li>
+                    <li>Landsat 8 images before (21/01/2015) and after (11/04/2015) the fire, path 232, row 89.</li>
+                    <li>Calculation of the <strong>Normalized Burn Ratio (NBR)</strong> for each scene:</li>
                 </ul>
 
                 <blockquote>
-                    <p><strong>Fórmula NBR:</strong> <code>NBR = (NIR - SWIR2) / (NIR + SWIR2)</code></p>
+                    <p><strong>NBR Formula:</strong> <code>NBR = (NIR - SWIR2) / (NIR + SWIR2)</code></p>
                 </blockquote>
 
                 <ul>
-                    <li>Obtención de la diferencia temporal (<strong>ΔNBR</strong>):</li>
+                    <li>Obtaining the temporal difference (<strong>ΔNBR</strong>):</li>
                 </ul>
 
                 <blockquote>
-                    <p><strong>Fórmula ΔNBR:</strong> <code>ΔNBR = NBR<sub>pre</sub> - NBR<sub>post</sub></code></p>
+                    <p><strong>ΔNBR Formula:</strong> <code>ΔNBR = NBR<sub>pre</sub> - NBR<sub>post</sub></code></p>
                 </blockquote>
 
                 <ul>
-                    <li>Clasificación por umbrales en siete categorías de severidad, desde "recrecimiento vegetal" hasta "severidad alta de incendio".</li>
+                    <li>Threshold classification into seven severity categories, from "vegetation regrowth" to "high fire severity".</li>
                 </ul>
 
-                <img src="../img/tele.incendios.jpg" alt="Mapa de severidad de incendios en Lago Cholila (2015)">
-                <p><em>Mapa de severidad de incendios en Lago Cholila (2015) - Análisis ΔNBR</em></p>
+                <img src="../img/tele.incendios.jpg" alt="Fire severity map in Lago Cholila (2015)">
+                <p><em>Fire severity map in Lago Cholila (2015) - ΔNBR analysis</em></p>
 
-                <h3 id="resultado-incendios">Resultado</h3>
-                <p>La zona núcleo del incendio muestra valores altos de ΔNBR (tonos rojos), indicando severidad moderada-alta. Las áreas periféricas presentan menor severidad, mientras que algunos sectores verdes sugieren rebrote post-fuego.</p>
+                <h3 id="fires-result">Result</h3>
+                <p>The fire core zone shows high ΔNBR values (red tones), indicating moderate-high severity. Peripheral areas show lower severity, while some green sectors suggest post-fire regrowth.</p>
 
-                <h2 id="glaciares-cuyo">3. Dinámica estacional de nieve y glaciares en Cuyo</h2>
-                <p>La criósfera andina es un reservorio estratégico de agua. Este análisis identifica la cobertura nival permanente y estacional en el Cerro de la Majadita (San Juan) durante 2018.</p>
+                <h2 id="cuyo-glaciers">3. Seasonal snow and glacier dynamics in Cuyo</h2>
+                <p>The Andean cryosphere is a strategic water reservoir. This analysis identifies permanent and seasonal snow cover in Cerro de la Majadita (San Juan) during 2018.</p>
 
-                <h3 id="metodologia-glaciares">Metodología</h3>
+                <h3 id="glaciers-methodology">Methodology</h3>
                 <ul>
-                    <li>Imágenes Landsat 8 de verano (04/01/2018) e invierno (15/07/2018), path 233, row 81.</li>
-                    <li>Cálculo del <strong>Snow Index (SI)</strong> para cada fecha:</li>
+                    <li>Landsat 8 images from summer (04/01/2018) and winter (15/07/2018), path 233, row 81.</li>
+                    <li>Calculation of the <strong>Snow Index (SI)</strong> for each date:</li>
                 </ul>
 
                 <blockquote>
-                    <p><strong>Fórmula Snow Index:</strong> <code>SI = Rojo / SWIR1</code></p>
+                    <p><strong>Snow Index Formula:</strong> <code>SI = Red / SWIR1</code></p>
                 </blockquote>
 
                 <ul>
-                    <li>Determinación de un umbral espectral para discriminar áreas con nieve.</li>
-                    <li>Combinación binaria de las capas de verano e invierno para obtener cuatro clases:
+                    <li>Determination of a spectral threshold to discriminate snow-covered areas.</li>
+                    <li>Binary combination of summer and winter layers to obtain four classes:
                         <ul>
-                            <li>Sin nieve</li>
-                            <li>Nieve solo en verano</li>
-                            <li>Nieve solo en invierno</li>
-                            <li>Nieve permanente (todo el año)</li>
+                            <li>No snow</li>
+                            <li>Snow only in summer</li>
+                            <li>Snow only in winter</li>
+                            <li>Permanent snow (year-round)</li>
                         </ul>
                     </li>
                 </ul>
 
-                <img src="../img/tele.glaciares.png" alt="Mapa de dinámica estacional de nieve/hielo en San Juan (2018)">
-                <p><em>Mapa de dinámica estacional de nieve/hielo en San Juan (2018) - Análisis Snow Index</em></p>
+                <img src="../img/tele.glaciares.png" alt="Seasonal snow/ice dynamics map in San Juan (2018)">
+                <p><em>Seasonal snow/ice dynamics map in San Juan (2018) - Snow Index analysis</em></p>
 
-                <h3 id="resultado-glaciares">Resultado</h3>
-                <p>Se identifican claramente los cuerpos de nieve/hielo permanente (azul oscuro), cruciales para el aporte hídrico estacional. La distribución de nieve estacional refleja el gradiente altitudinal y la exposición de laderas.</p>
+                <h3 id="glaciers-result">Result</h3>
+                <p>Permanent snow/ice bodies (dark blue) are clearly identified, crucial for seasonal water supply. The distribution of seasonal snow reflects the altitudinal gradient and slope exposure.</p>
 
-                <h2 id="aspectos-tecnicos">Aspectos técnicos destacados</h2>
+                <h2 id="technical-aspects">Highlighted technical aspects</h2>
                 <table>
                     <tr>
                         <td>
                             <h3>Software</h3>
-                            <p>Procesamiento realizado con <strong>ESA SNAP</strong>, herramienta estándar en teledetección óptica.</p>
+                            <p>Processing performed with <strong>ESA SNAP</strong>, standard tool in optical remote sensing.</p>
                         </td>
                         <td>
-                            <h3>Datos</h3>
-                            <p>Imágenes Landsat Collection 2 Level 2, con correcciones atmosféricas ya aplicadas.</p>
+                            <h3>Data</h3>
+                            <p>Landsat Collection 2 Level 2 images, with atmospheric corrections already applied.</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h3>Índices espectrales</h3>
-                            <p>Selección adecuada según el fenómeno estudiado (NDVI, NBR, SI).</p>
+                            <h3>Spectral indices</h3>
+                            <p>Appropriate selection according to the studied phenomenon (NDVI, NBR, SI).</p>
                         </td>
                         <td>
-                            <h3>Análisis temporal</h3>
-                            <p>Comparación multitemporal para capturar dinámicas de cambio.</p>
+                            <h3>Temporal analysis</h3>
+                            <p>Multitemporal comparison to capture change dynamics.</p>
                         </td>
                     </tr>
                 </table>
 
-                <h2 id="reflexion-final">Reflexión final</h2>
-                <p>Estos trabajos demuestran la capacidad de la teledetección para monitorear cambios ambientales a escala regional con rigor cuantitativo. La elección de índices adecuados, el procesamiento consistente en SNAP y la interpretación contextual de los resultados permiten transformar datos satelitales en información útil para la gestión territorial y ambiental.</p>
+                <h2 id="final-reflection">Final reflection</h2>
+                <p>These works demonstrate the capability of remote sensing to monitor environmental changes at regional scale with quantitative rigor. The selection of appropriate indices, consistent processing in SNAP, and contextual interpretation of results allow transformation of satellite data into useful information for territorial and environmental management.</p>
             </div>
         </main>
         <div id="footer-container"></div>
     </div>
     <script>
-            fetch('components/footer-general.html')
+            fetch('../components/footer-general_en.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;

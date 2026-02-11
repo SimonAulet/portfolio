@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño de PCB 6 Capas - Sistema de Control Satelital Analógico - Simón Aulet</title>
+    <title>6-Layer PCB Design - Analog Satellite Control System - Simón Aulet</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,218 +14,218 @@
 <body>
     <div class="container">
         <header>
-            <h1>Diseño de PCB 6 Capas - Sistema de Control Satelital Analógico</h1>
-            <p class="subtitle">Simón Aulet · KiCad · LTSpice · Diseño Analógico · PCB Multilayer</p>
-            <p class="description">Diseño integral en KiCad de un sistema de control satelital analógico implementado con componentes discretos. Incluye simulación en LTSpice de etapas críticas: comparadores con histéresis, latches analógicos, temporizadores y conmutación de fuentes.</p>
+            <h1>6-Layer PCB Design - Analog Satellite Control System</h1>
+            <p class="subtitle">Simón Aulet · KiCad · LTSpice · Analog Design · Multilayer PCB</p>
+            <p class="description">Comprehensive KiCad design of an analog satellite control system implemented with discrete components. Includes LTSpice simulation of critical stages: hysteresis comparators, analog latches, timers, and power source switching.</p>
             <div class="tech-tags">
                 <span>KiCad</span>
                 <span>LTSpice</span>
-                <span>PCB 6 Capas</span>
-                <span>Diseño Analógico</span>
-                <span>Simulación</span>
-                <span>Control Satelital</span>
+                <span>6-Layer PCB</span>
+                <span>Analog Design</span>
+                <span>Simulation</span>
+                <span>Satellite Control</span>
             </div>
             <div class="navigation">
-                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
             </div>
         </header>
 
         <main>
             <div class="content-wrapper">
-                <h2>Diseño de PCB 6 capas para Sistema de Control Satelital Analógico</h2>
+                <h2>6-Layer PCB Design for Analog Satellite Control System</h2>
 
 
                 <div style="text-align: center; margin: 30px 0;">
-                    <img src="../img/pcb.0.3Dboard1.png" alt="PCB Principal Renderizado" style="max-width: 100%; border: 2px solid #003366;">
-                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Render 3D del PCB principal - el cerebro analógico del sistema de control satelital</p>
+                    <img src="../img/pcb.0.3Dboard1.png" alt="Main PCB Render" style="max-width: 100%; border: 2px solid #003366;">
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">3D render of main PCB - the analog brain of the satellite control system</p>
                 </div>
 
                 <blockquote>
-                <p><strong>Repositorio del Proyecto:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PCB"><code>https://github.com/SimonAulet/portfolio/tree/main/PCB</code></a></p>
-                <p style="font-size: 0.9em; margin-top: 8px; color: #555;">Contiene todos los archivos del proyecto: esquemáticos KiCad, diseños de PCB, simulaciones LTSpice, datasheets y librerías de componentes para importación directa.</p>
+                <p><strong>Project Repository:</strong> <a href="https://github.com/SimonAulet/portfolio/tree/main/PCB"><code>https://github.com/SimonAulet/portfolio/tree/main/PCB</code></a></p>
+                <p style="font-size: 0.9em; margin-top: 8px; color: #555;">Contains all project files: KiCad schematics, PCB designs, LTSpice simulations, datasheets, and component libraries for direct import.</p>
                 </blockquote>
 
-                <h3>Contexto</h3>
-                <p>Desarrollo grupal de un sistema de control satelital analógico implementado con componentes discretos. El sistema integra detección de orientación mediante fotoresistencias, sensado térmico, generación de PWM analógica, posicionamiento de servomotor, circuitos de timing, latches analógicos y lógica de control autónoma.</p>
+                <h3>Context</h3>
+                <p>Group development of an analog satellite control system implemented with discrete components. The system integrates orientation detection through photoresistors, thermal sensing, analog PWM generation, servomotor positioning, timing circuits, analog latches, and autonomous control logic.</p>
 
-                <h3>Mi Contribución</h3>
-                <p><strong>Diseño integral en KiCad:</strong> Integración y desarrollo físico del sistema a partir de los módulos implementados en el laboratorio. Esto implica la creación del esquemático unificado en KiCad, selección estratégica de componentes compatibles con el montaje industrial, gestión de footprints y modelos 3D, implementación de clases de diseño para separación de señales (analógicas, digitales, potencia), routing crítico, y validación exhaustiva mediante ERC/DRC, culminando en un PCB de 6 capas listo para fabricación.</p>
+                <h3>My Contribution</h3>
+                <p><strong>Comprehensive KiCad Design:</strong> Integration and physical development of the system from laboratory-implemented modules. This involves creating the unified schematic in KiCad, strategic selection of components compatible with industrial assembly, footprint and 3D model management, implementation of design classes for signal separation (analog, digital, power), critical routing, and exhaustive validation through ERC/DRC, culminating in a 6-layer PCB ready for manufacturing.</p>
 
-                <p><strong>Simulación y validación analógica:</strong> Simulación en LTSpice de etapas clave: comparadores con histéresis (Schmitt trigger), generador de PWM analógico, circuitos de temporización, lógica de decisión para conmutación de fuentes vía relays, y latches implementados con transistores NPN.</p>
+                <p><strong>Analog Simulation and Validation:</strong> LTSpice simulation of key stages: hysteresis comparators (Schmitt trigger), analog PWM generator, timing circuits, decision logic for power source switching via relays, and latches implemented with NPN transistors.</p>
 
                 <hr style="border: 1px solid #c41e3a; margin: 40px 0;" />
 
-                <h2>Fase 1: La Arquitectura</h2>
+                <h2>Phase 1: Architecture</h2>
 
-                <h3>Sistema general</h3>
+                <h3>General System</h3>
                 <div style="text-align: center; margin: 30px 0;">
-                    <img src="../img/pcb.0.schematic_root.jpg" alt="Diagrama de Bloques del Sistema" style="max-width: 100%; border: 2px solid #003366;">
-                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Hoja principal del esquemático - organizada como mapa de interconexiones entre subsistemas</p>
+                    <img src="../img/pcb.0.schematic_root.jpg" alt="System Block Diagram" style="max-width: 100%; border: 2px solid #003366;">
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Main schematic sheet - organized as interconnection map between subsystems</p>
                 </div>
 
-                <p>El diseño se estructuró en <strong>6 subsheets modulares</strong>, cada uno encapsulando una función específica:</p>
+                <p>The design was structured into <strong>6 modular subsheets</strong>, each encapsulating a specific function:</p>
 
                 <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><strong>Filtrado activo</strong> para acondicionamiento de señales de sensores LDR</li>
-                    <li><strong>Sensado de orientación</strong> para detección eclipse/posición</li>
-                    <li><strong>Control térmico</strong> con sensado LM35 y actuación</li>
-                    <li><strong>Despliegue de paneles solares</strong> con control PWM y verificación</li>
-                    <li><strong>Verificación de despliegue</strong> mediante temporizadores 555</li>
-                    <li><strong>Selector de fuente</strong> para conmutación automática entre solar/batería</li>
+                    <li><strong>Active filtering</strong> for LDR sensor signal conditioning</li>
+                    <li><strong>Orientation sensing</strong> for eclipse/position detection</li>
+                    <li><strong>Thermal control</strong> with LM35 sensing and actuation</li>
+                    <li><strong>Solar panel deployment</strong> with PWM control and verification</li>
+                    <li><strong>Deployment verification</strong> using 555 timers</li>
+                    <li><strong>Power source selector</strong> for automatic switching between solar/battery</li>
                 </ul>
 
-                <p>La comunicación entre módulos se estableció mediante <strong>señales nombradas coherentemente</strong> usando prefijos. Por ejemplo <code>A_</code> → Señales analógicas sensibles, <code>C_</code> → Comandos y señales de control, <code>F_</code> → Realimentación, <code>L_</code> → Indicadores LED, etc. y sufijos para indicar entrada (<code>_I</code>) o salida (<code>_O</code>)</p>
+                <p>Communication between modules was established through <strong>coherently named signals</strong> using prefixes. For example <code>A_</code> → Sensitive analog signals, <code>C_</code> → Commands and control signals, <code>F_</code> → Feedback, <code>L_</code> → LED indicators, etc. and suffixes to indicate input (<code>_I</code>) or output (<code>_O</code>)</p>
 
-                <h3>Planos Detallados</h3>
+                <h3>Detailed Schematics</h3>
                 <div style="margin: 30px 0; text-align: center;">
                     <iframe src="../img/pcb.schematic.pdf" width="100%" height="600px" style="border: 2px solid #003366;">
-                        <p>Tu navegador no soporta iframes. <a href="../img/pcb.schematic.pdf">Descargar PDF</a></p>
+                        <p>Your browser does not support iframes. <a href="../img/pcb.schematic.pdf">Download PDF</a></p>
                     </iframe>
-                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Esquemáticos completos del sistema</p>
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Complete system schematics</p>
                 </div>
 
-                <h3>Selección de Componentes</h3>
-                <p>Cada componente fue elegido considerando especificaciones eléctricas, disponibilidad, implicaciones de layout, y requerimientos térmicos/mecánicos. Se intentó usar todo del mismo fabricante (Texas Instruments) cuando fue posible:</p>
+                <h3>Component Selection</h3>
+                <p>Each component was chosen considering electrical specifications, availability, layout implications, and thermal/mechanical requirements. We attempted to use all from the same manufacturer (Texas Instruments) when possible:</p>
 
                 <table>
                     <tr>
-                        <th>Componente</th>
-                        <th>Fabricante</th>
-                        <th>Características Clave</th>
-                        <th>Razón de Selección</th>
+                        <th>Component</th>
+                        <th>Manufacturer</th>
+                        <th>Key Features</th>
+                        <th>Selection Reason</th>
                     </tr>
                     <tr>
                         <td><strong>LM35</strong></td>
                         <td>Texas Instruments</td>
                         <td>Sensor de temperatura, TO-220</td>
-                        <td>Permite atornillado directo a baterías/fuentes de calor para medición precisa</td>
+                        <td>Allows direct screwing to batteries/heat sources for precise measurement</td>
                     </tr>
                     <tr>
                         <td><strong>LM358B</strong></td>
                         <td>Texas Instruments</td>
                         <td>Op-amp dual, SMD, 0.1µF en Vcc</td>
-                        <td>Estabilidad demostrada, compensación integrada, paquete compacto</td>
+                        <td>Proven stability, integrated compensation, compact package</td>
                     </tr>
                     <tr>
                         <td><strong>CSD17577Q5A</strong></td>
                         <td>Texas Instruments</td>
                         <td>MOSFET N-ch, 25V, 6.7mΩ</td>
-                        <td>Eficiencia en conmutación, baja Rds(on), optimo para relés</td>
+                        <td>Switching efficiency, low Rds(on), optimal for relays</td>
                     </tr>
                     <tr>
                         <td><strong>RT314009</strong></td>
                         <td>TE Connectivity</td>
                         <td>Relay 9V/16A, 1 Forma C</td>
-                        <td>Capacidad de corriente para conmutación de baterías, bobina compatible con 9V</td>
+                        <td>Current capacity for battery switching, coil compatible with 9V</td>
                     </tr>
                 </table>
 
-                <p><strong>Consideraciones de layout:</strong> Los encapsulados SMD se priorizaron para reducir inductancias parásitas, mientras que componentes como el LM35 en TO-220 ubicados en sensores externos permitieron montaje mecánico robusto donde se requería transferencia térmica directa.</p>
+                <p><strong>Layout considerations:</strong> SMD packages were prioritized to reduce parasitic inductances, while components like the LM35 in TO-220 located in external sensors allowed robust mechanical mounting where direct thermal transfer was required.</p>
 
                 <hr style="border: 1px solid #c41e3a; margin: 40px 0;" />
 
-                <h2>Fase 2: Implementación Física - PCB de 6 Capas</h2>
+                <h2>Phase 2: Physical Implementation - 6-Layer PCB</h2>
 
-                <h3>Estrategia de Stackup</h3>
-                <p>La distribución en 6 capas se optimizó para garantizar integridad de señal y facilitar el debugging, con una separación clara de funciones:</p>
+                <h3>Stackup Strategy</h3>
+                <p>The 6-layer distribution was optimized to ensure signal integrity and facilitate debugging, with clear function separation:</p>
 
                 <table>
                     <tr>
-                        <th>Capa</th>
-                        <th>Designación</th>
-                        <th>Contenido Principal</th>
-                        <th>Consideración Clave</th>
+                        <th>Layer</th>
+                        <th>Designation</th>
+                        <th>Main Content</th>
+                        <th>Key Consideration</th>
                     </tr>
                     <tr>
                         <td><strong>1</strong></td>
                         <td>F.Cu (Top)</td>
-                        <td>Señales analógicas críticas</td>
-                        <td>Accesible para medición, trazos cortos</td>
+                        <td>Critical analog signals</td>
+                        <td>Accessible for measurement, short traces</td>
                     </tr>
                     <tr>
                         <td><strong>2</strong></td>
                         <td>In1.Cu</td>
-                        <td>Plano de tierra contínuo</td>
-                        <td>Referencia de baja impedancia</td>
+                        <td>Continuous ground plane</td>
+                        <td>Low impedance reference</td>
                     </tr>
                     <tr>
                         <td><strong>3</strong></td>
                         <td>In2.Cu</td>
-                        <td>Distribución de alimentación</td>
-                        <td>Separación entre potencia limpia y general</td>
+                        <td>Power distribution</td>
+                        <td>Separation between clean and general power</td>
                     </tr>
                     <tr>
                         <td><strong>4</strong></td>
                         <td>In3.Cu</td>
-                        <td>Señales de control y setpoints</td>
-                        <td>Aislamiento de rutas analógicas</td>
+                        <td>Control signals and setpoints</td>
+                        <td>Isolation from analog paths</td>
                     </tr>
                     <tr>
                         <td><strong>5</strong></td>
                         <td>In4.Cu</td>
-                        <td>Interconexiones y LEDs</td>
-                        <td>Capa utilitaria</td>
+                        <td>Interconnections and LEDs</td>
+                        <td>Utility layer</td>
                     </tr>
                     <tr>
                         <td><strong>6</strong></td>
                         <td>B.Cu (Bottom)</td>
-                        <td>Rutas analógicas de largo recorrido</td>
-                        <td>"Autopistas" con routing predecible</td>
+                        <td>Long-distance analog routes</td>
+                        <td>"Highways" with predictable routing</td>
                     </tr>
                 </table>
 
-                <h3>Visualización de Capas</h3>
+                <h3>Layer Visualization</h3>
                 <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
                   <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
                     <div style="flex-shrink: 0; width: 360px;">
-                      <img src="../img/pcb.0.board1.png" alt="Capas 1 y 2" style="width: 100%; border-radius: 4px;">
+                      <img src="../img/pcb.0.board1.png" alt="Layers 1 and 2" style="width: 100%; border-radius: 4px;">
                       <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">F.Cu + In1.Cu</p>
                     </div>
                     <div style="flex-shrink: 0; width: 360px;">
-                      <img src="../img/pcb.0.board2.png" alt="Capas 3 y 4" style="width: 100%; border-radius: 4px;">
+                      <img src="../img/pcb.0.board2.png" alt="Layers 3 and 4" style="width: 100%; border-radius: 4px;">
                       <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">In2.Cu + In3.Cu</p>
                     </div>
                     <div style="flex-shrink: 0; width: 360px;">
-                      <img src="../img/pcb.0.board3.png" alt="Capas 5 y 6" style="width: 100%; border-radius: 4px;">
+                      <img src="../img/pcb.0.board3.png" alt="Layers 5 and 6" style="width: 100%; border-radius: 4px;">
                       <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">In4.Cu + B.Cu</p>
                     </div>
                     <div style="flex-shrink: 0; width: 360px;">
-                      <img src="../img/pcb.0.board4.png" alt="Sensores Externos" style="width: 100%; border-radius: 4px;">
-                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Módulos Sensoriales</p>
+                      <img src="../img/pcb.0.board4.png" alt="External Sensors" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Sensory Modules</p>
                     </div>
                   </div>
                 </div>
 
-                <h3>Metodología de Routing</h3>
-                <p>El routing siguió una jerarquía estricta, priorizando integridad sobre conveniencia:</p>
+                <h3>Routing Methodology</h3>
+                <p>Routing followed a strict hierarchy, prioritizing integrity over convenience:</p>
 
                 <ol style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><strong>Tierra</strong> - Establecimiento de referencia con múltiples vías</li>
-                    <li><strong>Alimentación</strong> - Trazos dimensionados según corriente requerida. Se separa alimentación de integrados (<code>power_clean</code>) de alimentación general</li>
-                    <li><strong>Señales de feedback</strong> - Rutas directas y protegidas</li>
-                    <li><strong>Señales analógicas</strong> - Minimización de longitud y cruces</li>
-                    <li><strong>Control y LEDs</strong> - Completado de interconexiones</li>
+                    <li><strong>Ground</strong> - Reference establishment with multiple vias</li>
+                    <li><strong>Power</strong> - Traces dimensioned according to required current. Separation of IC power (<code>power_clean</code>) from general power</li>
+                    <li><strong>Feedback signals</strong> - Direct and protected routes</li>
+                    <li><strong>Analog signals</strong> - Length minimization and crossing avoidance</li>
+                    <li><strong>Control and LEDs</strong> - Completion of interconnections</li>
                 </ol>
 
-                <p>Esta secuencia aseguró que las señales más sensibles tuvieran rutas óptimas antes de comprometer espacio con funcionalidades secundarias.</p>
+                <p>This sequence ensured that the most sensitive signals had optimal routes before compromising space with secondary functionalities.</p>
 
-                <h3>Subsistemas Externos y Conectividad</h3>
+                <h3>External Subsystems and Connectivity</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; align-items: flex-start;">
                     <div style="flex: 1 1 300px; min-width: 300px;">
-                        <img src="../img/pcb.0.3Dboard4.png" alt="Módulos Sensoriales Externos" style="width: 100%; border: 2px solid #003366;">
-                        <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Sensores y actuadores distribuidos - solución modular con conectividad claramente identificada</p>
+                        <img src="../img/pcb.0.3Dboard4.png" alt="External Sensory Modules" style="width: 100%; border: 2px solid #003366;">
+                        <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Distributed sensors and actuators - modular solution with clearly identified connectivity</p>
                     </div>
                     <div style="flex: 1 1 300px; min-width: 300px;">
-                        <p>El sistema completo se extiende más allá del PCB principal mediante módulos externos:</p>
+                        <p>The complete system extends beyond the main PCB through external modules:</p>
 
                         <ul style="margin-left: 20px; margin-bottom: 20px;">
-                            <li><strong>4 módulos de detección de luz</strong>, cada uno con 1 LDR para cobertura omnidireccional.</li>
-                            <li><strong>2 sensores de temperatura LM35</strong> para monitoreo térmico en ubicaciones críticas.</li>
-                            <li><strong>1 módulo heater</strong> activado por la señal de alerta de baja temperatura.</li>
-                            <li><strong>2 finales de carrera</strong> para detección física de apertura y cierre de paneles solares.</li>
+                            <li><strong>4 light detection modules</strong>, each with 1 LDR for omnidirectional coverage.</li>
+                            <li><strong>2 LM35 temperature sensors</strong> for thermal monitoring in critical locations.</li>
+                            <li><strong>1 heater module</strong> activated by the low temperature alert signal.</li>
+                            <li><strong>2 limit switches</strong> for physical detection of solar panel opening and closing.</li>
                         </ul>
 
-                        <p>Cada módulo es un <strong>PCB cuadrado de doble capa</strong> con orificios para montaje mecánico robusto. La interconexión con el board principal se realiza mediante cables conectados a <strong>borneras rotuladas en ambos extremos</strong>, asegurando una instalación libre de errores y facilitando el mantenimiento o reemplazo individual de cualquier subsistema sin afectar al conjunto.</p>
+                        <p>Each module is a <strong>square double-layer PCB</strong> with holes for robust mechanical mounting. Interconnection with the main board is done through cables connected to <strong>labeled terminal blocks at both ends</strong>, ensuring error-free installation and facilitating maintenance or individual replacement of any subsystem without affecting the whole.</p>
                     </div>
                 </div>
                 <style>
@@ -240,159 +240,158 @@
                     }
                 </style>
 
-                <h3>Puntos Clave del Diseño</h3>
+                <h3>Key Design Points</h3>
                 <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><strong>Separación efectiva de dominios:</strong> Las 63 señales organizadas en clases permitieron aplicar reglas de diseño consistentes y automatizadas.</li>
-                    <li><strong>Routing jerárquico exitoso:</strong> Comenzar con referencia y alimentación, luego señales críticas, finalmente funcionalidades secundarias.</li>
-                    <li><strong>Debugging incorporado:</strong> Todas las señales críticas accesibles en capas externas, con espacio para puntos de prueba donde fue necesario.</li>
-                    <li><strong>Cumplimiento sobrado de especificaciones:</strong> El diseño final excede los requerimientos mínimos de clearance y ancho de trazo del fabricante seleccionado.</li>
+                    <li><strong>Effective domain separation:</strong> The 63 signals organized into classes allowed applying consistent and automated design rules.</li>
+                    <li><strong>Successful hierarchical routing:</strong> Starting with reference and power, then critical signals, finally secondary functionalities.</li>
+                    <li><strong>Built-in debugging:</strong> All critical signals accessible on external layers, with space for test points where necessary.</li>
+                    <li><strong>Exceeded specification compliance:</strong> The final design exceeds the minimum clearance and trace width requirements of the selected manufacturer.</li>
                 </ul>
 
                 <hr style="border: 1px solid #c41e3a; margin: 40px 0;" />
 
-                <h2>Simulación y Validación Analítica</h2>
+                <h2>Simulation and Analytical Validation</h2>
 
-                <p>Cada subsistema crítico del diseño se modeló y validó en LTSpice antes de cualquier implementación física. Partiendo de los requisitos funcionales —comparadores con histéresis, latches analógicos, temporizadores y generadores de PWM— se construyeron modelos utilizando componentes reales, como el opamp LM358 configurado según su datasheet de Texas Instruments, y señales PWL para simular condiciones operativas.</p>
+                <p>Each critical subsystem of the design was modeled and validated in LTSpice before any physical implementation. Starting from functional requirements —hysteresis comparators, analog latches, timers, and PWM generators— models were built using real components, such as the LM358 opamp configured according to its Texas Instruments datasheet, and PWL signals to simulate operational conditions.</p>
 
-                <p>Este proceso de simulación permitió optimizar valores de componentes, verificar márgenes de diseño y predecir el comportamiento del sistema con alta precisión. Los resultados luego se correlacionaron exitosamente con mediciones en protoboard utilizando un osciloscopio Tektronix de gama alta, estableciendo una base sólida para el diseño final del PCB.</p>
+                <p>This simulation process allowed optimizing component values, verifying design margins, and predicting system behavior with high accuracy. The results were then successfully correlated with breadboard measurements using a high-end Tektronix oscilloscope, establishing a solid foundation for the final PCB design.</p>
 
-                <h3>1. Comparador con Histéresis (Schmitt Trigger)</h3>
+                <h3>1. Hysteresis Comparator (Schmitt Trigger)</h3>
 
-                <p>La histéresis se implementó para eliminar oscilaciones en la conmutación ante señales con ruido o variaciones lentas. El circuito se modeló en LTSpice y se caracterizó tanto analítica como experimentalmente.</p>
+                <p>Hysteresis was implemented to eliminate switching oscillations with noisy or slowly varying signals. The circuit was modeled in LTSpice and characterized both analytically and experimentally.</p>
 
                 <div style="overflow-x: auto; margin: 30px 0; padding: 20px 0; background: #ffffff; border-radius: 8px;">
                   <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 20px;">
                     <div style="flex-shrink: 0; width: 442px;">
-                      <img src="../img/pcb.1.1.circuit.png" alt="Circuito Schmitt Trigger en LTSpice" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Circuito implementado en LTSpice</p>
+                      <img src="../img/pcb.1.1.circuit.png" alt="Schmitt Trigger Circuit in LTSpice" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Circuit implemented in LTSpice</p>
                     </div>
                     <div style="flex-shrink: 0; width: 442px;">
-                      <img src="../img/pcb.1.6.hysteresis_calculations.png" alt="Cálculo analítico de histéresis" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Cálculo analítico: H = 0.43 V</p>
+                      <img src="../img/pcb.1.6.hysteresis_calculations.png" alt="Analytical hysteresis calculation" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Analytical calculation: H = 0.43 V</p>
                     </div>
                   </div>
                 </div>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.1.5.hysteresis_characteristics.png" alt="Medición de histéresis en simulación" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Validación en simulación: ΔV = 425 mV entre umbrales</p>
+                  <img src="../img/pcb.1.5.hysteresis_characteristics.png" alt="Hysteresis measurement in simulation" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Simulation validation: ΔV = 425 mV between thresholds</p>
                 </div>
 
-                <p>La simulación con una rampa triangular confirma que la conmutación ocurre con una diferencia de 425 mV entre los flancos de subida y bajada, en excelente acuerdo con el cálculo teórico de 430 mV. Esto asegura inmunidad a ruido y estabilidad en la detección de umbrales.</p>
+                <p>The simulation with a triangular ramp confirms that switching occurs with a 425 mV difference between rising and falling edges, in excellent agreement with the theoretical calculation of 430 mV. This ensures noise immunity and stability in threshold detection.</p>
 
                 <div style="overflow-x: auto; margin: 30px 0; padding: 20px 0; background: #ffffff; border-radius: 8px;">
                   <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 20px;">
                     <div style="flex-shrink: 0; width: 442px;">
-                      <img src="../img/pcb.1.2.inverting_schmitt.png" alt="Schmitt trigger inversor" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Configuración inversora con ruido</p>
+                      <img src="../img/pcb.1.2.inverting_schmitt.png" alt="Inverting Schmitt trigger" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Inverting configuration with noise</p>
                     </div>
                     <div style="flex-shrink: 0; width: 442px;">
-                      <img src="../img/pcb.1.3.non-inverting_schmitt.png" alt="Schmitt trigger no inversor" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Configuración no inversora</p>
+                      <img src="../img/pcb.1.3.non-inverting_schmitt.png" alt="Non-inverting Schmitt trigger" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Non-inverting configuration</p>
                     </div>
                     <div style="flex-shrink: 0; width: 442px;">
-                      <img src="../img/pcb.1.4.non-hysteretic_comparator.png" alt="Comparador sin histéresis" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Sin histéresis: oscilaciones en el umbral</p>
+                      <img src="../img/pcb.1.4.non-hysteretic_comparator.png" alt="Comparator without hysteresis" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Without hysteresis: oscillations at threshold</p>
                     </div>
                   </div>
                 </div>
 
-                <p>Las waveforms demuestran la efectividad del diseño: mientras el comparador sin histéresis presenta múltiples conmutaciones indeseadas al cruzar el umbral, ambas configuraciones con Schmitt trigger mantienen una salida limpia y estable incluso con señal de entrada ruidosa.</p>
+                <p>The waveforms demonstrate the design's effectiveness: while the comparator without hysteresis shows multiple unwanted switching events when crossing the threshold, both Schmitt trigger configurations maintain a clean and stable output even with noisy input signals.</p>
 
-                <h3>2. Temporización Analógica y Lógica de Alarma</h3>
+                <h3>2. Analog Timing and Alarm Logic</h3>
 
-                <p>El subsistema de temporización integra un temporizador 555, un circuito anti-latch personalizado y lógica de habilitación de alarma para garantizar que las señales de error se activen solo en condiciones válidas.</p>
+                <p>The timing subsystem integrates a 555 timer, a custom anti-latch circuit, and alarm enable logic to ensure error signals activate only under valid conditions.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.5.1.circuit.png" alt="Circuito completo de temporización" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Circuito completo: temporizador 555, lógica de alarma y conversor latch-a-pulso</p>
+                  <img src="../img/pcb.5.1.circuit.png" alt="Complete timing circuit" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Complete circuit: 555 timer, alarm logic, and latch-to-pulse converter</p>
                 </div>
 
-                <h4>Conversor Latch-a-Pulso</h4>
-                <p>Diseño original que resuelve un requerimiento específico: el 555 necesita un flanco, no una señal sostenida. Implementado con un LM358 y capacitor de 5 µF, genera un pulso corto en cada flanco de subida de la entrada, ignorando su estado posterior. Se utiliza dos veces en el sistema (para verificación de apertura y cierre de paneles).</p>
+                <h4>Latch-to-Pulse Converter</h4>
+                <p>Original design that solves a specific requirement: the 555 needs an edge, not a sustained signal. Implemented with an LM358 and 5 µF capacitor, it generates a short pulse on each rising edge of the input, ignoring its subsequent state. Used twice in the system (for opening and closing panel verification).</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.5.3.latch-to-pulse(annotated).png" alt="Conversor latch-a-pulso" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Conversor latch-a-pulso anotado - convierte señal continua en pulso de activación</p>
+                  <img src="../img/pcb.5.3.latch-to-pulse(annotated).png" alt="Latch-to-pulse converter" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Annotated latch-to-pulse converter - converts continuous signal to activation pulse</p>
                 </div>
 
-                <h4>Comportamiento del Temporizador 555</h4>
-                <p>El 555 opera con salida activa baja. La simulación muestra dos modos de activación: mediante señal de reset (indeseada, que requiere filtrado) y mediante un trigger válido tras el período de temporización.</p>
+                <h4>555 Timer Behavior</h4>
+                <p>The 555 operates with active-low output. The simulation shows two activation modes: through reset signal (undesired, requiring filtering) and through a valid trigger after the timing period.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.5.5.out(annotated).png" alt="Salida del temporizador 555" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Activación por reset (izquierda) y por trigger válido (derecha)</p>
+                  <img src="../img/pcb.5.5.out(annotated).png" alt="555 timer output" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Activation by reset (left) and by valid trigger (right)</p>
                 </div>
 
-                <h4>Lógica de Habilitación de Alarma</h4>
-                <p>Implementada con un opamp como comparador, actúa como compuerta AND analógica para evitar falsos positivos durante el reset del sistema. Solo cuando el trigger está activo (bajo) <em>y</em> el reset está inactivo (alto) se genera la señal de alarma.</p>
+                <h4>Alarm Enable Logic</h4>
+                <p>Implemented with an opamp as comparator, it acts as an analog AND gate to avoid false positives during system reset. Only when the trigger is active (low) <em>and</em> the reset is inactive (high) is the alarm signal generated.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.5.7.alarm_logic(annotated).png" alt="Lógica de habilitación de alarma" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Lógica AND analógica: alarma solo con trigger activo y reset inactivo</p>
+                  <img src="../img/pcb.5.7.alarm_logic(annotated).png" alt="Alarm enable logic" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Analog AND logic: alarm only with active trigger and inactive reset</p>
                 </div>
 
-                <h3>3. Latch Analógico con Transistores NPN</h3>
+                <h3>3. Analog Latch with NPN Transistors</h3>
 
-                <p>Latch simple implementado con dos transistores NPN cruzados que mantiene un estado estable (ON/OFF) hasta recibir una señal de conmutación opuesta. Se utiliza para retener el estado de despliegue de los paneles solares.</p>
+                <p>Simple latch implemented with two cross-coupled NPN transistors that maintains a stable state (ON/OFF) until receiving an opposite switching signal. Used to retain the deployment state of solar panels.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.2.1.circuit.jpeg" alt="Circuito latch con transistores NPN" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Latch analógico: configuración cruzada de transistores NPN para retención de estado</p>
+                  <img src="../img/pcb.2.1.circuit.jpeg" alt="Latch circuit with NPN transistors" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Analog latch: cross-coupled NPN transistor configuration for state retention</p>
                 </div>
 
                 <div style="overflow-x: auto; margin: 30px 0; padding: 20px 0; background: #ffffff; border-radius: 8px;">
                   <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 20px; justify-content: center;">
                     <div style="flex-shrink: 0; width: 494px;">
-                      <img src="../img/pcb.2.2.q1(on).png" alt="Latch con Q1 activo" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Estado 1: Q1 activo, Q2 inactivo - salida estable</p>
+                      <img src="../img/pcb.2.2.q1(on).png" alt="Latch with Q1 active" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">State 1: Q1 active, Q2 inactive - stable output</p>
                     </div>
                     <div style="flex-shrink: 0; width: 494px;">
-                      <img src="../img/pcb.2.3.q2(off).png" alt="Latch con Q2 activo" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
-                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">Estado 2: Q2 activo, Q1 inactivo - conmutación limpia</p>
+                      <img src="../img/pcb.2.3.q2(off).png" alt="Latch with Q2 active" style="width: 100%; border-radius: 4px; border: 2px solid #003366;">
+                      <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 8px;">State 2: Q2 active, Q1 inactive - clean switching</p>
                     </div>
                   </div>
                 </div>
 
-                <p>El latch responde correctamente a pulsos de entrada, manteniendo el último estado activado sin consumo adicional hasta la siguiente conmutación. La simulación confirma una transición estable entre estados sin oscilaciones.</p>
+                <p>The latch responds correctly to input pulses, maintaining the last activated state without additional consumption until the next switching. The simulation confirms stable transition between states without oscillations.</p>
 
-                <h3>4. Conmutación de Fuentes con MOSFET</h3>
+                <h3>4. Power Source Switching with MOSFET</h3>
 
-                <p>Etapa de control para activación de relays mediante MOSFETs, que gestionan la selección entre fuente solar y baterías. La simulación se centra en el comportamiento del MOSFET, ya que el relay opera como carga inductiva controlada.</p>
+                <p>Control stage for relay activation through MOSFETs, managing selection between solar source and batteries. The simulation focuses on MOSFET behavior, as the relay operates as a controlled inductive load.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.4.1.circuit.png" alt="Circuito de conmutación con MOSFET" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Driver MOSFET con protección y señal de control desde comparador</p>
+                  <img src="../img/pcb.4.1.circuit.png" alt="Switching circuit with MOSFET" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">MOSFET driver with protection and control signal from comparator</p>
                 </div>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.4.3.switching(annotated).png" alt="Waveform de conmutación anotada" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Conmutación limpia: señal de mosfets para relé solar (rojo) y batería (azul) sin retrasos significativos</p>
+                  <img src="../img/pcb.4.3.switching(annotated).png" alt="Annotated switching waveform" style="max-width: 100%;
                 </div>
 
-                <p>El MOSFET CSD17577Q5A responde eficientemente a la señal de control, con tiempos de conmutación rápidos y sin oscilaciones. La simulación valida que el diseño maneja correctamente la transición entre fuentes de alimentación.</p>
+                <p>The MOSFET CSD17577Q5A responds efficiently to the control signal, with fast switching times and no oscillations. The simulation validates that the design correctly handles the transition between power sources.</p>
 
-                <h3>5. Simulación de Sensor de Orientación con LDR</h3>
+                <h3>5. Orientation Sensor Simulation with LDR</h3>
 
-                <p>Simulación del circuito de detección de orientación que utiliza un LDR (Light Dependent Resistor) en configuración de divisor resistivo seguido de un comparador. Para modelar la variación de resistencia del LDR en LTSpice, se implementó una solución creativa: una fuente de voltaje PWL variable que controla el valor de una resistencia mediante la expresión <code>R = V(VR) * 100000</code>, simulando efectivamente una resistencia que cambia en el tiempo.</p>
+                <p>Simulation of the orientation detection circuit that uses an LDR (Light Dependent Resistor) in resistive divider configuration followed by a comparator. To model LDR resistance variation in LTSpice, a creative solution was implemented: a variable PWL voltage source that controls a resistor value through the expression <code>R = V(VR) * 100000</code>, effectively simulating a time-varying resistance.</p>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.3.1.circuit.png" alt="Circuito sensor LDR con resistencia variable simulada" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Divisor resistivo con "LDR variable" (fuente PWL controlada) y etapa comparadora</p>
+                  <img src="../img/pcb.3.1.circuit.png" alt="LDR sensor circuit with simulated variable resistance" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Resistive divider with "variable LDR" (PWL-controlled source) and comparator stage</p>
                 </div>
 
                 <div style="margin: 30px 0; text-align: center;">
-                  <img src="../img/pcb.3.3.waveform(annotated).png" alt="Waveform anotada de detección" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
-                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Respuesta del sistema: voltaje del divisor (variable, azul) y salida del comparador (escalón, rojo)</p>
+                  <img src="../img/pcb.3.3.waveform(annotated).png" alt="Annotated detection waveform" style="max-width: 100%; border-radius: 6px; border: 2px solid #003366;">
+                  <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">System response: divider voltage (variable, blue) and comparator output (step, red)</p>
                 </div>
 
-                <p>La simulación confirma que el circuito detecta correctamente cuando la iluminación (simulada como resistencia variable) cruza el umbral establecido, generando una transición limpia en la salida del comparador.</p>
+                <p>The simulation confirms that the circuit correctly detects when illumination (simulated as variable resistance) crosses the established threshold, generating a clean transition in the comparator output.</p>
             </div>
         </main>
         <div id="footer-container"></div>
     </div>
     <script>
-        fetch('components/footer-general.html')
+        fetch('../components/footer-general_en.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
