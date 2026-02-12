@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Analisis</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Analisis_en</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7515,7 +7515,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">skrf</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rf</span>
@@ -7533,15 +7533,15 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Extracci%C3%B3n-de-medici%C3%B3nes">Extracción de mediciónes<a class="anchor-link" href="#Extracci%C3%B3n-de-medici%C3%B3nes">¶</a></h1><p>Para hacer las mediciónes físicas se usó un VNA de 2 puertos Rohde-Schwarz, ZNC3-2Port calibrado en un rango de frecuencias de $0.5$ a $1.5$ GHz.
-Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parámetros S a través de 3 mediciónes hechas por separado.</p>
-<p>La correspondencia puerto VNA -&gt; puerto Wilkinson es:</p>
+<h1 id="Measurement-Extraction">Measurement Extraction<a class="anchor-link" href="#Measurement-Extraction">¶</a></h1><p>For physical measurements, a 2-port Rohde-Schwarz ZNC3-2Port VNA was used, calibrated in a frequency range from $0.5$ to $1.5$ GHz.
+Since the Wilkinson divider has 3 ports, the S-parameter matrix is reconstructed through 3 separate measurements.</p>
+<p>The VNA port -&gt; Wilkinson port correspondence is:</p>
 <table>
 <thead>
 <tr>
-<th>Archivo</th>
-<th>Puerto VNA</th>
-<th>Puerto Dispositivo</th>
+<th>File</th>
+<th>VNA Port</th>
+<th>Device Port</th>
 </tr>
 </thead>
 <tbody>
@@ -7577,7 +7577,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </tr>
 </tbody>
 </table>
-<p>Finalmente tenemos otro archivo 4.s2p, el cual tiene el through entre los dos cables sin carga en el medio para ver el ripple inherente al instrumento / cables</p>
+<p>Finally, we have another file 4.s2p, which contains the through connection between the two cables without any load in between to see the inherent ripple of the instrument/cables</p>
 </div>
 </div>
 </div>
@@ -7588,7 +7588,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Primero cargamos los cuatro archivos de mediciónes</p>
+<p>First, we load the four measurement files</p>
 </div>
 </div>
 </div>
@@ -7597,7 +7597,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m1</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="s1">'mediciones/1.s2p'</span><span class="p">)</span>
@@ -7616,7 +7616,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Luego hacemos una red de tres puertos correspondiente al divisor de Wilkinson llamada <code>willkinson</code></p>
+<p>Then we create a three-port network corresponding to the Wilkinson divider called <code>wilkinson</code></p>
 </div>
 </div>
 </div>
@@ -7625,14 +7625,14 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Extraigo las frecuencias del primer archivo</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Extract frequencies from the first file</span>
 <span class="n">freq</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">frequency</span>
-<span class="c1">#Genero matriz de ceros para inicializar red vacia</span>
+<span class="c1"># Generate zero matrix to initialize empty network</span>
 <span class="n">s_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">freq</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="c1">#Genero red vacia</span>
+<span class="c1"># Generate empty network</span>
 <span class="n">wilkinson</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="n">frequency</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s_mat</span><span class="p">,</span> <span class="n">z0</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Wilkinson 3-port'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7646,7 +7646,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>La notación para referirse a un parámetro S es <code>wilkinson.s[frec, Sa, Sb]</code>. Para operar sobre todas las frecuencias simplemente se trabaja en modo rango completo usando <code>wilkinson.s[: ,Sa, Sb]</code>. El indexado inicia en 0, no en 1, con lo cual para referirse, por ejemplo, al parámetro $S_{21}$ en todo el espectro de frecuencias disponibles se hace <code>wilkinson.s[:, 1, 0]</code></p>
+<p>The notation to refer to an S-parameter is <code>wilkinson.s[freq, Sa, Sb]</code>. To operate over all frequencies, simply work in full-range mode using <code>wilkinson.s[:, Sa, Sb]</code>. Indexing starts at 0, not 1, so to refer to, for example, the $S_{21}$ parameter across the entire available frequency spectrum, use <code>wilkinson.s[:, 1, 0]</code></p>
 </div>
 </div>
 </div>
@@ -7657,7 +7657,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Ahora vamos a mapear todos los parámetros almacenados en los archivos .s2p (cada uno correspondiente a una red de dos puertos especificada en tabla) a la red de tres puertos <code>wilkinson</code> correspondiente a nuestro divisor de potencia.</p>
+<p>Now we will map all parameters stored in the .s2p files (each corresponding to a two-port network specified in the table) to the three-port network <code>wilkinson</code> corresponding to our power divider.</p>
 </div>
 </div>
 </div>
@@ -7668,7 +7668,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Para las mediciónes de transmisión, hay una sola opción en cada caso con lo cual simplemente se mapea del archivo s2p a la variable</p>
+<p>For transmission measurements, there is only one option in each case, so we simply map from the s2p file to the variable</p>
 </div>
 </div>
 </div>
@@ -7677,20 +7677,20 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Archivo 1.s2p (m1): VNA p1 -&gt; Dispositivo p2 | VNA p2 -&gt; Dispositivo p3</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 de m1 -&gt; S32 del dispositivo (transmisión p2-&gt;p3)</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 de m1 -&gt; S23 del dispositivo (transmisión p3-&gt;p2)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># File 1.s2p (m1): VNA p1 -&gt; Device p2 | VNA p2 -&gt; Device p3</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 from m1 -&gt; S32 of device (transmission p2-&gt;p3)</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 from m1 -&gt; S23 of device (transmission p3-&gt;p2)</span>
 
-<span class="c1"># Archivo 2.s2p (m2): VNA p1 -&gt; Dispositivo p1 | VNA p2 -&gt; Dispositivo p2</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 de m2 -&gt; S21 del dispositivo (transmisión p1-&gt;p2)</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 de m2 -&gt; S12 del dispositivo (transmisión p2-&gt;p1)</span>
+<span class="c1"># File 2.s2p (m2): VNA p1 -&gt; Device p1 | VNA p2 -&gt; Device p2</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 from m2 -&gt; S21 of device (transmission p1-&gt;p2)</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 from m2 -&gt; S12 of device (transmission p2-&gt;p1)</span>
 
-<span class="c1"># Archivo 3.s2p (m3): VNA p1 -&gt; Dispositivo p1 | VNA p2 -&gt; Dispositivo p3</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 de m3 -&gt; S31 del dispositivo (transmisión p1-&gt;p3)</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 de m3 -&gt; S13 del dispositivo (transmisión p3-&gt;p1)</span>
+<span class="c1"># File 3.s2p (m3): VNA p1 -&gt; Device p1 | VNA p2 -&gt; Device p3</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># S21 from m3 -&gt; S31 of device (transmission p1-&gt;p3)</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># S12 from m3 -&gt; S13 of device (transmission p3-&gt;p1)</span>
 </pre></div>
 </div>
 </div>
@@ -7703,7 +7703,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Ahora las reflexiónes. Hay 2 mediciónes de cada una ya que cada puerto se usó en dos archivos diferentes. Al no tener información sobre cuál es más confiable, hacemos un promedio simple de todas las reflexiónes</p>
+<p>Now the reflections. There are 2 measurements of each since each port was used in two different files. Without information about which is more reliable, we take a simple average of all reflections</p>
 </div>
 </div>
 </div>
@@ -7712,20 +7712,20 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reflexión S11 (promedio de m2 y m3)</span>
-<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Promedio de S11 de m2 y S11 de m3</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S11 del dispositivo</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reflection S11 (average of m2 and m3)</span>
+<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Average of S11 from m2 and S11 from m3</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S11 of device</span>
 
-<span class="c1"># Reflexión S22 (promedio de m1 y m2)</span>
-<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># S11 de m1 -&gt; S22, S22 de m2 -&gt; S22</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S22 del dispositivo</span>
+<span class="c1"># Reflection S22 (average of m1 and m2)</span>
+<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># S11 from m1 -&gt; S22, S22 from m2 -&gt; S22</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S22 of device</span>
 
-<span class="c1"># Reflexión S33 (promedio de m1 y m3)</span>
-<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># S22 de m1 -&gt; S33, S22 de m3 -&gt; S33</span>
-<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S33 del dispositivo</span>
+<span class="c1"># Reflection S33 (average of m1 and m3)</span>
+<span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m3</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># S22 from m1 -&gt; S33, S22 from m3 -&gt; S33</span>
+<span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span>  <span class="c1"># S33 of device</span>
 </pre></div>
 </div>
 </div>
@@ -7738,7 +7738,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Ahora el bloque <code>wilkinson</code> tiene la matriz completa de parámetros S extraidos mediante mediciónes.</p>
+<p>Now the <code>wilkinson</code> block has the complete S-parameter matrix extracted through measurements.</p>
 </div>
 </div>
 </div>
@@ -7749,7 +7749,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Ploteos">Ploteos<a class="anchor-link" href="#Ploteos">¶</a></h1><p>Ploteamos transferencia, adaptación y aislación en tres gráficos separados desde función <code>plot_s_parameters</code> hecha a parte para simplificar y estandarizar ploteos</p>
+<h1 id="Plots">Plots<a class="anchor-link" href="#Plots">¶</a></h1><p>We plot transfer, matching, and isolation in three separate graphs using the <code>plot_s_parameters</code> function made separately to simplify and standardize plotting</p>
 </div>
 </div>
 </div>
@@ -7760,15 +7760,15 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Tenemos tres redes:</p>
-<p>La primera red es una simulación ideal hecha en ADS:</p>
+<p>We have three networks:</p>
+<p>The first network is an ideal simulation made in ADS:</p>
 <img alt="No description has been provided for this image" src="../img/wil.schematic.jpg" width="600"/>
-<p>A esa red la importo y la llamo <code>wilkinson_ideal</code></p>
-<p>Luego está la simulación hecha en ADS en la que se simuló el bloque físico con parámetros del sustrato y resistencias reales. A esa red la llamo <code>wilkinson_simulada</code></p>
+<p>I import that network and call it <code>wilkinson_ideal</code></p>
+<p>Then there's the simulation made in ADS where the physical block was simulated with substrate parameters and real resistors. I call that network <code>wilkinson_simulado</code></p>
 <img alt="No description has been provided for this image" src="../img/wil.simulado.jpg" width="600"/>
-<p>Y finalmente las mediciónes reales extraidas del VNA con las que venimos trabajando hasta ahora, a las cuales tenombramos <code>wilkionson_real</code></p>
+<p>And finally, the real measurements extracted from the VNA that we've been working with so far, which we rename to <code>wilkinson_real</code></p>
 <img alt="No description has been provided for this image" src="../img/wil.terminado.jpg" width="600"/>
-<p>Como las simulaciónes estan exportadas como parámetros s3p, es decir red de 3 puertos, no hace falta hacerles mucho procesamiento</p>
+<p>Since the simulations are exported as s3p parameters, i.e., 3-port network, not much processing is needed</p>
 </div>
 </div>
 </div>
@@ -7777,10 +7777,10 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Se preparan las tres redes</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare the three networks</span>
 <span class="n">wilkinson_ideal</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="s1">'simulaciones/ideal.s3p'</span><span class="p">)</span>
 <span class="n">wilkinson_simulado</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="s1">'simulaciones/simulado.s3p'</span><span class="p">)</span>
 <span class="n">wilkinson_real</span> <span class="o">=</span> <span class="n">wilkinson</span>
@@ -7794,11 +7794,11 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">reload</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">plotear</span>  <span class="c1"># Importa el módulo (no la función directamente)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotear</span>  <span class="c1"># Import the module (not the function directly)</span>
 </pre></div>
 </div>
 </div>
@@ -7809,11 +7809,11 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">reload</span><span class="p">(</span><span class="n">plotear</span><span class="p">)</span>  <span class="c1"># Recarga el módulo desde disco</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">plotear</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_s_parameters</span>  <span class="c1"># Vuelve a importar la función actualizada</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">reload</span><span class="p">(</span><span class="n">plotear</span><span class="p">)</span>  <span class="c1"># Reload the module from disk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotear</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_s_parameters</span>  <span class="c1"># Re-import the updated function</span>
 </pre></div>
 </div>
 </div>
@@ -7826,7 +7826,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Funci%C3%B3n-de-ploteos">Función de ploteos<a class="anchor-link" href="#Funci%C3%B3n-de-ploteos">¶</a></h2><p>Función guardada en un archivo a parte llamado <code>plotear.py</code> que plotea con un formato estandarizado para este caso. Las lineas verticales sólidas azules están fijadas en $1\text{GHz}$ mientras que las líneas punteadas son los picos (máximo o mínimo segun corresponda) de cada curva. El valor en $\text{GHz}$ de cada línea punteada está en la leyenda</p>
+<h2 id="Plotting-function">Plotting function<a class="anchor-link" href="#Plotting-function">¶</a></h2><p>Function saved in a separate file called <code>plotear.py</code> that plots with a standardized format for this case. The solid blue vertical lines are fixed at $1\text{GHz}$ while the dashed lines are the peaks (maximum or minimum as appropriate) of each curve. The value in $\text{GHz}$ of each dashed line is in the legend</p>
 </div>
 </div>
 </div>
@@ -7837,7 +7837,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Primero-se-plotea-el-ideal">Primero se plotea el ideal<a class="anchor-link" href="#Primero-se-plotea-el-ideal">¶</a></h2>
+<h2 id="First,-plot-the-ideal-one">First, plot the ideal one<a class="anchor-link" href="#First,-plot-the-ideal-one">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7846,10 +7846,10 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_ideal</span><span class="p">,</span> <span class="s1">'Análisis red ideal'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_ideal</span><span class="p">,</span> <span class="s1">'Ideal network analysis'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7874,7 +7874,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Luego se plotean los parámetros desde la simulación</p>
+<p>Then plot the parameters from the simulation</p>
 </div>
 </div>
 </div>
@@ -7883,10 +7883,10 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_simulado</span><span class="p">,</span> <span class="s1">'Analisis de red simulada'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_simulado</span><span class="p">,</span> <span class="s1">'Simulated network analysis'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7911,7 +7911,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Y finalmente desde los parámetros medidos</p>
+<p>And finally from the measured parameters</p>
 </div>
 </div>
 </div>
@@ -7920,10 +7920,10 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_real</span><span class="p">,</span> <span class="s1">'Analisis red real'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_real</span><span class="p">,</span> <span class="s1">'Real network analysis'</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7948,7 +7948,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>A parte del marcado ripple, se puede ver que las tendencias se mantienen en cuando a los picos al lado del desfasaje</p>
+<p>Apart from the marked ripple, it can be seen that the trends are maintained regarding the peaks next to the phase shift</p>
 </div>
 </div>
 </div>
@@ -7959,7 +7959,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Correcci%C3%B3n-de-error-de-instrumento">Corrección de error de instrumento<a class="anchor-link" href="#Correcci%C3%B3n-de-error-de-instrumento">¶</a></h1><p>Capturamos también los  parámetros <code>.2sp</code> de una conexión directa entre los cables para ver el ripple de nuestro setup</p>
+<h1 id="Instrument-Error-Correction">Instrument Error Correction<a class="anchor-link" href="#Instrument-Error-Correction">¶</a></h1><p>We also captured the <code>.s2p</code> parameters of a direct connection between the cables to see the ripple of our setup</p>
 </div>
 </div>
 </div>
@@ -7968,7 +7968,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">through</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="n">frequency</span> <span class="o">=</span> <span class="n">m4</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">m4</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">z0</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Through'</span><span class="p">)</span>
@@ -7982,7 +7982,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">through</span><span class="o">.</span><span class="n">plot_s_db</span><span class="p">()</span>
@@ -8010,7 +8010,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Hay una enorme diferencia entre las transferencias y los rebotes. Concentrandome en las transferencias</p>
+<p>There is a huge difference between the transfers and the reflections. Focusing on the transfers</p>
 </div>
 </div>
 </div>
@@ -8019,7 +8019,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">through</span><span class="o">.</span><span class="n">plot_s_db</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -8048,7 +8048,7 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Ajá, acá sí, sin embargo las amplitudes se ven de 0.05 maso. Poco.</p>
+<p>Aha, here yes, however the amplitudes look about 0.05. Little.</p>
 </div>
 </div>
 </div>
@@ -8059,8 +8059,8 @@ Como el divisor de Wilkinson tiene 3 puertos, se reconstruye la matriz de parám
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Para hacer una nueva red con la corrección aplicada voy a necesitar la correspondiencia de los puertos del VNA originales y los puertos de la red <code>wilkinson</code>.<br/>
-Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la transferencia $S_{21}$ del archivo <code>3.s2p</code>. Entonces, necesitamos hacer $S_{31}(\text{Wilkinson}) \cdot S_{21}^{-1}(\text{VNA})$, es decir, la transfewrencia de la red armada a partir de las mediciónes del dispositivo por el inverso de la transferencia medida en los cables. Las reflexiónes están promediadas; en el caso de $S_{22}$ la re-calculo usando solamente $S_{11}$ de <code>2.s2p</code> ya que está medida de dos puertos del VNA distintos. Las otras dos reflexiónes son consistentes. Acá a no errarle.</p>
+<p>To create a new network with the correction applied, I will need the correspondence between the original VNA ports and the ports of the <code>wilkinson</code> network.<br/>
+For example: The transfer $S_{31}$ of the Wilkinson network corresponds to the transfer $S_{21}$ of file <code>3.s2p</code>. Therefore, we need to do $S_{31}(\text{Wilkinson}) \cdot S_{21}^{-1}(\text{VNA})$, that is, the transfer of the network assembled from the device measurements multiplied by the inverse of the transfer measured in the cables. The reflections are averaged; in the case of $S_{22}$, I recalculate it using only $S_{11}$ from <code>2.s2p</code> since it was measured from two different VNA ports. The other two reflections are consistent. Here we must not make mistakes.</p>
 </div>
 </div>
 </div>
@@ -8071,12 +8071,12 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Tabla-de-archivos-original">Tabla de archivos original<a class="anchor-link" href="#Tabla-de-archivos-original">¶</a></h2><table>
+<h2 id="Original-file-table">Original file table<a class="anchor-link" href="#Original-file-table">¶</a></h2><table>
 <thead>
 <tr>
-<th>Archivo</th>
-<th>Puerto VNA</th>
-<th>Puerto Dispositivo</th>
+<th>File</th>
+<th>VNA Port</th>
+<th>Device Port</th>
 </tr>
 </thead>
 <tbody>
@@ -8112,7 +8112,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </tr>
 </tbody>
 </table>
-<h2 id="Correspondencia-en-correcci%C3%B3n">Correspondencia en corrección<a class="anchor-link" href="#Correspondencia-en-correcci%C3%B3n">¶</a></h2><p>| Wilkinson | Correccion
+<h2 id="Correction-correspondence">Correction correspondence<a class="anchor-link" href="#Correction-correspondence">¶</a></h2><p>| Wilkinson | Correction
 | --------- | ---------------
 | $S_{11}$  | $S_{11}$   |
 | $S_{22}$  | $S_{11}$   |
@@ -8131,7 +8131,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Invertimos la matriz del through para aplicar las correcciónes</p>
+<p>We invert the through matrix to apply the corrections</p>
 </div>
 </div>
 </div>
@@ -8140,7 +8140,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">through</span><span class="o">.</span><span class="n">plot_s_db</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -8167,7 +8167,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">correccion</span> <span class="o">=</span> <span class="n">through</span><span class="o">.</span><span class="n">inv</span>
@@ -8181,10 +8181,10 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Re calculo S11</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Recalculate S11</span>
 <span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -8196,7 +8196,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">wilkinson_fix</span> <span class="o">=</span> <span class="n">wilkinson</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -8210,7 +8210,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">wilkinson_fix</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">correccion</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -8231,7 +8231,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Taraaann a ver los ploteos corregidos</p>
+<p>Ta-daa! Let's see the corrected plots</p>
 </div>
 </div>
 </div>
@@ -8240,7 +8240,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_fix</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8268,7 +8268,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Las adaptaciónes están exageradas ya que se están sumando los dB de la adaptación original más los de la adaptación del trough (que no da cero) así que las dejo fuera del calculo. Revierto la red corregida para volver las reflexiónes a sus valores originales</p>
+<p>The matching values are exaggerated since we are adding the dB of the original matching plus those of the through matching (which doesn't give zero) so I leave them out of the calculation. I revert the corrected network to return the reflections to their original values</p>
 </div>
 </div>
 </div>
@@ -8277,7 +8277,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">wilkinson_fix</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">wilkinson</span><span class="o">.</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -8293,7 +8293,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_fix</span><span class="p">,</span> <span class="n">autoscales</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -8321,7 +8321,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>A ver contra el no corregido</p>
+<p>Let's see against the uncorrected one</p>
 </div>
 </div>
 </div>
@@ -8330,7 +8330,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_s_parameters</span><span class="p">(</span><span class="n">wilkinson_real</span><span class="p">)</span>
@@ -8358,7 +8358,7 @@ Por ejemplo: La transferencia $S_{31}$ de la red de Wilkinson se corresponde la 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>En este caso, el $S_{21}$ mejora bastante en cuanto al ancho de banda pero el ripple no se solucióna</p>
+<p>In this case, $S_{21}$ improves quite a bit in terms of bandwidth but the ripple is not solved</p>
 </div>
 </div>
 </div>
