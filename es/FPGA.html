@@ -53,7 +53,7 @@
                 <p>Para garantizar la estabilidad operativa dentro de la FPGA y evitar la creación de múltiples dominios de reloj, se optó por una estrategia de habilitadores síncronos. En lugar de dividir la línea de reloj principal —con sus correspondientes problemas de timing— se implementó el módulo <code>freq_divider</code>.</p>
                 <p>Este componente genera pulsos de un solo ciclo ("ticks") que habilitan procesos a frecuencias menores (como 1 kHz y 1 Hz), manteniendo todo el diseño perfectamente sincronizado al reloj maestro de 100 MHz. Además, el módulo es totalmente <strong>parametrizable</strong>, lo que permite ajustar las escalas de división para acelerar los tiempos en etapas de simulación o definir los valores finales para la síntesis.</p>
                 <details>
-                <summary>Ver Código: Generador de Ticks (freq_divider.v)</summary>
+                <summary>Desplegar código: Generador de Ticks (freq_divider.v)</summary>
                 <pre class="line-numbers"><code class="language-verilog">always @(posedge clk_in)
                   // Pulse generator at 1kHz and 1 Hz
 
@@ -163,7 +163,7 @@
                 </table>
                 <details>
                 <summary>
-                Ver Código: Lógica de Salida (led_change.v)</summary>
+                Desplegar código: Lógica de Salida (led_change.v)</summary>
                 <pre class="line-numbers"><code class="language-verilog">module led_change(
                   input  wire[1:0] state,
                   input  wire      clk,

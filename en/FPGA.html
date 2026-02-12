@@ -53,7 +53,7 @@
                 <p>To ensure operational stability within the FPGA and avoid creating multiple clock domains, a synchronous enable strategy was chosen. Instead of dividing the main clock line—with its corresponding timing issues—the <code>freq_divider</code> module was implemented.</p>
                 <p>This component generates single-cycle pulses ("ticks") that enable processes at lower frequencies (such as 1 kHz and 1 Hz), keeping the entire design perfectly synchronized to the 100 MHz master clock. Additionally, the module is fully <strong>parameterizable</strong>, allowing adjustment of division scales to accelerate times during simulation stages or define final values for synthesis.</p>
                 <details>
-                <summary>View Code: Tick Generator (freq_divider.v)</summary>
+                <summary>Expand code: Tick Generator (freq_divider.v)</summary>
                 <pre class="line-numbers"><code class="language-verilog">always @(posedge clk_in)
                   // Pulse generator at 1kHz and 1 Hz
 
@@ -163,7 +163,7 @@
                 </table>
                 <details>
                 <summary>
-                View Code: Output Logic (led_change.v)</summary>
+                Expand code: Output Logic (led_change.v)</summary>
                 <pre class="line-numbers"><code class="language-verilog">module led_change(
                   input  wire[1:0] state,
                   input  wire      clk,
