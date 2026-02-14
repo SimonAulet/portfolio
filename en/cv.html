@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Simón Aulet - Technical Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Curriculum Vitae</h1>
+            <p class="subtitle">Simón Aulet · RF · PCB · FPGA · Microcontrollers · Remote Sensing</p>
+            <p class="description">Updated CV with technical experience, relevant projects, and academic background in electronic engineering and embedded systems.</p>
+            <div class="tech-tags">
+                <span>Electronics</span>
+                <span>RF</span>
+                <span>Embedded</span>
+                <span>FPGA</span>
+                <span>Development</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                <div class="language-switch">
+                    <a href="cv.html" class="language-btn active">English</a>
+                    <a href="../es/cv.html" class="language-btn">Español</a>
+                </div>
+
+                <div class="content-wrapper">
+                    <h3>CV Information</h3>
+                    <p>This document summarizes my professional experience, academic background, and relevant technical projects in the field of electronic engineering.</p>
+                    <p><strong>Format:</strong> Interactive PDF · <strong>Updated:</strong> 2026 · <strong>Language:</strong> English</p>
+                    <a href="../img/cv.Simon_Aulet(en).pdf" class="pdf-download" download="CV_Simon_Aulet_EN.pdf">
+                        Download CV (PDF)
+                    </a>
+                </div>
+
+                <div class="pdf-container">
+                    <iframe
+                        src="../img/cv.Simon_Aulet(en).pdf"
+                        class="pdf-iframe"
+                        title="Curriculum Vitae - Simón Aulet"
+                        allow="autoplay">
+                        Your browser does not support PDF viewing.
+                        <a href="../img/cv.Simon_Aulet(en).pdf">Download the CV here</a>.
+                    </iframe>
+                </div>
+
+                <div class="content-wrapper" style="margin-top: 2em;">
+                    <h3>Main Sections</h3>
+                    <ul>
+                        <li><strong>Professional Experience:</strong> Technical roles and responsibilities in engineering projects</li>
+                        <li><strong>Academic Background:</strong> University degrees and specialized courses</li>
+                        <li><strong>Technical Skills:</strong> Proficiency with specific tools and technologies</li>
+                        <li><strong>Highlighted Projects:</strong> Practical implementations with measurable results</li>
+                        <li><strong>Publications and Certifications:</strong> Field contributions and professional validations</li>
+                    </ul>
+                </div>
+
+                <div class="tech-tags" style="margin-top: 2em;">
+                    <span>Analog Electronics</span>
+                    <span>Digital Systems</span>
+                    <span>Embedded Programming</span>
+                    <span>RF Design</span>
+                    <span>Simulation</span>
+                    <span>Prototyping</span>
+                </div>
+            </div>
+        </main>
+        <script>
+                fetch('../components/footer-general_es.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                    });
+        </script>
+    </div>
+</body>
+</html>
