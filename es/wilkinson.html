@@ -92,35 +92,31 @@
 
                 <img src="../img/wil.schematic.jpg" alt="Esquemático en ADS del divisor Wilkinson">
                 <p><em>Esquemático en ADS del divisor Wilkinson.</em></p>
+                <br>
+                <p>La simulación electromagnética mostró un comportamiento cercano al ideal en la banda de interés, aunque se observó un ligero desplazamiento en frecuencia atribuido a diferencias entre las propiedades del sustrato teórico y el real.</p>
 
-                <p>Para el layout físico se reemplazaron los tramos rectos por <strong>arcos de radio calculado</strong>, lo que permitió:</p>
-                <ul>
-                    <li>Maximizar el aislamiento entre las pistas.</li>
-                    <li>Eliminar ángulos agudos que degradan el desempeño en RF.</li>
-                </ul>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
                     <div>
-                        <img src="../img/wil.simulado.jpg" alt="Vista del layout simulado en ADS">
-                        <p><em>Vista del layout simulado en ADS.</em></p>
+                        <img src="../img/wil.net-ideal.png" alt="Simulación de red ideal">
+                        <p><em>Parámetros S de red ideal.</em></p>
+                        <img src="../img/wil.net-sim.png" alt="Simulación de red ideal">
+                        <p><em>Parámetros S de simulación EM.</em></p>
                     </div>
-                    <div>
-                        <p>La simulación electromagnética mostró un comportamiento cercano al ideal en la banda de interés, aunque se observó un ligero desplazamiento en frecuencia atribuido a diferencias entre las propiedades del sustrato teórico y el real.</p>
-                    </div>
-                </div>
-
                 <hr />
 
                 <h2 id="fabricación-con-router-cnc">Fabricación con router CNC</h2>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div>
+                  <p>Para el layout físico se reemplazaron los tramos rectos por <strong>arcos de radio calculado</strong>, lo que permitió Maximizar el aislamiento entre las pistas y eliminar ángulos agudos que degradan el desempeño en RF</p>
+                      <img src="../img/wil.simulado.jpg" alt="Router CNC fresando la placa Rogers" style="width: 70%;">
+                      <p><em>Simulación electromagnética del prototipo.</em></p>
+                      <br>
+                        <p>Los archivos Gerber generados a partir del layout se enviaron a una fresadora CNC Wegstr, capaz de una repetitividad de 0.02 mm. Para reducir el desgaste de la mecha, se añadió manualmente un "relleno" de cobre alrededor de las pistas, manteniendo una separación de aproximadamente dos anchos de pista entre las trazas y la masa.</p>
+                        <p>El proceso de fresado fue limpio y preciso, resultando en pistas bien definidas y bordes nítidos. Posteriormente se soldaron <strong>conectores SMA</strong> en cada puerto, y se agregaron puntos de estaño para conectar la masa superior con la inferior, evitando así acoplamientos parásitos.</p>
+                    </div>
                   <div>
                       <img src="../img/wil.making-of.png" alt="Router CNC fresando la placa Rogers" style="width: 85%;">
                       <p><em>Router CNC fresando la placa Rogers.</em></p>
-                    </div>
-                    <div>
-                        <p>Los archivos Gerber generados a partir del layout se enviaron a una fresadora CNC Wegstr, capaz de una repetitividad de 0.02 mm. Para reducir el desgaste de la mecha, se añadió manualmente un "relleno" de cobre alrededor de las pistas, manteniendo una separación de aproximadamente dos anchos de pista entre las trazas y la masa.</p>
-                        <p>El proceso de fresado fue limpio y preciso, resultando en pistas bien definidas y bordes nítidos. Posteriormente se soldaron <strong>conectores SMA</strong> en cada puerto, y se agregaron puntos de estaño para conectar la masa superior con la inferior, evitando así acoplamientos parásitos.</p>
                     </div>
                 </div>
 
@@ -131,7 +127,7 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
                     <div>
                         <p>El dispositivo final es compacto, robusto y listo para medición. Los conectores SMA permiten una conexión directa al VNA mediante cables de calibración.</p>
-                        <p>La resistencia de 90 Ω (visible en el centro) se seleccionó por disponibilidad en el laboratorio, aunque el valor ideal es Z<sub>0</sub> = 100 Ω. Aun así, el aislamiento medido superó los -20 dB en la frecuencia central.</p>
+                        <p>La resistencia de 90 Ω (visible en el centro) se obtuvo colocando dos resistencias SMD de 180 Ω en paralelo, siendo esta la combinación más cercana al valor ideal de 100 Ω disponible en el laboratorio. Soldar estos componentes miniatura a mano fue un desafío, pero funcionaron de manera muy satisfactoria. También se tuvo especial cuidado al soldar los conectores SMA para evitar cortocircuitar la tierra. Aun así, el aislamiento medido superó los -20 dB en la frecuencia central.</p>
                     </div>
                     <div>
                         <img src="../img/wil.terminado.jpg" alt="Divisor Wilkinson terminado, con conectores SMA soldados">
@@ -152,7 +148,10 @@
                 </ul>
 
                 <p>Se observó cierto <em>ripple</em> en la respuesta en frecuencia, pero pruebas adicionales descartaron que fuera causado por el divisor; más bien se atribuyó a imperfecciones en los cables y conectores del sistema de medición.</p>
-
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="../img/wil.net-real.png" alt="Vista del archivo Gerber (decorativo)" style="max-width: 100%;">
+                    <p><em>Mediciónes del dispositivo terminado en VNA.</em></p>
+                </div>
                 <div style="text-align: center; margin: 30px 0;">
                     <img src="../img/wil.gerber.png" alt="Vista del archivo Gerber (decorativo)" style="max-width: 40%;">
                     <p><em>Vista del archivo Gerber (decorativo).</em></p>

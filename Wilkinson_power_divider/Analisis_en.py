@@ -131,11 +131,11 @@ wilkinson_real = wilkinson
 
 # %%
 from importlib import reload
-import plotear  # Import the module (not the function directly)
+import plot  # Import the module (not the function directly)
 
 # %%
-reload(plotear)  # Reload the module from disk
-from plotear import plot_s_parameters  # Re-import the updated function
+reload(plot)  # Reload the module from disk
+from plot import plot_s_parameters  # Re-import the updated function
 
 # %% [markdown]
 # ## Plotting function
