@@ -77,11 +77,23 @@
                 <p>Communication between modules was established through <strong>coherently named signals</strong> using prefixes. For example <code>A_</code> → Sensitive analog signals, <code>C_</code> → Commands and control signals, <code>F_</code> → Feedback, <code>L_</code> → LED indicators, etc. and suffixes to indicate input (<code>_I</code>) or output (<code>_O</code>)</p>
 
                 <h3>Detailed Schematics</h3>
-                <div style="margin: 30px 0; text-align: center;">
-                    <iframe src="../img/pcb.schematic.pdf" width="100%" height="600px" style="border: 2px solid #003366;">
-                        <p>Your browser does not support iframes. <a href="../img/pcb.schematic.pdf">Download PDF</a></p>
+                <div class="content-wrapper">
+                    <p>Complete system schematics with all components and detailed connections.</p>
+                    <p><strong>Format:</strong> Interactive PDF · <strong>Content:</strong> Complete schematics</p>
+                    <a href="../img/pcb.schematic.pdf" class="pdf-download" download="PCB_Schematics.pdf">
+                        Download Schematics (PDF)
+                    </a>
+                </div>
+                
+                <div class="pdf-container">
+                    <iframe 
+                        src="../img/pcb.schematic.pdf" 
+                        class="pdf-iframe"
+                        title="PCB Schematics - Complete System"
+                        allow="autoplay">
+                        Your browser does not support PDF viewing. 
+                        <a href="../img/pcb.schematic.pdf">Download the schematics here</a>.
                     </iframe>
-                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Complete system schematics</p>
                 </div>
 
                 <h3>Component Selection</h3>
