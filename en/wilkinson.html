@@ -92,35 +92,32 @@
 
                 <img src="../img/wil.schematic.jpg" alt="ADS schematic of Wilkinson divider">
                 <p><em>ADS schematic of Wilkinson divider.</em></p>
+                <br>
+                <p>Electromagnetic simulation showed near-ideal behavior in the frequency band of interest, although a slight frequency shift was observed attributed to differences between theoretical and actual substrate properties.</p>
 
-                <p>For the physical layout, straight sections were replaced with <strong>calculated radius arcs</strong>, which allowed:</p>
-                <ul>
-                    <li>Maximizing isolation between traces.</li>
-                    <li>Eliminating sharp angles that degrade RF performance.</li>
-                </ul>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
                     <div>
-                        <img src="../img/wil.simulado.jpg" alt="View of simulated layout in ADS">
-                        <p><em>View of simulated layout in ADS.</em></p>
+                        <img src="../img/wil.net-ideal_en.png" alt="Ideal network simulation">
+                        <p><em>S-parameters of ideal network.</em></p>
+                        <img src="../img/wil.net-sim_en.png" alt="EM simulation">
+                        <p><em>S-parameters of EM simulation.</em></p>
                     </div>
-                    <div>
-                        <p>Electromagnetic simulation showed near-ideal behavior in the frequency band of interest, although a slight frequency shift was observed attributed to differences between theoretical and actual substrate properties.</p>
-                    </div>
-                </div>
 
                 <hr />
 
                 <h2 id="cnc-router-fabrication">CNC Router Fabrication</h2>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div>
+                  <p>For the physical layout, straight sections were replaced with <strong>calculated radius arcs</strong>, which allowed maximizing isolation between traces and eliminating sharp angles that degrade RF performance.</p>
+                      <img src="../img/wil.simulado.jpg" alt="CNC router milling Rogers board" style="width: 70%;">
+                      <p><em>Electromagnetic simulation of the prototype.</em></p>
+                      <br>
+                        <p>Gerber files generated from the layout were sent to a Wegstr CNC mill with 0.02 mm repeatability. To reduce drill bit wear, a copper "fill" was manually added around the traces, maintaining approximately two trace widths separation between traces and ground.</p>
+                        <p>The milling process was clean and precise, resulting in well-defined traces and sharp edges. <strong>SMA connectors</strong> were subsequently soldered to each port, and solder points were added to connect top and bottom ground planes, avoiding parasitic coupling.</p>
+                    </div>
                   <div>
                       <img src="../img/wil.making-of.png" alt="CNC router milling Rogers board" style="width: 85%;">
                       <p><em>CNC router milling Rogers board.</em></p>
-                    </div>
-                    <div>
-                        <p>Gerber files generated from the layout were sent to a Wegstr CNC mill with 0.02 mm repeatability. To reduce drill bit wear, a copper "fill" was manually added around the traces, maintaining approximately two trace widths separation between traces and ground.</p>
-                        <p>The milling process was clean and precise, resulting in well-defined traces and sharp edges. <strong>SMA connectors</strong> were subsequently soldered to each port, and solder points were added to connect top and bottom ground planes, avoiding parasitic coupling.</p>
                     </div>
                 </div>
 
@@ -131,7 +128,7 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
                     <div>
                         <p>The final device is compact, robust, and ready for measurement. SMA connectors allow direct connection to the VNA using calibration cables.</p>
-                        <p>The 90 Ω resistor (visible in the center) was selected based on laboratory availability, although the ideal value is Z<sub>0</sub> = 100 Ω. Nevertheless, measured isolation exceeded -20 dB at the center frequency.</p>
+                        <p>The 90 Ω resistor (visible in the center) was obtained by placing two 180 Ω SMD resistors in parallel, being the closest combination to the ideal value of 100 Ω available in the laboratory. Soldering these miniature components by hand was challenging, but they worked very satisfactorily. Special care was also taken when soldering the SMA connectors to avoid shorting the ground. Nevertheless, measured isolation exceeded -20 dB at the center frequency.</p>
                     </div>
                     <div>
                         <img src="../img/wil.terminado.jpg" alt="Finished Wilkinson divider with soldered SMA connectors">
@@ -152,7 +149,10 @@
                 </ul>
 
                 <p>Some <em>ripple</em> was observed in the frequency response, but additional tests ruled out the divider as the cause; rather, it was attributed to imperfections in measurement system cables and connectors.</p>
-
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="../img/wil.net-real_en.png" alt="Gerber file view (decorative)" style="max-width: 100%;">
+                    <p><em>Measurements of the finished device on VNA.</em></p>
+                </div>
                 <div style="text-align: center; margin: 30px 0;">
                     <img src="../img/wil.gerber.png" alt="Gerber file view (decorative)" style="max-width: 40%;">
                     <p><em>Gerber file view (decorative).</em></p>
