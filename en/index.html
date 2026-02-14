@@ -121,13 +121,13 @@
 
             </div>
         </main>
-        <div id="footer-index"></div>
+        <div id="footer-container"></div>
     </div>
     <script>
-            fetch('../components/footer-index_en.html')
+            fetch('../components/footer-general_es.html')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('footer-index').innerHTML = data;
+                    document.getElementById('footer-container').innerHTML = data;
                 });
     </script>
 </body>
