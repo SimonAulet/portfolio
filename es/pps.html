@@ -17,7 +17,7 @@
         <header>
             <h1>Extensión de Receptor Satelital</h1>
             <p class="subtitle">Simón Aulet · RF · PCB · SMD · VNA · Analizador de Espectro</p>
-            <p class="description">Fabricación de PCB, soldadura SMD y caracterización en RF. Implementación completa de dos cadenas de recepción para una estación terrena de satélites de órbita baja, desde la fabricación de los circuitos impresos por insolado UV y revelado químico hasta la caracterización experimental con analizador vectorial de redes y analizador de espectro. Práctica Profesional Supervisada desarrollada en el Centro Atómico Bariloche (Instituto Balseiro).</p>
+            <p class="description">Fabricación de PCB, soldadura SMD y caracterización en RF. Implementación completa de dos cadenas de RF para una estación terrena de satélites de órbita baja, desde la fabricación de los circuitos impresos por insolado UV y revelado químico hasta la caracterización experimental con analizador vectorial de redes y analizador de espectro. Práctica Profesional Supervisada desarrollada en el Centro Atómico Bariloche (Instituto Balseiro).</p>
 
             <div class="tech-tags">
                 <span>RF</span>
@@ -175,11 +175,13 @@
                 <h3 id="medicion-de-parametros-s-vna">Medición de parámetros S (VNA)</h3>
 
                 <div style="overflow: hidden; margin: 1em 0;">
-                    <div style="width: 45%; float: right; margin-left: 1.5em; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="width: 60%; float: right; margin-left: 1.5em; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                         <img src="../img/pps.4.vna1.png" alt="VNA conectado a la caja de amplificación" style="width: 100%; border-radius: 8px;">
                         <img src="../img/pps.4.vna2.png" alt="Medición VNA" style="width: 100%; border-radius: 8px;">
                     </div>
-                    <p>Con el VNA medimos los <strong>parámetros S</strong> de cada módulo, guardando los resultados como archivos <strong>.s2p</strong>. Los LNA presentaron una <strong>ganancia cercana a los 40 dB</strong> en la frecuencia de trabajo, con adaptación y aislamiento dentro de lo esperado. En las mediciones cruzadas entre canales se observaron un acoplamientos menore a <strong>-10 dB</strong> pudiendose descartar la mayoría.</p>
+                    <p>Con el VNA medimos los <strong>parámetros S</strong> de cada módulo, caracterizando el comportamiento lineal de los amplificadores. Para cada conexión guardamos un archivo <strong>.s2p</strong>. Esto nos permitió ver, de un vistazo, si la ganancia era la esperada y si la adaptación de impedancias estaba dentro de los márgenes.</p>
+                    <p>Los amplificadores presentaron <strong>ganancias cercanas a los 40 dB</strong> en la frecuencia de trabajo, con adaptación y aislamiento dentro de lo esperado. Verificamos que el rango de frecuencia de amplificación estuviera alineado con la frecuencia del <strong>filtro SAW</strong>, y recorrimos todo el rango fuera de banda para detectar posibles resonancias parásitas, oscilaciones espurias o cualquier comportamiento que pudiera indicar algún problema.
+                      Tener el barrido completo de cada módulo documentado en los .s2p nos dio una base sólida para después contrastar con las mediciones no lineales del analizador de espectro.</p>
                 </div>
 
                 <h3 id="medicion-con-analizador-de-espectro">Medición con analizador de espectro</h3>
@@ -188,38 +190,44 @@
                     <img src="../img/pps.4.espectro.png" alt="Medición en el analizador de espectro" style="width: 30%; float: left; margin-right: 1.5em; border-radius: 8px;">
                     <p>Con el analizador de espectro y un generador de señales, verificamos el espectro completo de cada circuito. Partimos con un filtro de resolución ancho para tener una vista general, y luego lo ajustamos a <strong>1 kHz</strong> (el mínimo del equipo) para la medición definitiva.</p>
 
-                <p>Fue en esta etapa donde más internalicé la importancia del <strong>criterio en las mediciones</strong>. No se trata de medir todo lo que se pueda, sino de entender qué vale la pena medir. Aprender a ajustar el filtro y el span para equilibrar entre velocidad y precisión, priorizar las combinaciones que realmente pueden aportar información, y a guardar las mediciones y anotaciones relevantes para no abrumar con datos inútiles. La disciplina de cuestionarme si lo que hago aporta o es inercia es lo que más me llevo de esta etapa.</p>
+                <p>Fue en esta etapa donde más internalicé la importancia del <strong>criterio en las mediciones</strong>. No se trata de medir todo lo que se pueda, sino de entender qué vale la pena medir. Aprender a ajustar el filtro y el span para equilibrar entre velocidad y precisión, priorizar las combinaciones que realmente pueden aportar información y guardar las mediciones y anotaciones relevantes para no abrumar con datos inútiles. La disciplina de cuestionarme si lo que hago aporta o es inercia es lo que más me llevo de esta etapa.</p>
                 </div>
 
                 <h3 id="puntos-de-compresion-e-interseccion-del-tercer-orden">Puntos de compresión e intersección del tercer orden</h3>
 
-                <p>Para caracterizar la no linealidad de los amplificadores, realizamos dos tipos de mediciones: el <strong>punto de compresión de 1 dB (P1dB)</strong> y el <strong>punto de intersección del tercer orden (IP3)</strong>. En ambos casos modificamos el span y el filtro de resolución del analizador según lo requiriera cada prueba, y utilizamos hojas de cálculo para procesar los datos en tiempo real.</p>
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.4.setup_ip3.png" alt="Setup de medición de IP3" style="width: 30%; float: right; margin-left: 1.5em; border-radius: 8px;">
+                    <p>Para caracterizar la no linealidad de los amplificadores, realizamos dos tipos de mediciones: el <strong>punto de compresión de 1 dB (P1dB)</strong> y el <strong>punto de intersección del tercer orden (IP3)</strong>. En ambos casos modificamos el span y el filtro de resolución del analizador según lo requiriera cada prueba, y utilizamos hojas de cálculo para procesar los datos en tiempo real.</p>
+                    <p>Para el <strong>P1dB</strong>, fuimos incrementando manualmente la potencia del generador de señales y registrando los valores pico en el analizador. Con una tabla en Google Sheets, la ganancia se calculaba automáticamente y podíamos ver en el momento cuándo caía 1 dB respecto al valor inicial.</p>
+                    <p>Para el <strong>IP3</strong>, inyectamos dos señales desplazadas <strong>±1.5 MHz</strong> de la frecuencia central (435 MHz y 438 MHz), y medimos los espurios de tercer orden que aparecían en 432 MHz y 441 MHz. Usamos dos generadores de señales, los combinamos con un acoplador, y fuimos aumentando la potencia desde un nivel bajo hasta identificar claramente los espurios. Para cada nivel medimos cuatro valores: la potencia de los dos tonos fundamentales y la potencia de los dos espurios.</p>
+                    <p>Con los datos cargados en Google Sheets, calculamos pendiente y ordenada al origen, y proyectamos el punto de cruce.</p>
+                </div>
 
-                <img src="../img/pps.4.setup_ip3.png" alt="Setup de medición de IP3">
-
-                <p>Para el <strong>P1dB</strong>, fuimos incrementando manualmente la potencia del generador de señales y registrando los valores pico en el analizador. Con una tabla en Google Sheets, la ganancia se calculaba automáticamente y podíamos ver en el momento cuándo caía 1 dB respecto al valor inicial.</p>
-
-                <img src="../img/pps.4.compresion.png" alt="Medición de compresión">
-
-                <p>Para el <strong>IP3</strong>, inyectamos dos señales desplazadas <strong>±1.5 MHz</strong> de la frecuencia central (435 MHz y 438 MHz), y medimos los espurios de tercer orden que aparecían en 432 MHz y 441 MHz. Usamos dos generadores de señales, los combinamos con un acoplador, y fuimos aumentando la potencia desde un nivel bajo hasta identificar claramente los espurios. Para cada nivel medimos cuatro valores: la potencia de los dos tonos fundamentales y la potencia de los dos espurios.</p>
-
-                <img src="../img/pps.4.ip3.png" alt="Medición de IP3">
-
-                <p>Con los datos cargados en Google Sheets, calculamos pendiente y ordenada al origen, y proyectamos el punto de cruce. Los valores de <strong>P1dB</strong> e <strong>IP3</strong> obtenidos fueron consistentes con el diseño de los amplificadores, con puntos de compresión e intersección acordes a la ganancia observada (ver tablas en las imágenes de esta sección).</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1.5em 0;">
+                    <div>
+                        <h4 style="text-align: center;">Puntos de compresión</h4>
+                        <img src="../img/pps.4.compresion.png" alt="Medición de compresión" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <h4 style="text-align: center;">Intersección del tercer orden</h4>
+                        <img src="../img/pps.4.ip3.png" alt="Medición de IP3" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
 
                 <hr />
 
                 <h2 id="montaje-final-y-aprendizajes">Montaje final y aprendizajes</h2>
 
-                <p>Con todos los módulos caracterizados y verificados, los montamos en la caja exterior definitiva. Todo el sistema quedó integrado en un solo gabinete, listo para su instalación en la estación terrena.</p>
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.5.caja.png" alt="Caja exterior del sistema" style="width: 45%; float: right; margin-left: 1.5em; border-radius: 8px;">
+                    <p>Con todos los módulos caracterizados y verificados, los montamos en la caja exterior definitiva. Todo el sistema quedó integrado en un solo gabinete, listo para su instalación en la estación terrena.</p>
 
-                <img src="../img/pps.5.caja.png" alt="Caja exterior del sistema">
+                    <p>El proceso completo de esta práctica profesional me dejó un aprendizaje transversal que aplica a todas las etapas, desde la soldadura hasta las mediciones: <strong>tener criterio para decidir qué hacer y, más importante aún, qué no hacer</strong>.</p>
 
-                <p>El proceso completo de esta práctica profesional me dejó un aprendizaje transversal que aplica a todas las etapas, desde la soldadura hasta las mediciones: <strong>tener criterio para decidir qué hacer y, más importante aún, qué no hacer</strong>.</p>
+                    <p>En las soldaduras, aprender hasta dónde limpiar y perfeccionar, y cuándo dar por buena una unión. En las mediciones, saber qué parámetros valía la pena medir, qué combinaciones aportaban información real, y cuáles eran solo ruido. En la documentación, anotar solo lo relevante sin llenar páginas de datos inútiles.</p>
 
-                <p>En las soldaduras, aprender hasta dónde limpiar y perfeccionar, y cuándo dar por buena una unión. En las mediciones, saber qué parámetros valía la pena medir, qué combinaciones aportaban información real, y cuáles eran solo ruido. En la documentación, anotar solo lo relevante sin llenar páginas de datos inútiles.</p>
-
-                <p>Es muy fácil ponerse a hacer cosas que parecen útiles pero no lo son. Perder horas midiendo combinaciones irrelevantes, o rehaciendo soldaduras que ya estaban bien, o documentando en detalle información que no aporta nada. El verdadero oficio está en saber cuándo parar, qué vale la pena hacer y qué es pérdida de tiempo. Entender eso, creo, es lo que distingue a alguien que produce rápido y bien de alguien que se pierde en los detalles que no importan.</p>
+                    <p>Es muy fácil ponerse a hacer cosas que parecen útiles pero no lo son. Perder horas midiendo combinaciones irrelevantes, o rehaciendo soldaduras que ya estaban bien, o documentando en detalle información que no aporta nada. El verdadero oficio está en saber cuándo parar, qué vale la pena hacer y qué es pérdida de tiempo. Entender eso, creo, es lo que distingue a alguien que produce rápido y bien de alguien que se pierde en los detalles que no importan.</p>
+                </div>
 
             </div>
         </main>
