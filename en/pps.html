@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Receiver Extension — Centro Atómico Bariloche - Simón Aulet</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Satellite Receiver Chain Extension</h1>
+            <p class="subtitle">Simón Aulet · RF · PCB · SMD · VNA · Spectrum Analyzer</p>
+            <p class="description">PCB fabrication, SMD soldering, and RF characterization. Complete implementation of two receive chains for a ground station for Low Earth Orbit satellites, from PCB manufacturing through UV exposure and chemical etching to experimental characterization with a vector network analyzer and spectrum analyzer. Supervised Professional Practice carried out at the Centro Atómico Bariloche (Instituto Balseiro).</p>
+
+            <div class="tech-tags">
+                <span>RF</span>
+                <span>VNA</span>
+                <span>Spectrum Analyzer</span>
+                <span>Reflow Oven</span>
+                <span>SMT</span>
+                <span>PCB</span>
+                <span>EMC</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Back to Main Portfolio</a>
+                <div class="language-switch">
+                    <a href="../en/pps.html" class="language-btn active">English</a>
+                    <a href="../es/pps.html" class="language-btn">Español</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+
+                <h2 id="project-context">Project Context</h2>
+
+                <p>The Telecommunications Engineering Department at Instituto Balseiro is developing a ground station based on antenna arrays for receiving signals from Low Earth Orbit satellites. The current system has two complete receive chains, and the project consisted of adding two additional channels to double its capacity.</p>
+
+                <p>This supervised professional practice was carried out as a two-person team covering the implementation: PCB fabrication, SMD component soldering, cabling assembly, final mounting, and experimental characterization of the modules.</p>
+
+                <hr />
+
+                <h2 id="pcb-fabrication">PCB Fabrication</h2>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.1.pcb_terminado.png" alt="Finished PCB" style="width: 20%; float: left; margin-right: 1.5em; border-radius: 8px;">
+                    <p>The first step was to print the four boards required for the system: two <strong>LNAs</strong> and two <strong>PAs</strong>. All are <strong>double-sided FR4</strong>.</p>
+                    <p>The printing process followed the UV exposure and chemical etching technique. We carefully polished the copper surface, applied the photosensitive film under red lighting, and after aligning and securing the boards with the transparencies, we exposed them for 5 to 6 minutes in the UV exposure unit. Developing and etching with ferric chloride in a water bath completed the chemical copper removal, and any minor defects were corrected by hand with manual tools.</p>
+                    <p>The entire process was carried out with extreme cleanliness and close attention to detail at every step. Once the boards were etched, we checked with a multimeter for any breaks or short circuits. All were functional and ready for the soldering stage.</p>
+                </div>
+
+                <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
+                  <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso0.png" alt="Film" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Film</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso1.png" alt="Darkroom" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Darkroom</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso2.png" alt="UV exposure" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">UV exposure</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso3.png" alt="Chemical developing" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Chemical developing</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso4.png" alt="Board ready for ferric chloride" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Board ready for ferric chloride</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso5.png" alt="Final touch-ups" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Final touch-ups</p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <h2 id="component-soldering">Component Soldering</h2>
+
+                <p>The soldering process had two stages. First, the SAW filters were soldered using an <strong>LPKF Protoflow S/N2 reflow oven</strong>, following a pre-established temperature profile.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1em 0;">
+                    <div>
+                        <img src="../img/pps.2.horno1.png" alt="Reflow oven" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <img src="../img/pps.2.horno2.png" alt="Reflow oven" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <p>The remaining components (transistors, resistors, capacitors, and inductors, all <strong>0603-size SMD</strong>) were hand-soldered with a soldering iron. The task requires patience and a steady hand: with a magnifying lens and tweezers, we placed each component and applied just the right amount of solder to achieve shiny, neat joints. We barely used any flux, as it was not necessary and we preferred to keep the boards clean. The solder joints were notably clean, and the modules were ready for the next stage.</p>
+
+                <hr />
+
+                <h2 id="cabling-connectors-and-assembly">Cabling, Connectors, and Assembly</h2>
+
+                <div style="text-align: center; margin: 1em 0;">
+                    <img src="../img/pps.3.portada.png" alt="Assembled SMA connectors" style="max-width: 70%; border-radius: 8px;">
+                </div>
+
+                <p>For the internal connections of the modules we used <strong>RG174</strong> coaxial cable, flexible and easy to route inside the enclosures. For external connections, which cover longer distances and are more exposed, we used <strong>RG58</strong>, thicker and better shielded.</p>
+
+                <p>Assembling the SMA connectors was meticulous work: stripping the cable to the exact length, soldering the center conductor, and then crimping the braid with the proper tool. Each connection came out firm and even.</p>
+
+                <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
+                  <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso1.png" alt="Cable stripping" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Cable stripping</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso2.png" alt="Center conductor soldering" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Center conductor soldering</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso3.png" alt="Braid crimping" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Braid crimping</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso4.png" alt="Finished connector" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Finished connector</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p>Instead of using intermediate connectors, we soldered the cables <strong>directly to the boards</strong>. This reduces losses and potential failure points. To minimize shield inductance, we soldered it at multiple points, effectively placing them in parallel. We paid special attention to avoiding short circuits and checking that no loose strands remained from the center conductor or the braid (both are multi-strand and could cause issues down the line). Each solder joint was verified with a multimeter before moving on.</p>
+
+                <p>With the cables ready, we prepared the aluminum enclosures that would house the modules. We drilled them to mount the SMA and BNC connectors, and also to install the metal standoffs where the boards would be screwed in. The final assembly came out clean and robust: one box with two LNAs and another with the four PAs, with all internal and external connections in place.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1em 0;">
+                    <div>
+                        <img src="../img/pps.3.caja2.png" alt="Box with two LNAs" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <img src="../img/pps.3.caja3.png" alt="Box with four PAs" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <hr />
+
+                <h2 id="experimental-characterization">Experimental Characterization</h2>
+
+                <p>Throughout the assembly process we carried out quick measurements with the VNA and the spectrum analyzer to verify that each stage was working as expected. Once the entire system was mounted in its final enclosures, we moved on to the full characterization.</p>
+
+                <h3 id="general-setup-and-standardization">General Setup and Standardization</h3>
+
+                <div style="text-align: center; margin: 1em 0;">
+                    <img src="../img/pps.4.diagrama.png" alt="Connection diagram" style="max-width: 70%; border-radius: 8px;">
+                </div>
+
+                <p>For the final measurements we standardized the entire system: we assigned clear labels to every port on every box, physically tagged each connection, and agreed on a consistent naming convention for saving files. This kept the whole process neat and traceable, allowing us to interpret each measurement without ambiguity.</p>
+
+                <p>The procedure was the same for all measurements:</p>
+
+                <ul>
+                    <li>Low input power (<strong>-45 / -60 / -100 dBm</strong> as appropriate) and center frequency at <strong>436.5 MHz</strong>.</li>
+                    <li>Each box powered with its dedicated supplies at <strong>6 and 5 V</strong> respectively.</li>
+                    <li><strong>50 Ω</strong> loads on all unused ports.</li>
+                </ul>
+
+                <h3 id="s-parameter-measurement-vna">S-Parameter Measurement (VNA)</h3>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <div style="width: 60%; float: right; margin-left: 1.5em; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <img src="../img/pps.4.vna1.png" alt="VNA connected to amplifier box" style="width: 100%; border-radius: 8px;">
+                        <img src="../img/pps.4.vna2.png" alt="VNA measurement" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <p>With the VNA we measured the <strong>S-parameters</strong> of each module, a direct way to characterize the linear behavior of the amplifiers. For every connection — input to output, port by port — we saved an <strong>.s2p</strong> file recording the full frequency sweep. This allowed us to see at a glance whether gain was as expected, whether impedance matching was within spec, and whether isolation between ports was behaving correctly.</p>
+                    <p>The amplifiers showed <strong>gain close to 40 dB</strong> at the operating frequency, with matching and isolation within expected values. We verified that the amplification peak was aligned with the <strong>SAW filter</strong> center frequency (436.5 MHz), and swept the full out-of-band range to detect any parasitic resonances, spurious oscillations, or abrupt drop-offs that might indicate a problem. A few modules showed minor variations, but nothing outside what is reasonable for a hand-assembled prototype. Having the complete sweep of every module documented in the .s2p files gave us a solid baseline to later cross-check against the nonlinear measurements from the spectrum analyzer.</p>
+                </div>
+
+                <h3 id="spectrum-analyzer-measurement">Spectrum Analyzer Measurement</h3>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.4.espectro.png" alt="Measurement on the spectrum analyzer" style="width: 30%; float: left; margin-right: 1.5em; border-radius: 8px;">
+                    <p>Using the spectrum analyzer and a signal generator, we checked the full spectrum of each circuit. We started with a wide resolution bandwidth filter for an overview, then narrowed it to <strong>1 kHz</strong> (the minimum of the instrument) for the final measurement.</p>
+
+                <p>This was the stage where I internalized the importance of <strong>measurement judgment</strong> the most. It is not about measuring everything you can, but about understanding what is worth measuring. Learning to adjust the filter and span to balance speed and accuracy, prioritizing the combinations that actually yield useful information, and saving only relevant measurements and notes to avoid drowning in useless data. The discipline of asking myself whether what I am doing adds value or is just inertia is what I take away most from this stage.</p>
+                </div>
+
+                <h3 id="compression-point-and-third-order-intercept">1 dB Compression Point and Third-Order Intercept</h3>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.4.setup_ip3.png" alt="IP3 measurement setup" style="width: 30%; float: right; margin-left: 1.5em; border-radius: 8px;">
+                    <p>To characterize the nonlinearity of the amplifiers, we performed two types of measurements: the <strong>1 dB compression point (P1dB)</strong> and the <strong>third-order intercept point (IP3)</strong>. In both cases we adjusted the span and resolution bandwidth of the analyzer as each test required, and used spreadsheets to process data in real time.</p>
+                    <p>For <strong>P1dB</strong>, we manually increased the signal generator power and recorded the peak values on the analyzer. With a table in Google Sheets, the gain was calculated automatically and we could see in real time when it dropped by 1 dB from the initial value.</p>
+                    <p>For <strong>IP3</strong>, we injected two signals offset by <strong>±1.5 MHz</strong> from the center frequency (435 MHz and 438 MHz), and measured the third-order spurs appearing at 432 MHz and 441 MHz. We used two signal generators, combined them with a coupler, and gradually increased the power from a low level until the spurs were clearly identifiable. At each power level we recorded four values: the power of the two fundamental tones and the power of the two spurs.</p>
+                    <p>With the data loaded into Google Sheets, we calculated the slope and the intercept, and projected the cross-over point. The <strong>P1dB</strong> and <strong>IP3</strong> values obtained were consistent with the amplifier design, with compression and intercept points in line with the observed gain (see tables in the images of this section).</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1.5em 0;">
+                    <div>
+                        <h4 style="text-align: center;">Compression Point</h4>
+                        <img src="../img/pps.4.compresion.png" alt="Compression measurement" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <h4 style="text-align: center;">Third-Order Intercept</h4>
+                        <img src="../img/pps.4.ip3.png" alt="IP3 measurement" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <hr />
+
+                <h2 id="final-assembly-and-takeaways">Final Assembly and Takeaways</h2>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.5.caja.png" alt="External system enclosure" style="width: 45%; float: right; margin-left: 1.5em; border-radius: 8px;">
+                    <p>With all modules characterized and verified, we mounted them in the final external enclosure. The whole system was integrated into a single cabinet, ready for installation in the ground station.</p>
+
+                    <p>The entire process of this professional practice left me with a cross-cutting lesson that applies to every stage, from soldering to measurements: <strong>having the judgment to decide what to do and, more importantly, what not to do</strong>.</p>
+
+                    <p>In soldering, learning how much to clean and perfect, and when to call a joint good enough. In measurements, knowing which parameters were worth measuring, which combinations provided real information, and which were just noise. In documentation, noting only what is relevant without filling pages with useless data.</p>
+
+                    <p>It is very easy to start doing things that seem useful but are not. Spending hours on irrelevant measurement combinations, redoing solder joints that were already fine, or documenting trivial details that add nothing. The real craft lies in knowing when to stop, what is worth doing, and what is a waste of time. Understanding that, I believe, is what sets apart someone who produces quickly and well from someone who gets lost in unimportant details.</p>
+                </div>
+
+            </div>
+        </main>
+        <div id="footer-container"></div>
+    </div>
+    <script>
+            fetch('../components/footer-general_en.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
+</body>
+</html>
