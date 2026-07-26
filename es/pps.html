@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensión de Receptor Satelital — Centro Atómico Bariloche - Simón Aulet</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Extensión de Receptor Satelital</h1>
+            <p class="subtitle">Simón Aulet · RF · PCB · SMD · VNA · Analizador de Espectro</p>
+            <p class="description">Fabricación de PCB, soldadura SMD y caracterización en RF. Implementación completa de dos cadenas de recepción para una estación terrena de satélites de órbita baja, desde la fabricación de los circuitos impresos por insolado UV y revelado químico hasta la caracterización experimental con analizador vectorial de redes y analizador de espectro. Práctica Profesional Supervisada desarrollada en el Centro Atómico Bariloche (Instituto Balseiro).</p>
+
+            <div class="tech-tags">
+                <span>RF</span>
+                <span>VNA</span>
+                <span>Analizador de Espectro</span>
+                <span>Horno Reflow</span>
+                <span>SMT</span>
+                <span>PCB</span>
+                <span>EMC</span>
+            </div>
+            <div class="navigation">
+                <a href="index.html" class="nav-link">← Volver al Portafolio Principal</a>
+                <div class="language-switch">
+                    <a href="../en/pps.html" class="language-btn">English</a>
+                    <a href="pps.html" class="language-btn active">Español</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+
+                <h2 id="contexto-del-proyecto">Contexto del proyecto</h2>
+
+                <p>El Departamento de Ingeniería en Telecomunicaciones del Instituto Balseiro desarrolla una estación terrena basada en arreglos de antenas para recepción de señales de satélites de órbita baja. El sistema actual cuenta con dos cadenas de recepción completas, y el proyecto consistió en agregar dos canales adicionales para duplicar su capacidad.</p>
+
+                <p>Esta práctica profesional supervisada la desarrollamos en equipo de dos personas cumpliendo con la implementación: fabricación de los circuitos impresos, soldadura de componentes SMD, armado de cableado, montaje final y caracterización experimental de los módulos.</p>
+
+                <hr />
+
+                <h2 id="fabricacion-de-circuitos-impresos">Fabricación de los circuitos impresos</h2>
+
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.1.pcb_terminado.png" alt="Circuito impreso terminado" style="width: 20%; float: left; margin-right: 1.5em; border-radius: 8px;">
+                    <p>El primer paso fue imprimir las cuatro placas necesarias para el sistema: dos <strong>LNA</strong> y dos <strong>PA</strong>. Todas son de <strong>FR4 doble faz</strong>.</p>
+                    <p>El proceso de impresión siguió la técnica de insolado UV y revelado químico. Pulimos a conciencia la superficie de cobre, aplicamos la lámina fotosensible bajo iluminación roja, y tras alinear y asegurar las placas con las transparencias, las expusimos entre 5 y 6 minutos en la insoladora UV. El revelado y el grabado con percloruro férrico en baño María completaron el ataque químico del cobre, y los desperfectos menores que pudieron aparecer se corrigieron a mano con herramientas manuales.</p>
+                    <p>Todo el proceso se hizo manteniendo la limpieza al extremo y cuidando mucho el detalle en cada paso. Con las placas ya grabadas, verificamos con multímetro que no hubiera cortes ni cortocircuitos. Todas quedaron funcionales y listas para la etapa de soldadura.</p>
+                </div>
+
+                <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
+                  <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso0.png" alt="Filmina" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Filmina</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso1.png" alt="Cuarto oscuro" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Cuarto oscuro</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso2.png" alt="Insolación UV" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Insolación UV</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso3.png" alt="Revelado químico" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Revelado químico</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso4.png" alt="Placa lista para percloruro férrico" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Placa lista para percloruro férrico</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.1.proceso5.png" alt="Retoques finales" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Retoques finales</p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <h2 id="soldadura-de-componentes">Soldadura de componentes</h2>
+
+                <p>El proceso de soldadura tuvo dos etapas. Primero, los filtros SAW se soldaron usando un <strong>horno de reflow LPKF Protoflow S/N2</strong>, siguiendo una curva de temperatura previamente establecida.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1em 0;">
+                    <div>
+                        <img src="../img/pps.2.horno1.png" alt="Horno de reflow" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <img src="../img/pps.2.horno2.png" alt="Horno de reflow" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <p>El resto de los componentes (transistores, resistencias, capacitores e inductores, todos <strong>SMD de tamaño 0603</strong>) se soldaron a mano con cautín. La tarea requiere paciencia y pulso: con lupa y pinzas, fuimos colocando cada componente y aplicando la cantidad justa de estaño para dejar soldaduras brillantes y prolijas. Prácticamente no usamos flux, ya que no fue necesario y preferimos mantener la limpieza de las placas. Las soldaduras quedaron apreciablemente limpias y los módulos listos para la siguiente etapa.</p>
+
+                <hr />
+
+                <h2 id="cableado-conexionado-y-montaje">Cableado, conexionado y montaje</h2>
+
+                <div style="text-align: center; margin: 1em 0;">
+                    <img src="../img/pps.3.portada.png" alt="Conectores SMA armados" style="max-width: 70%; border-radius: 8px;">
+                </div>
+
+                <p>Para las conexiones internas de los módulos utilizamos cable coaxial <strong>RG174</strong>, flexible y fácil de maniobrar dentro de las cajas. Para las conexiones externas, que recorren distancias mayores y están más expuestas, usamos <strong>RG58</strong>, más grueso y mejor aislado.</p>
+
+                <p>El armado de los conectores SMA fue un trabajo minucioso: pelar el cable a la medida justa, soldar el conductor central, y luego crimpear la malla con la herramienta adecuada. Cada conexión quedó firme y pareja.</p>
+
+                <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
+                  <div style="display: flex; gap: 20px; min-width: min-content; padding: 0 25px;">
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso1.png" alt="Pelado del cable" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Pelado del cable</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso2.png" alt="Soldado del conductor central" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Soldado del conductor central</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso3.png" alt="Crimpeado" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Crimpeado de la malla</p>
+                    </div>
+                    <div style="flex-shrink: 0; width: 360px;">
+                      <img src="../img/pps.3.proceso4.png" alt="Conector terminado" style="width: 100%; border-radius: 4px;">
+                      <p style="text-align: center; color: #ccc; font-size: 1.0em; margin-top: 8px;">Conector terminado</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p>En lugar de usar conectores intermedios, soldamos los cables <strong>directamente a las placas</strong>. Esto reduce pérdidas y puntos de falla potenciales. Para minimizar la inductancia del blindaje, lo soldamos en varios puntos, quedando efectivamente en paralelo. Pusimos especial atención en evitar cortocircuitos y en revisar que no quedaran hilos sueltos del conductor central ni de la malla (ambos son multifilares y podrían generar problemas a futuro). Cada soldadura se verificó con multímetro antes de avanzar.</p>
+
+                <p>Con los cables listos, acondicionamos las cajas de aluminio que alojarían los módulos. Las perforamos para montar los conectores SMA y BNC, y también para colocar los separadores metálicos donde se atornillarían las placas. El armado final quedó prolijo y robusto: una caja con dos LNA y otra con los cuatro PA, con todas las conexiones internas y externas ya en su lugar.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1em 0;">
+                    <div>
+                        <img src="../img/pps.3.caja2.png" alt="Caja con dos LNA" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <img src="../img/pps.3.caja3.png" alt="Caja con cuatro PA" style="width: 100%; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <hr />
+
+                <h2 id="caracterizacion-experimental">Caracterización experimental</h2>
+
+                <p>A lo largo del proceso de armado fuimos haciendo mediciones rápidas con el VNA y el analizador de espectro para ir verificando que cada etapa funcionara como debía. Una vez que todo el sistema estuvo montado en las cajas definitivas, pasamos a la caracterización completa.</p>
+
+                <h3 id="setup-general-y-estandarizacion">Setup general y estandarización</h3>
+
+                <div style="text-align: center; margin: 1em 0;">
+                    <img src="../img/pps.4.diagrama.png" alt="Diagrama de conexionado" style="max-width: 70%; border-radius: 8px;">
+                </div>
+
+                <p>Para las mediciones definitivas estandarizamos todo el sistema: nombramos cada puerto de cada caja de manera inequívoca, rotulamos físicamente cada conexión, y acordamos una nomenclatura clara para guardar los archivos. Esto permitió que todo el proceso fuera prolijo, trazable, y que pudiéramos interpretar cada medición sin ambigüedades.</p>
+
+                <p>El procedimiento fue el mismo para todas las mediciones:</p>
+
+                <ul>
+                    <li>Potencia de entrada baja (-45 / -60 / -100 dBm según el caso) y frecuencia central en 436.5 MHz.</li>
+                    <li>Alimentación de cada caja con las fuentes definitivas de <strong>6 y 5 V</strong> respectivamente.</li>
+                    <li>Cargas de <strong>50 ohm</strong> en todos los puertos no utilizados.</li>
+                </ul>
+
+                <h3 id="medicion-de-parametros-s-vna">Medición de parámetros S (VNA)</h3>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <div style="width: 45%; float: right; margin-left: 1.5em; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <img src="../img/pps.4.vna1.png" alt="VNA conectado a la caja de amplificación" style="width: 100%; border-radius: 8px;">
+                        <img src="../img/pps.4.vna2.png" alt="Medición VNA" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <p>Con el VNA medimos los <strong>parámetros S</strong> de cada módulo, guardando los resultados como archivos <strong>.s2p</strong>. Los LNA presentaron una <strong>ganancia cercana a los 40 dB</strong> en la frecuencia de trabajo, con adaptación y aislamiento dentro de lo esperado. En las mediciones cruzadas entre canales se observaron un acoplamientos menore a <strong>-10 dB</strong> pudiendose descartar la mayoría.</p>
+                </div>
+
+                <h3 id="medicion-con-analizador-de-espectro">Medición con analizador de espectro</h3>
+
+                <div style="overflow: hidden; margin: 1em 0;">
+                    <img src="../img/pps.4.espectro.png" alt="Medición en el analizador de espectro" style="width: 30%; float: left; margin-right: 1.5em; border-radius: 8px;">
+                    <p>Con el analizador de espectro y un generador de señales, verificamos el espectro completo de cada circuito. Partimos con un filtro de resolución ancho para tener una vista general, y luego lo ajustamos a <strong>1 kHz</strong> (el mínimo del equipo) para la medición definitiva.</p>
+
+                <p>Fue en esta etapa donde más internalicé la importancia del <strong>criterio en las mediciones</strong>. No se trata de medir todo lo que se pueda, sino de entender qué vale la pena medir. Aprender a ajustar el filtro y el span para equilibrar entre velocidad y precisión, priorizar las combinaciones que realmente pueden aportar información, y a guardar las mediciones y anotaciones relevantes para no abrumar con datos inútiles. La disciplina de cuestionarme si lo que hago aporta o es inercia es lo que más me llevo de esta etapa.</p>
+                </div>
+
+                <h3 id="puntos-de-compresion-e-interseccion-del-tercer-orden">Puntos de compresión e intersección del tercer orden</h3>
+
+                <p>Para caracterizar la no linealidad de los amplificadores, realizamos dos tipos de mediciones: el <strong>punto de compresión de 1 dB (P1dB)</strong> y el <strong>punto de intersección del tercer orden (IP3)</strong>. En ambos casos modificamos el span y el filtro de resolución del analizador según lo requiriera cada prueba, y utilizamos hojas de cálculo para procesar los datos en tiempo real.</p>
+
+                <img src="../img/pps.4.setup_ip3.png" alt="Setup de medición de IP3">
+
+                <p>Para el <strong>P1dB</strong>, fuimos incrementando manualmente la potencia del generador de señales y registrando los valores pico en el analizador. Con una tabla en Google Sheets, la ganancia se calculaba automáticamente y podíamos ver en el momento cuándo caía 1 dB respecto al valor inicial.</p>
+
+                <img src="../img/pps.4.compresion.png" alt="Medición de compresión">
+
+                <p>Para el <strong>IP3</strong>, inyectamos dos señales desplazadas <strong>±1.5 MHz</strong> de la frecuencia central (435 MHz y 438 MHz), y medimos los espurios de tercer orden que aparecían en 432 MHz y 441 MHz. Usamos dos generadores de señales, los combinamos con un acoplador, y fuimos aumentando la potencia desde un nivel bajo hasta identificar claramente los espurios. Para cada nivel medimos cuatro valores: la potencia de los dos tonos fundamentales y la potencia de los dos espurios.</p>
+
+                <img src="../img/pps.4.ip3.png" alt="Medición de IP3">
+
+                <p>Con los datos cargados en Google Sheets, calculamos pendiente y ordenada al origen, y proyectamos el punto de cruce. Los valores de <strong>P1dB</strong> e <strong>IP3</strong> obtenidos fueron consistentes con el diseño de los amplificadores, con puntos de compresión e intersección acordes a la ganancia observada (ver tablas en las imágenes de esta sección).</p>
+
+                <hr />
+
+                <h2 id="montaje-final-y-aprendizajes">Montaje final y aprendizajes</h2>
+
+                <p>Con todos los módulos caracterizados y verificados, los montamos en la caja exterior definitiva. Todo el sistema quedó integrado en un solo gabinete, listo para su instalación en la estación terrena.</p>
+
+                <img src="../img/pps.5.caja.png" alt="Caja exterior del sistema">
+
+                <p>El proceso completo de esta práctica profesional me dejó un aprendizaje transversal que aplica a todas las etapas, desde la soldadura hasta las mediciones: <strong>tener criterio para decidir qué hacer y, más importante aún, qué no hacer</strong>.</p>
+
+                <p>En las soldaduras, aprender hasta dónde limpiar y perfeccionar, y cuándo dar por buena una unión. En las mediciones, saber qué parámetros valía la pena medir, qué combinaciones aportaban información real, y cuáles eran solo ruido. En la documentación, anotar solo lo relevante sin llenar páginas de datos inútiles.</p>
+
+                <p>Es muy fácil ponerse a hacer cosas que parecen útiles pero no lo son. Perder horas midiendo combinaciones irrelevantes, o rehaciendo soldaduras que ya estaban bien, o documentando en detalle información que no aporta nada. El verdadero oficio está en saber cuándo parar, qué vale la pena hacer y qué es pérdida de tiempo. Entender eso, creo, es lo que distingue a alguien que produce rápido y bien de alguien que se pierde en los detalles que no importan.</p>
+
+            </div>
+        </main>
+        <div id="footer-container"></div>
+    </div>
+    <script>
+            fetch('../components/footer-general_es.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+    </script>
+</body>
+</html>
