@@ -44,7 +44,7 @@
 
                 <p>El Departamento de Ingeniería en Telecomunicaciones del Instituto Balseiro desarrolla una estación terrena basada en arreglos de antenas para recepción de señales de satélites de órbita baja. El sistema actual cuenta con dos cadenas de recepción completas, y el proyecto consistió en agregar dos canales adicionales para duplicar su capacidad.</p>
 
-                <p>Esta práctica profesional supervisada la desarrollamos en equipo de dos personas ocupandonos con la implementación: fabricación de los circuitos impresos, soldadura de componentes SMD, armado de cableado, montaje final y caracterización experimental de los módulos.</p>
+                <p>Esta práctica profesional supervisada la desarrollamos en un equipo de dos personas ocupandonos con la implementación: fabricación de los circuitos impresos, soldadura de componentes SMD, armado de cableado, montaje final y caracterización experimental de los módulos.</p>
 
                 <hr />
 
@@ -54,7 +54,8 @@
                 <div style="overflow: hidden; margin: 1em 0;">
                     <p>El primer paso fue imprimir las cuatro placas necesarias para el sistema: dos <strong>LNA</strong> y dos <strong>PA</strong>. Todas son de <strong>FR4 doble faz</strong>.</p>
                     <p>El proceso de impresión siguió la técnica de insolado UV y revelado químico y los desperfectos menores se corrigieron a mano con herramientas manuales.</p>
-                    <p>Todo el proceso se hizo manteniendo la limpieza al extremo y cuidando mucho el detalle en cada paso. Con las placas ya grabadas, verificamos con multímetro que no hubiera cortes ni cortocircuitos. Todas quedaron funcionales y listas para la etapa de soldadura.</p>
+                    <p>Todo el proceso se hizo manteniendo la limpieza al extremo y cuidando mucho el detalle en cada paso. Con las placas ya grabadas verificamos con multímetro que no hubiera cortes ni cortocircuitos.
+                    Todas quedaron funcionales y listas para la etapa de soldadura.</p>
                 </div>
 
                 <div style="overflow-x: auto; margin: 30px 0; padding: 30px 0; background: #1a1a1a; border-radius: 8px;">
@@ -178,7 +179,7 @@
                         <img src="../img/pps.4.vna1.png" alt="VNA conectado a la caja de amplificación" style="width: 100%; border-radius: 8px;">
                         <img src="../img/pps.4.vna2.png" alt="Medición VNA" style="width: 100%; border-radius: 8px;">
                     </div>
-                    <p>Con el VNA medimos los <strong>parámetros S</strong> de cada módulo, caracterizando el comportamiento lineal de los amplificadores. Para cada conexión guardamos un archivo <strong>.s2p</strong>. Esto nos permitió ver, de un vistazo, si la ganancia era la esperada y si la adaptación de impedancias estaba dentro de los márgenes.</p>
+                    <p>Con el VNA medimos los <strong>parámetros S</strong> de cada módulo, caracterizando el comportamiento lineal de los amplificadores. Para cada conexión guardamos un archivo <strong>.s2p</strong>. Esto nos permitió ver, de un pantallazo, si la ganancia era la esperada y si la adaptación de impedancias estaba dentro de los márgenes.</p>
                     <p>Los amplificadores presentaron <strong>ganancias cercanas a los 40 dB</strong> en la frecuencia de trabajo, con adaptación y aislamiento dentro de lo esperado. Verificamos que el rango de frecuencia de amplificación estuviera alineado con la frecuencia del <strong>filtro SAW</strong>, y recorrimos todo el rango fuera de banda para detectar posibles resonancias parásitas, oscilaciones espurias o cualquier comportamiento que pudiera indicar algún problema.
                       Tener el barrido completo de cada módulo documentado en los .s2p nos dio una base sólida para después contrastar con las mediciones no lineales del analizador de espectro.</p>
                 </div>
@@ -197,9 +198,10 @@
                 <div style="overflow: hidden; margin: 1em 0;">
                     <img src="../img/pps.4.setup_ip3.png" alt="Setup de medición de IP3" style="width: 30%; float: right; margin-left: 1.5em; border-radius: 8px;">
                     <p>Para caracterizar la no linealidad de los amplificadores, realizamos dos tipos de mediciones: el <strong>punto de compresión de 1 dB (P1dB)</strong> y el <strong>punto de intersección del tercer orden (IP3)</strong>. En ambos casos modificamos el span y el filtro de resolución del analizador según lo requiriera cada prueba, y utilizamos hojas de cálculo para procesar los datos en tiempo real.</p>
-                    <p>Para el <strong>P1dB</strong>, fuimos incrementando manualmente la potencia del generador de señales y registrando los valores pico en el analizador. Con una tabla en Google Sheets, la ganancia se calculaba automáticamente y podíamos ver en el momento cuándo caía 1 dB respecto al valor inicial.</p>
+                    <p>Para el <strong>P1dB</strong> fuimos incrementando manualmente la potencia del generador de señales y registrando los valores pico en el analizador.
+                    Con una tabla en Google Sheets la ganancia se calculaba automáticamente y podíamos ver en el momento cuándo caía 1 dB respecto al valor inicial.</p>
                     <p>Para el <strong>IP3</strong>, inyectamos dos señales desplazadas <strong>±1.5 MHz</strong> de la frecuencia central (435 MHz y 438 MHz), y medimos los espurios de tercer orden que aparecían en 432 MHz y 441 MHz. Usamos dos generadores de señales, los combinamos con un acoplador, y fuimos aumentando la potencia desde un nivel bajo hasta identificar claramente los espurios. Para cada nivel medimos cuatro valores: la potencia de los dos tonos fundamentales y la potencia de los dos espurios.</p>
-                    <p>Con los datos cargados en Google Sheets, calculamos pendiente y ordenada al origen, y proyectamos el punto de cruce.</p>
+                    <p>Con los datos cargados en Google Sheets calculamos pendiente y ordenada al origen y proyectamos el punto de cruce.</p>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 1.5em 0;">
